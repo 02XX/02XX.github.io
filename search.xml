@@ -2,8 +2,12 @@
 <search>
   <entry>
     <title>C++ 浮点数精度</title>
-    <url>/2021/05/10/C++%20%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E5%BA%A6/</url>
-    <content><![CDATA[<h1 id="C-浮点数精度"><a href="#C-浮点数精度" class="headerlink" title="C++ 浮点数精度"></a>C++ 浮点数精度</h1><p>cout&lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(1)</p>
+    <url>/2021/05/12/C++%20%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="C-浮点数精度"><a href="#C-浮点数精度" class="headerlink" title="C++ 浮点数精度"></a>C++ 浮点数精度</h1><p><code>ios::fixed</code>非科学计数</p>
+<p><code>ios::scientific</code>科学计数，带指针域</p>
+<p><code>setprecision()</code>来控制精度</p>
+<p>注意include<code>iomanip</code>头文件</p>
+<p><code>cout&lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(1)</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -684,7 +688,7 @@ tags: C++
   <entry>
     <title>cout</title>
     <url>/2021/05/10/cout/</url>
-    <content><![CDATA[<h1 id="cout"><a href="#cout" class="headerlink" title="cout"></a>cout</h1><p><code>cout.precision()</code>其实是输出流cout的一个格式控制函数，也就是在<code>iostream</code>中的一个成员函数。<code>precision()</code>返回当前的浮点数的精度值，而<code>cout.precision(val)</code>其实就是在输出的时候设定输出值以新的浮点数精度值显示，即小数点后保留val位。—</p>
+    <content><![CDATA[<h1 id="cout"><a href="#cout" class="headerlink" title="cout"></a>cout</h1><p><code>cout.precision()</code>其实是输出流cout的一个格式控制函数，也就是在<code>iostream</code>中的一个成员函数。<code>precision()</code>返回当前的浮点数的精度值，而<code>cout.precision(val)</code>其实就是在输出的时候设定输出值以新的浮点数精度值显示，即小数点后保留val位。</p>
 ]]></content>
       <categories>
         <category>编程语言</category>
@@ -3496,6 +3500,36 @@ Time shiva;
       </categories>
       <tags>
         <tag>-hexo -next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1017 Queueing at Bank</title>
+    <url>/2021/05/12/1017-Queueing-at-Bank/</url>
+    <content><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Suppose a bank has <em>K</em> windows open for service. There is a yellow line in front of the windows which devides the waiting area into two parts. All the customers have to wait in line behind the yellow line, until it is his/her turn to be served and there is a window available. It is assumed that no window can be occupied by a single customer for more than 1 hour.</p>
+<p>Now given the arriving time <em>T</em> and the processing time <em>P</em> of each customer, you are supposed to tell the average waiting time of all the customers.</p>
+<span id="more"></span>
+
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains 2 numbers: <em>N</em> (≤104) - the total number of customers, and <em>K</em> (≤100) - the number of windows. Then <em>N</em> lines follow, each contains 2 times: <code>HH:MM:SS</code> - the arriving time, and <em>P</em> - the processing time in minutes of a customer. Here <code>HH</code> is in the range [00, 23], <code>MM</code> and <code>SS</code> are both in [00, 59]. <strong>It is assumed that no two customers arrives at the same time.</strong></p>
+<p>Notice that the bank opens from 08:00 to 17:00. Anyone arrives early will have to wait in line till 08:00, and anyone comes too late (at or after <strong>17:00:01</strong>) will not be served nor counted into the average.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print in one line the average waiting time of all the customers, in minutes and accurate up to 1 decimal place**(精确到小数点后一位)**.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">7 3</span><br><span class="line">07:55:00 16</span><br><span class="line">17:00:01 2</span><br><span class="line">07:59:59 15</span><br><span class="line">08:01:00 60</span><br><span class="line">08:00:00 30</span><br><span class="line">08:00:02 2</span><br><span class="line">08:03:00 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">8.2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>It is assumed that no two customers arrives at the same time.</li>
+</ul>
+<ul>
+<li>at or after <strong>17:00:01</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>PAT</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PAT</tag>
       </tags>
   </entry>
 </search>
