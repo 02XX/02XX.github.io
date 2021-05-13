@@ -3526,8 +3526,8 @@ Time shiva;
 </ul>
 <h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ul>
 <li>记录每个窗口服务结束的时间</li>
-<li>下一个客户到达的时候选择服务结束时间最早的窗口，记为T<del>min</del><ul>
-<li>其中如果到达时间比结束最早的还要早，那么他就要等待<strong>至</strong>T<del>min</del>，窗口服务的时间=T<del>min</del>+需要服务的时间</li>
+<li>下一个客户到达的时候选择服务结束时间最早的窗口，记为T<sub>min</sub><ul>
+<li>其中如果到达时间比结束最早的还要早，那么他就要等待<strong>至</strong>T<sub>min</sub>，窗口服务的时间=T<sub>min</sub>+需要服务的时间</li>
 <li>如果到达的时间比结束时间晚，那么他不需要等待，直接被服务，窗口结束时间=他到达的时间 + 需要服务的时间</li>
 </ul>
 </li>
