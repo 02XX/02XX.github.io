@@ -724,23 +724,6 @@ tags: C++
 ]]></content>
   </entry>
   <entry>
-    <title>int  p和int  &amp;p</title>
-    <url>/2021/05/10/int%20%20p%E5%92%8Cint%20%20&amp;p/</url>
-    <content><![CDATA[<h1 id="int-p和int-amp-p"><a href="#int-p和int-amp-p" class="headerlink" title="int * p和int * &amp;p"></a><code>int * p</code>和<code>int * &amp;p</code></h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * p1 = &amp;i; <span class="comment">//p是指针，指向i</span></span><br><span class="line"><span class="keyword">int</span> * &amp;p2 = p1; <span class="comment">//p2是指针的引用</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="作为函数形参时注意"><a href="#作为函数形参时注意" class="headerlink" title="作为函数形参时注意"></a>作为函数形参时注意</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changeLength1D</span><span class="params">(<span class="keyword">int</span> * p1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *new_arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>] &#123;<span class="number">1</span>,<span class="number">2</span>&#125;; </span><br><span class="line">    <span class="keyword">delete</span> [] p1;</span><br><span class="line">    p1 = new_arr;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">changeLength1D</span><span class="params">(<span class="keyword">int</span> * &amp;p2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *new_arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>] &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line">    <span class="keyword">delete</span> [] p2;</span><br><span class="line">    p2 = new_arr; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>* array = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">    <span class="built_in">changeLength1D</span>(array); <span class="comment">//array被释放，调整好大小好被new_arr重新赋值。</span></span><br><span class="line">    <span class="keyword">delete</span> array;<span class="comment">//释放array也释放了newArray</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-
-<p>这两种情况在传入时是一样的，不管是p1还是p2都是array的地址</p>
-<p>在删除时也是一样的使用delete时，都能把array释放</p>
-<p><strong>但是</strong></p>
-<p><strong>在函数内部给p1和p2赋值时是不一样的。</strong></p>
-<p><strong>只有p2可以正常的把内部new的新数组重新赋给位于main函数内部的array</strong></p>
-<p><strong>p1中不能传给array只能将newarray传给p1</strong>（可能是和这个类型的复制构造函数有关）</p>
-]]></content>
-  </entry>
-  <entry>
     <title>iomanip头文件</title>
     <url>/2021/05/10/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="iomanip头文件"><a href="#iomanip头文件" class="headerlink" title="iomanip头文件"></a><code>iomanip</code>头文件</h1><h2 id="setw-int"><a href="#setw-int" class="headerlink" title="setw(int)"></a><code>setw(int)</code></h2><p>setw()接受一个整型控制一个指定字符宽度</p>
