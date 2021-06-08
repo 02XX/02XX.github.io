@@ -3885,4 +3885,48 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
         <tag>PAT</tag>
       </tags>
   </entry>
+  <entry>
+    <title>1022 Digital Library</title>
+    <url>/2021/06/07/1022-Digital-Library/</url>
+    <content><![CDATA[<p>A Digital Library contains millions of books, stored according to their titles, authors, key words of their abstracts, publishers, and published years. Each book is assigned an unique 7-digit number as its ID. Given any query from a reader, you are supposed to output the resulting books, sorted in increasing order of their ID’s.</p>
+<span id="more"></span>
+<h3 id="input-specification"><a class="markdownIt-Anchor" href="#input-specification"></a> Input Specification:</h3>
+<p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤104) which is the total number of books. Then <em>N</em> blocks follow, each contains the information of a book in 6 lines:</p>
+<ul>
+<li>Line #1: the 7-digit ID number;</li>
+<li>Line #2: the book title – a string of no more than 80 characters;</li>
+<li>Line #3: the author – a string of no more than 80 characters;</li>
+<li>Line #4: the key words – each word is a string of no more than 10 characters without any white space, and the keywords are separated by exactly one space;</li>
+<li>Line #5: the publisher – a string of no more than 80 characters;</li>
+<li>Line #6: the published year – a 4-digit number which is in the range [1000, 3000].</li>
+</ul>
+<p>It is assumed that each book belongs to one author only, and contains no more than 5 key words; there are no more than 1000 distinct key words in total; and there are no more than 1000 distinct publishers.</p>
+<p>After the book information, there is a line containing a positive integer <em>M</em> (≤1000) which is the number of user’s search queries. Then <em>M</em> lines follow, each in one of the formats shown below:</p>
+<ul>
+<li>1: a book title</li>
+<li>2: name of an author</li>
+<li>3: a key word</li>
+<li>4: name of a publisher</li>
+<li>5: a 4-digit number representing the year</li>
+</ul>
+<h3 id="output-specification"><a class="markdownIt-Anchor" href="#output-specification"></a> Output Specification:</h3>
+<p>For each query, first print the original query in a line, then output the resulting book ID’s in increasing order, each occupying a line. If no book is found, print <code>Not Found</code> instead.</p>
+<h3 id="sample-input"><a class="markdownIt-Anchor" href="#sample-input"></a> Sample Input:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">1111111</span><br><span class="line">The Testing Book</span><br><span class="line">Yue Chen</span><br><span class="line">test code debug sort keywords</span><br><span class="line">ZUCS Print</span><br><span class="line">2011</span><br><span class="line">3333333</span><br><span class="line">Another Testing Book</span><br><span class="line">Yue Chen</span><br><span class="line">test code sort keywords</span><br><span class="line">ZUCS Print2</span><br><span class="line">2012</span><br><span class="line">2222222</span><br><span class="line">The Testing Book</span><br><span class="line">CYLL</span><br><span class="line">keywords debug book</span><br><span class="line">ZUCS Print2</span><br><span class="line">2011</span><br><span class="line">6</span><br><span class="line">1: The Testing Book</span><br><span class="line">2: Yue Chen</span><br><span class="line">3: keywords</span><br><span class="line">4: ZUCS Print</span><br><span class="line">5: 2011</span><br><span class="line">3: blablabla</span><br></pre></td></tr></table></figure>
+<h3 id="sample-output"><a class="markdownIt-Anchor" href="#sample-output"></a> Sample Output:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1: The Testing Book</span><br><span class="line">1111111</span><br><span class="line">2222222</span><br><span class="line">2: Yue Chen</span><br><span class="line">1111111</span><br><span class="line">3333333</span><br><span class="line">3: keywords</span><br><span class="line">1111111</span><br><span class="line">2222222</span><br><span class="line">3333333</span><br><span class="line">4: ZUCS Print</span><br><span class="line">1111111</span><br><span class="line">5: 2011</span><br><span class="line">1111111</span><br><span class="line">2222222</span><br><span class="line">3: blablabla</span><br><span class="line">Not Found</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>PAT</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PAT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2021/06/08/test/</url>
+    <content><![CDATA[]]></content>
+  </entry>
 </search>
