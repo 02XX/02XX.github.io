@@ -47,36 +47,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1021 Deepest Root</title>
-    <url>/2021/06/05/1021-Deepest-Root-1/</url>
-    <content><![CDATA[<p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
-<span id="more"></span>
-<h3 id="input-specification"><a class="markdownIt-Anchor" href="#input-specification"></a> Input Specification:</h3>
-<p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤104) which is the number of nodes, and hence the nodes are numbered from 1 to <em>N</em>. Then <em>N</em>−1 lines follow, each describes an edge by given the two adjacent nodes’ numbers.</p>
-<h3 id="output-specification"><a class="markdownIt-Anchor" href="#output-specification"></a> Output Specification:</h3>
-<p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print <code>Error: K components</code> where <code>K</code> is the number of connected components in the graph.</p>
-<h3 id="sample-input-1"><a class="markdownIt-Anchor" href="#sample-input-1"></a> Sample Input 1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
-<h3 id="sample-output-1"><a class="markdownIt-Anchor" href="#sample-output-1"></a> Sample Output 1:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<h3 id="sample-input-2"><a class="markdownIt-Anchor" href="#sample-input-2"></a> Sample Input 2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure>
-<h3 id="sample-output-2"><a class="markdownIt-Anchor" href="#sample-output-2"></a> Sample Output 2:</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: 2 components</span><br></pre></td></tr></table></figure>
-<h3 id="steps"><a class="markdownIt-Anchor" href="#steps"></a> Steps</h3>
-<p>直接DFS即可</p>
-<h3 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; Graph;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DFSTravel</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt;&amp;visited)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt; &amp;visited, vector&lt;<span class="keyword">int</span>&gt; &amp;deepestNode, <span class="keyword">int</span> v, <span class="keyword">int</span> height,<span class="keyword">int</span>&amp;tempH)</span></span>;</span><br><span class="line"><span class="keyword">int</span> maxHeight = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> node; cin &gt;&gt; node;</span><br><span class="line">    <span class="function">Graph <span class="title">G</span><span class="params">(node + <span class="number">1</span>, vector&lt;<span class="keyword">int</span>&gt;(node + <span class="number">1</span>, <span class="number">0</span>))</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; node - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n1, n2; cin &gt;&gt; n1 &gt;&gt; n2;</span><br><span class="line">        G[n1][n2] = G[n2][n1] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">visited</span><span class="params">(node + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; deepestNode;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="built_in">DFSTravel</span>(G, visited);</span><br><span class="line">    <span class="keyword">if</span>(c &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Error: &quot;</span>&lt;&lt;c &lt;&lt;<span class="string">&quot; components&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; node + <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> height = <span class="number">0</span>, tempH = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; node + <span class="number">1</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                visited[j] = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">DFS</span>(G, visited, deepestNode, i, height, tempH);</span><br><span class="line">            <span class="keyword">if</span>(tempH &gt; maxHeight)</span><br><span class="line">            &#123;</span><br><span class="line">                maxHeight = tempH;</span><br><span class="line">                deepestNode.<span class="built_in">clear</span>();</span><br><span class="line">                deepestNode.<span class="built_in">push_back</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tempH == maxHeight)</span><br><span class="line">            &#123;</span><br><span class="line">                deepestNode.<span class="built_in">push_back</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!deepestNode.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(deepestNode.<span class="built_in">size</span>()); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; deepestNode[i] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DFSTravel</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt;&amp;visited)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> componets = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; d;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(visited.<span class="built_in">size</span>()); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        visited[i] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(visited.<span class="built_in">size</span>()); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!visited[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">DFS</span>(G, visited, d, i, h, t);</span><br><span class="line">            componets++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> componets;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt; &amp;visited, vector&lt;<span class="keyword">int</span>&gt; &amp;deepestNode, <span class="keyword">int</span> v, <span class="keyword">int</span> height, <span class="keyword">int</span>&amp;tempH)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    visited[v] = <span class="literal">true</span>;</span><br><span class="line">    height++;</span><br><span class="line">    <span class="keyword">if</span>(height &gt; tempH)</span><br><span class="line">    &#123;</span><br><span class="line">        tempH = height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(visited.<span class="built_in">size</span>()); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(G[v][i] != <span class="number">0</span> &amp;&amp; !visited[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">DFS</span>(G, visited, deepestNode, i, height, tempH);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>PAT</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>PAT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1020 Tree Traversals</title>
     <url>/2021/05/13/1020-Tree-Traversals/</url>
     <content><![CDATA[<h3 id="question"><a class="markdownIt-Anchor" href="#question"></a> Question</h3>
@@ -98,6 +68,36 @@
 </ul>
 <h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    node* lchild;</span><br><span class="line">    node* rchild;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">node* <span class="title">build</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;inOrder, vector&lt;<span class="keyword">int</span>&gt; &amp;postOrder, <span class="keyword">int</span> inBegin, <span class="keyword">int</span> inEnd, <span class="keyword">int</span> postBegin, <span class="keyword">int</span> postEnd)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(inBegin &gt; inEnd || postBegin &gt; postEnd)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//找到左右子树分割线</span></span><br><span class="line">    <span class="keyword">int</span> pLine = inBegin;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(postOrder[postEnd] != inOrder[pLine])</span><br><span class="line">    &#123;</span><br><span class="line">        pLine++;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    node *root = <span class="keyword">new</span> <span class="built_in">node</span>();</span><br><span class="line">    root-&gt;data = postOrder[postEnd];</span><br><span class="line">    <span class="comment">//不能用pLine代替count,可能会越界,注释的两条为错的。比如inOrder = &#123;1,2,3&#125;, postOrder = &#123;2,3,1&#125;</span></span><br><span class="line">    root-&gt;lchild = <span class="built_in">build</span>(inOrder, postOrder, inBegin, pLine - <span class="number">1</span>, postBegin, postBegin + count - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// root-&gt;lchild = build(inOrder, postOrder, inBegin, pLine - 1, postBegin, pLine - 1);</span></span><br><span class="line">    root-&gt;rchild = <span class="built_in">build</span>(inOrder, postOrder, pLine + <span class="number">1</span>, inEnd, postBegin + count, postEnd - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// root-&gt;rchild = build(inOrder, postOrder, pLine + 1, inEnd, pLine + 1, postEnd - 1);</span></span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">levelOrder</span><span class="params">(node* root, <span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    queue&lt;node*&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(root);</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; q.<span class="built_in">front</span>()-&gt;data;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count &lt; N)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">front</span>()-&gt;lchild != <span class="literal">nullptr</span>)</span><br><span class="line">            q.<span class="built_in">push</span>(q.<span class="built_in">front</span>()-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(q.<span class="built_in">front</span>()-&gt;rchild != <span class="literal">nullptr</span>)</span><br><span class="line">            q.<span class="built_in">push</span>(q.<span class="built_in">front</span>()-&gt;rchild);</span><br><span class="line"></span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    cin &gt;&gt; N;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">inOrder</span><span class="params">(N)</span>, <span class="title">postOrder</span><span class="params">(N)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; postOrder[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; inOrder[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    node* tree = <span class="built_in">build</span>(inOrder, postOrder, <span class="number">0</span>, N - <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">levelOrder</span>(tree,N);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>PAT</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>PAT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1021 Deepest Root</title>
+    <url>/2021/06/05/1021-Deepest-Root-1/</url>
+    <content><![CDATA[<p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
+<span id="more"></span>
+<h3 id="input-specification"><a class="markdownIt-Anchor" href="#input-specification"></a> Input Specification:</h3>
+<p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤104) which is the number of nodes, and hence the nodes are numbered from 1 to <em>N</em>. Then <em>N</em>−1 lines follow, each describes an edge by given the two adjacent nodes’ numbers.</p>
+<h3 id="output-specification"><a class="markdownIt-Anchor" href="#output-specification"></a> Output Specification:</h3>
+<p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print <code>Error: K components</code> where <code>K</code> is the number of connected components in the graph.</p>
+<h3 id="sample-input-1"><a class="markdownIt-Anchor" href="#sample-input-1"></a> Sample Input 1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
+<h3 id="sample-output-1"><a class="markdownIt-Anchor" href="#sample-output-1"></a> Sample Output 1:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<h3 id="sample-input-2"><a class="markdownIt-Anchor" href="#sample-input-2"></a> Sample Input 2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure>
+<h3 id="sample-output-2"><a class="markdownIt-Anchor" href="#sample-output-2"></a> Sample Output 2:</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error: 2 components</span><br></pre></td></tr></table></figure>
+<h3 id="steps"><a class="markdownIt-Anchor" href="#steps"></a> Steps</h3>
+<p>直接DFS即可</p>
+<h3 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; Graph;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DFSTravel</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt;&amp;visited)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt; &amp;visited, vector&lt;<span class="keyword">int</span>&gt; &amp;deepestNode, <span class="keyword">int</span> v, <span class="keyword">int</span> height,<span class="keyword">int</span>&amp;tempH)</span></span>;</span><br><span class="line"><span class="keyword">int</span> maxHeight = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> node; cin &gt;&gt; node;</span><br><span class="line">    <span class="function">Graph <span class="title">G</span><span class="params">(node + <span class="number">1</span>, vector&lt;<span class="keyword">int</span>&gt;(node + <span class="number">1</span>, <span class="number">0</span>))</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; node - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n1, n2; cin &gt;&gt; n1 &gt;&gt; n2;</span><br><span class="line">        G[n1][n2] = G[n2][n1] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">visited</span><span class="params">(node + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; deepestNode;</span><br><span class="line">    <span class="keyword">int</span> c = <span class="built_in">DFSTravel</span>(G, visited);</span><br><span class="line">    <span class="keyword">if</span>(c &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Error: &quot;</span>&lt;&lt;c &lt;&lt;<span class="string">&quot; components&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; node + <span class="number">1</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> height = <span class="number">0</span>, tempH = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; node + <span class="number">1</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                visited[j] = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">DFS</span>(G, visited, deepestNode, i, height, tempH);</span><br><span class="line">            <span class="keyword">if</span>(tempH &gt; maxHeight)</span><br><span class="line">            &#123;</span><br><span class="line">                maxHeight = tempH;</span><br><span class="line">                deepestNode.<span class="built_in">clear</span>();</span><br><span class="line">                deepestNode.<span class="built_in">push_back</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tempH == maxHeight)</span><br><span class="line">            &#123;</span><br><span class="line">                deepestNode.<span class="built_in">push_back</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!deepestNode.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(deepestNode.<span class="built_in">size</span>()); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; deepestNode[i] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DFSTravel</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt;&amp;visited)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> componets = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">0</span>, t = <span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; d;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(visited.<span class="built_in">size</span>()); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        visited[i] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(visited.<span class="built_in">size</span>()); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!visited[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">DFS</span>(G, visited, d, i, h, t);</span><br><span class="line">            componets++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> componets;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(Graph &amp;G, vector&lt;<span class="keyword">bool</span>&gt; &amp;visited, vector&lt;<span class="keyword">int</span>&gt; &amp;deepestNode, <span class="keyword">int</span> v, <span class="keyword">int</span> height, <span class="keyword">int</span>&amp;tempH)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    visited[v] = <span class="literal">true</span>;</span><br><span class="line">    height++;</span><br><span class="line">    <span class="keyword">if</span>(height &gt; tempH)</span><br><span class="line">    &#123;</span><br><span class="line">        tempH = height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in"><span class="keyword">int</span></span>(visited.<span class="built_in">size</span>()); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(G[v][i] != <span class="number">0</span> &amp;&amp; !visited[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">DFS</span>(G, visited, deepestNode, i, height, tempH);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>PAT</category>
@@ -369,36 +369,6 @@ tags: C++
       </tags>
   </entry>
   <entry>
-    <title>C++11</title>
-    <url>/2021/05/12/C++11/</url>
-    <content><![CDATA[<h1 id="c11"><a class="markdownIt-Anchor" href="#c11"></a> C++11</h1>
-]]></content>
-  </entry>
-  <entry>
-    <title>C++常用大小写转换</title>
-    <url>/2021/05/12/C++%E5%B8%B8%E7%94%A8%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<h1 id="c常用大小写转换"><a class="markdownIt-Anchor" href="#c常用大小写转换"></a> C++常用大小写转换</h1>
-<h2 id="string类"><a class="markdownIt-Anchor" href="#string类"></a> string类</h2>
-<ol>
-<li>如果使用string类，可以使用<code>#include &lt;algorithm&gt;</code>里的如下方法进行大小写转换；<code>transform(str.begin(),str.end(),str.begin(),::tolower)</code>，记得<code>::tolower</code>前面有<code>::</code>,　而且是<code>::tolower</code>，不是<code>::tolower()</code></li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    string str;</span><br><span class="line">    cin&gt;&gt;str;</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line">    <span class="built_in">transform</span>(str.<span class="built_in">begin</span>(),str.<span class="built_in">end</span>(),str.<span class="built_in">begin</span>(),::tolower);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">transform</span>(str.<span class="built_in">begin</span>(),str.<span class="built_in">end</span>(),str.<span class="built_in">begin</span>(),::toupper);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>string类也可以自己手写两个转化为大写和小写<code>transform()</code>方法，如下所示：</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytolower</span><span class="params">(string&amp; s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>)&#123;</span><br><span class="line">            s[i]+=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;A&#x27;+&#x27;a&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytoupper</span><span class="params">(string&amp; s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;z&#x27;</span>)&#123;</span><br><span class="line">            s[i]-=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;a&#x27;+&#x27;A&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    string str;</span><br><span class="line">    cin&gt;&gt;str;</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line">    <span class="built_in">mytolower</span>(str);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">mytoupper</span>(str);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="char类"><a class="markdownIt-Anchor" href="#char类"></a> char类</h2>
-<ol>
-<li>如果用char数组，也可以自己手写两个转化为大写和小写方法，此种方法用到了<code>tolower(char c)</code>和<code>toupper(char c)</code>两个方法</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytolower</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>)&#123;</span><br><span class="line">            s[i]=<span class="built_in">tolower</span>(s[i]);</span><br><span class="line">            <span class="comment">//s[i]+=32;//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;A&#x27;+&#x27;a&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytoupper</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;z&#x27;</span>)&#123;</span><br><span class="line">            s[i]=<span class="built_in">toupper</span>(s[i]);</span><br><span class="line">            <span class="comment">//s[i]-=32;//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;a&#x27;+&#x27;A&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">201</span>];</span><br><span class="line">    <span class="built_in">gets</span>(s);</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line"> </span><br><span class="line">    <span class="built_in">mytolower</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">mytoupper</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>如果用char数组，也可以使用s[i]+=32或者s[i]=s[i]-‘A’+'a’的形式，实现两个转化为大写和小写方法</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytolower</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>)&#123;</span><br><span class="line">            s[i]+=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;A&#x27;+&#x27;a&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytoupper</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;z&#x27;</span>)&#123;</span><br><span class="line">            s[i]-=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;a&#x27;+&#x27;A&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">201</span>];</span><br><span class="line">    <span class="built_in">gets</span>(s);</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line">    <span class="built_in">mytolower</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">mytoupper</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>C++ 浮点数精度</title>
     <url>/2021/05/12/C++%20%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E5%BA%A6/</url>
     <content><![CDATA[<h1 id="c-浮点数精度"><a class="markdownIt-Anchor" href="#c-浮点数精度"></a> C++ 浮点数精度</h1>
@@ -407,6 +377,12 @@ tags: C++
 <p><code>setprecision()</code>来控制精度</p>
 <p>注意include<code>iomanip</code>头文件</p>
 <p><code>cout&lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(1)</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>C++11</title>
+    <url>/2021/05/12/C++11/</url>
+    <content><![CDATA[<h1 id="c11"><a class="markdownIt-Anchor" href="#c11"></a> C++11</h1>
 ]]></content>
   </entry>
   <entry>
@@ -520,6 +496,73 @@ tags: C++
 ]]></content>
   </entry>
   <entry>
+    <title>C++常用大小写转换</title>
+    <url>/2021/05/12/C++%E5%B8%B8%E7%94%A8%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<h1 id="c常用大小写转换"><a class="markdownIt-Anchor" href="#c常用大小写转换"></a> C++常用大小写转换</h1>
+<h2 id="string类"><a class="markdownIt-Anchor" href="#string类"></a> string类</h2>
+<ol>
+<li>如果使用string类，可以使用<code>#include &lt;algorithm&gt;</code>里的如下方法进行大小写转换；<code>transform(str.begin(),str.end(),str.begin(),::tolower)</code>，记得<code>::tolower</code>前面有<code>::</code>,　而且是<code>::tolower</code>，不是<code>::tolower()</code></li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    string str;</span><br><span class="line">    cin&gt;&gt;str;</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line">    <span class="built_in">transform</span>(str.<span class="built_in">begin</span>(),str.<span class="built_in">end</span>(),str.<span class="built_in">begin</span>(),::tolower);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">transform</span>(str.<span class="built_in">begin</span>(),str.<span class="built_in">end</span>(),str.<span class="built_in">begin</span>(),::toupper);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>string类也可以自己手写两个转化为大写和小写<code>transform()</code>方法，如下所示：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytolower</span><span class="params">(string&amp; s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>)&#123;</span><br><span class="line">            s[i]+=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;A&#x27;+&#x27;a&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytoupper</span><span class="params">(string&amp; s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;z&#x27;</span>)&#123;</span><br><span class="line">            s[i]-=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;a&#x27;+&#x27;A&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    string str;</span><br><span class="line">    cin&gt;&gt;str;</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line">    <span class="built_in">mytolower</span>(str);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">mytoupper</span>(str);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="char类"><a class="markdownIt-Anchor" href="#char类"></a> char类</h2>
+<ol>
+<li>如果用char数组，也可以自己手写两个转化为大写和小写方法，此种方法用到了<code>tolower(char c)</code>和<code>toupper(char c)</code>两个方法</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytolower</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>)&#123;</span><br><span class="line">            s[i]=<span class="built_in">tolower</span>(s[i]);</span><br><span class="line">            <span class="comment">//s[i]+=32;//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;A&#x27;+&#x27;a&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytoupper</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;z&#x27;</span>)&#123;</span><br><span class="line">            s[i]=<span class="built_in">toupper</span>(s[i]);</span><br><span class="line">            <span class="comment">//s[i]-=32;//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;a&#x27;+&#x27;A&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">201</span>];</span><br><span class="line">    <span class="built_in">gets</span>(s);</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line"> </span><br><span class="line">    <span class="built_in">mytolower</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">mytoupper</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>如果用char数组，也可以使用s[i]+=32或者s[i]=s[i]-‘A’+'a’的形式，实现两个转化为大写和小写方法</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytolower</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;A&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;Z&#x27;</span>)&#123;</span><br><span class="line">            s[i]+=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;A&#x27;+&#x27;a&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mytoupper</span><span class="params">(<span class="keyword">char</span> *s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">&#x27;a&#x27;</span>&amp;&amp;s[i]&lt;=<span class="string">&#x27;z&#x27;</span>)&#123;</span><br><span class="line">            s[i]-=<span class="number">32</span>;<span class="comment">//+32转换为小写</span></span><br><span class="line">            <span class="comment">//s[i]=s[i]-&#x27;a&#x27;+&#x27;A&#x27;;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入一个含大写的字符串：&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">201</span>];</span><br><span class="line">    <span class="built_in">gets</span>(s);</span><br><span class="line">    <span class="comment">///转小写</span></span><br><span class="line">    <span class="built_in">mytolower</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为小写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">mytoupper</span>(s);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;转化为大写后为：&quot;</span>&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>IO</title>
+    <url>/2021/05/12/IO/</url>
+    <content><![CDATA[<h1 id="io"><a class="markdownIt-Anchor" href="#io"></a> I/O</h1>
+<h2 id="输出"><a class="markdownIt-Anchor" href="#输出"></a> 输出</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line">ofstream fout;</span><br><span class="line">fout.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="comment">//ofstream fout(&quot;???.txt&quot;)</span></span><br></pre></td></tr></table></figure>
+<h2 id="输入"><a class="markdownIt-Anchor" href="#输入"></a> 输入</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line">ifstream fin;</span><br><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="comment">//ifstream fin(&quot;???.txt&quot;)</span></span><br></pre></td></tr></table></figure>
+<p>输入与输出都是缓冲的</p>
+<p>fin有一个管理的输入缓冲区，fout有输出缓冲区</p>
+<h2 id="关闭"><a class="markdownIt-Anchor" href="#关闭"></a> 关闭</h2>
+<p>当输入和输出流对象过期（例如程序终止）时，与文件的链接自动关闭。也可以用close关闭</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fout.<span class="built_in">close</span>();</span><br><span class="line">fin.<span class="built_in">close</span>();</span><br></pre></td></tr></table></figure>
+<p>关闭并不会删除流，而是切断流与文件的连接</p>
+<h2 id="流状态"><a class="markdownIt-Anchor" href="#流状态"></a> 流状态</h2>
+<p>流类都是从ios_base继承了一个流状态成员</p>
+<ul>
+<li>打开不存在的文件进行输入时，设置failbit位</li>
+</ul>
+<h2 id="检查文件是否打开和isopen"><a class="markdownIt-Anchor" href="#检查文件是否打开和isopen"></a> 检查文件是否打开和<code>isopen()</code></h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(fin.<span class="built_in">fail</span>())</span><br><span class="line">&#123;</span><br><span class="line">    ......;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fin)</span><br><span class="line">&#123;</span><br><span class="line">    ......;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fin.<span class="built_in">is_open</span>())</span><br><span class="line">&#123;</span><br><span class="line">    ......;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="命令行处理"><a class="markdownIt-Anchor" href="#命令行处理"></a> 命令行处理</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br></pre></td></tr></table></figure>
+<p>argc是命令行中的参数个数包括命令行本身。argv指向一个指向char的指针，argv[0]是一个指针指向存储的第一个命令行字符。</p>
+<h2 id="文件模式"><a class="markdownIt-Anchor" href="#文件模式"></a> 文件模式</h2>
+<p><img src="/media/zero/%E5%AD%A6%E4%B9%A0/markdown/%E5%9B%BE%E5%BA%8A/%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F.png" alt="文件模式"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fout.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>, ios_base::out|ios_base::app); <span class="comment">//在文件尾追加</span></span><br></pre></td></tr></table></figure>
+<h2 id="内核格式化"><a class="markdownIt-Anchor" href="#内核格式化"></a> 内核格式化</h2>
+<p>sstream头文件</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    ostringstream outstr;</span><br><span class="line">    string naem;</span><br><span class="line">    cin &gt;&gt; name;</span><br><span class="line">    outstr &lt;&lt; naem;<span class="comment">//不会打印出来</span></span><br><span class="line">    cout &lt;&lt; outstr.<span class="built_in">str</span>() <span class="comment">//显示打印出来</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>str()返回一个被初始化为缓冲区内容的字符串对象，str可以“冻结”对象，这样便不能写入信息</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istringstream <span class="title">instr</span><span class="params">(lit)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>istringstream 类允许使用istream方法族读取 istringstream 对象中的数据，istringstream对象可以使用string对象进行初始化。</p>
+<p>假设facts是一个string对象，则要创建与该字符串相关联的istringstream对象，可以这样编写:<br>
+istringstream instr(facts);  // use facts to initialize stream</p>
+<p>这样便可以使用istream方法读取instr中的数据。<br>
+例如，如果instr包含大量字符格式的整数，则可以这样读取它们:</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (instr &gt;&gt; n)</span><br><span class="line">	sum += n;</span><br></pre></td></tr></table></figure>
+<p>简而言之，istringstream 和 ostringstream 类使得能够使用 istream 和 ostream 类的方法来管理存储在字符串中的字符数据。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux服务管理</title>
     <url>/2021/05/12/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="linux服务和进程管理"><a class="markdownIt-Anchor" href="#linux服务和进程管理"></a> Linux服务和进程管理</h1>
@@ -567,49 +610,6 @@ tags: C++
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span> <span class="comment">#查看后台</span></span><br><span class="line"><span class="built_in">jobs</span> -l <span class="comment">#显示后台PID</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fg</span> %工作号 <span class="comment">#恢复到前台</span></span><br><span class="line"><span class="built_in">bg</span> %工作好 <span class="comment">#重新放入后台</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>IO</title>
-    <url>/2021/05/12/IO/</url>
-    <content><![CDATA[<h1 id="io"><a class="markdownIt-Anchor" href="#io"></a> I/O</h1>
-<h2 id="输出"><a class="markdownIt-Anchor" href="#输出"></a> 输出</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line">ofstream fout;</span><br><span class="line">fout.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="comment">//ofstream fout(&quot;???.txt&quot;)</span></span><br></pre></td></tr></table></figure>
-<h2 id="输入"><a class="markdownIt-Anchor" href="#输入"></a> 输入</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line">ifstream fin;</span><br><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="comment">//ifstream fin(&quot;???.txt&quot;)</span></span><br></pre></td></tr></table></figure>
-<p>输入与输出都是缓冲的</p>
-<p>fin有一个管理的输入缓冲区，fout有输出缓冲区</p>
-<h2 id="关闭"><a class="markdownIt-Anchor" href="#关闭"></a> 关闭</h2>
-<p>当输入和输出流对象过期（例如程序终止）时，与文件的链接自动关闭。也可以用close关闭</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fout.<span class="built_in">close</span>();</span><br><span class="line">fin.<span class="built_in">close</span>();</span><br></pre></td></tr></table></figure>
-<p>关闭并不会删除流，而是切断流与文件的连接</p>
-<h2 id="流状态"><a class="markdownIt-Anchor" href="#流状态"></a> 流状态</h2>
-<p>流类都是从ios_base继承了一个流状态成员</p>
-<ul>
-<li>打开不存在的文件进行输入时，设置failbit位</li>
-</ul>
-<h2 id="检查文件是否打开和isopen"><a class="markdownIt-Anchor" href="#检查文件是否打开和isopen"></a> 检查文件是否打开和<code>isopen()</code></h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(fin.<span class="built_in">fail</span>())</span><br><span class="line">&#123;</span><br><span class="line">    ......;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fin)</span><br><span class="line">&#123;</span><br><span class="line">    ......;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span>(!fin.<span class="built_in">is_open</span>())</span><br><span class="line">&#123;</span><br><span class="line">    ......;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="命令行处理"><a class="markdownIt-Anchor" href="#命令行处理"></a> 命令行处理</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></span><br></pre></td></tr></table></figure>
-<p>argc是命令行中的参数个数包括命令行本身。argv指向一个指向char的指针，argv[0]是一个指针指向存储的第一个命令行字符。</p>
-<h2 id="文件模式"><a class="markdownIt-Anchor" href="#文件模式"></a> 文件模式</h2>
-<p><img src="/media/zero/%E5%AD%A6%E4%B9%A0/markdown/%E5%9B%BE%E5%BA%8A/%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F.png" alt="文件模式"></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">fout.<span class="built_in">open</span>(<span class="string">&quot;???.txt&quot;</span>, ios_base::out|ios_base::app); <span class="comment">//在文件尾追加</span></span><br></pre></td></tr></table></figure>
-<h2 id="内核格式化"><a class="markdownIt-Anchor" href="#内核格式化"></a> 内核格式化</h2>
-<p>sstream头文件</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    ostringstream outstr;</span><br><span class="line">    string naem;</span><br><span class="line">    cin &gt;&gt; name;</span><br><span class="line">    outstr &lt;&lt; naem;<span class="comment">//不会打印出来</span></span><br><span class="line">    cout &lt;&lt; outstr.<span class="built_in">str</span>() <span class="comment">//显示打印出来</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>str()返回一个被初始化为缓冲区内容的字符串对象，str可以“冻结”对象，这样便不能写入信息</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istringstream <span class="title">instr</span><span class="params">(lit)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>istringstream 类允许使用istream方法族读取 istringstream 对象中的数据，istringstream对象可以使用string对象进行初始化。</p>
-<p>假设facts是一个string对象，则要创建与该字符串相关联的istringstream对象，可以这样编写:<br>
-istringstream instr(facts);  // use facts to initialize stream</p>
-<p>这样便可以使用istream方法读取instr中的数据。<br>
-例如，如果instr包含大量字符格式的整数，则可以这样读取它们:</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (instr &gt;&gt; n)</span><br><span class="line">	sum += n;</span><br></pre></td></tr></table></figure>
-<p>简而言之，istringstream 和 ostringstream 类使得能够使用 istream 和 ostream 类的方法来管理存储在字符串中的字符数据。</p>
 ]]></content>
   </entry>
   <entry>
@@ -854,19 +854,6 @@ tags: C++</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>cout</title>
-    <url>/2021/05/10/cout/</url>
-    <content><![CDATA[<h1 id="cout"><a class="markdownIt-Anchor" href="#cout"></a> cout</h1>
-<p><code>cout.precision()</code>其实是输出流cout的一个格式控制函数，也就是在<code>iostream</code>中的一个成员函数。<code>precision()</code>返回当前的浮点数的精度值，而<code>cout.precision(val)</code>其实就是在输出的时候设定输出值以新的浮点数精度值显示，即小数点后保留val位。</p>
-]]></content>
-      <categories>
-        <category>编程语言</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cin的补充</title>
     <url>/2021/05/12/cin%E7%9A%84%E8%A1%A5%E5%85%85/</url>
     <content><![CDATA[<h1 id="cin的补充"><a class="markdownIt-Anchor" href="#cin的补充"></a> cin的补充</h1>
@@ -934,6 +921,19 @@ tags: C++</h2>
 <h2 id="改正后"><a class="markdownIt-Anchor" href="#改正后"></a> 改正后</h2>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">max5</span><span class="params">(T * a)</span> -&gt; <span class="title">decltype</span><span class="params">(a[<span class="number">0</span>]+a[<span class="number">2</span>])</span></span>;<span class="comment">//a[0]+a[2]是一个右值表达式，decltype返回其类型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x[<span class="number">5</span>] &#123;<span class="number">5</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line">    <span class="keyword">double</span> y[<span class="number">5</span>] &#123;<span class="number">2.0</span>, <span class="number">3.6</span>, <span class="number">5.9</span>, <span class="number">1.5</span>, <span class="number">7.9</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="built_in">max5</span>(x);</span><br><span class="line">    cout &lt;&lt; a;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">max5</span><span class="params">(T * a)</span> -&gt; <span class="title">decltype</span><span class="params">(a[<span class="number">0</span>]+a[<span class="number">2</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T max = a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (max &lt; a[i])</span><br><span class="line">        &#123;</span><br><span class="line">            max = a[i];</span><br><span class="line">        &#125;       </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>cout</title>
+    <url>/2021/05/10/cout/</url>
+    <content><![CDATA[<h1 id="cout"><a class="markdownIt-Anchor" href="#cout"></a> cout</h1>
+<p><code>cout.precision()</code>其实是输出流cout的一个格式控制函数，也就是在<code>iostream</code>中的一个成员函数。<code>precision()</code>返回当前的浮点数的精度值，而<code>cout.precision(val)</code>其实就是在输出的时候设定输出值以新的浮点数精度值显示，即小数点后保留val位。</p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
   </entry>
   <entry>
     <title>图的最短路径dijksra算法</title>
@@ -1107,6 +1107,65 @@ tags: C++</h2>
 ]]></content>
   </entry>
   <entry>
+    <title>string类的常用方法</title>
+    <url>/2021/05/12/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="string类的常用方法"><a class="markdownIt-Anchor" href="#string类的常用方法"></a> string类的常用方法</h1>
+<h2 id="1-string转换为char"><a class="markdownIt-Anchor" href="#1-string转换为char"></a> 1 string转换为char*</h2>
+<h3 id="11-使用c_str方法"><a class="markdownIt-Anchor" href="#11-使用c_str方法"></a> 1.1 使用<code>c_str()</code>方法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string strOutput = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;[cout] strOutput is: &quot;</span> &lt;&lt; strOutput &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// string 转换为 char*</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* pszOutput = strOutput.<span class="built_in">c_str</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;[printf] strOutput is: %s\n&quot;</span>, pszOutput);</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>cout</code>可直接输出<code>string</code>类的对象的内容；</p>
+</li>
+<li>
+<p>使用<code>c_str()</code>方法转换<code>string</code>类型到<code>char*</code>类型时，需要为<code>char*</code>添加<code>const</code>关键字；</p>
+</li>
+<li>
+<p><code>printf()</code>函数不能直接打印<code>string</code>类的对象的内容，可以通过将<code>string</code>转换为<code>char*</code>类型，再使用 <code>printf()</code>函数打印。</p>
+</li>
+</ul>
+<h3 id="22-data方法与c_str方法"><a class="markdownIt-Anchor" href="#22-data方法与c_str方法"></a> 2.2 data()方法与c_str()方法</h3>
+<p><code>data()</code>方法与<code>c_str()</code>方法相似，都返回<code>const char*</code>类型。两者区别和联系如下：</p>
+<ul>
+<li>在C++98版本中，c_str()返回 const char* 类型，返回的字符串会以空字符（null character）结尾；</li>
+<li>在C++98版本中，data()返回 const char* 类型，返回的字符串不以空字符（null character）结尾；</li>
+<li>在C++11版本中，c_str()与data()用法相同（Both string::data and string::c_str are synonyms and return the same value.）</li>
+</ul>
+<h2 id="2-计算string长度-string字符串比较"><a class="markdownIt-Anchor" href="#2-计算string长度-string字符串比较"></a> 2 计算string长度、string字符串比较</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HELLOSTR <span class="meta-string">&quot;Hello World&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string strOutput = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> nLen = strOutput.<span class="built_in">length</span>();</span><br><span class="line">     </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the length of strOutput is: &quot;</span> &lt;&lt; nLen &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> == strOutput.<span class="built_in">compare</span>(HELLOSTR))</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;strOutput equal with macro HELLOSTR&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>string</code>类型可直接使用<code>length()</code>方法计算字符串长度，该方法计算结果为字符串的实际长度，如本例中<code>&quot;Hello World&quot;</code>字符串的长度为11；</p>
+</li>
+<li>
+<p><code>string</code>类型可使用 <code>compare(const string&amp; str)</code>方法进行字符串比较。</p>
+</li>
+</ul>
+<h2 id="3-string对象判空"><a class="markdownIt-Anchor" href="#3-string对象判空"></a> 3 string对象判空</h2>
+<p>可使用<code>empty()</code>方法对string类型的对象进行判空，如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (str2.<span class="built_in">empty</span>())</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str2 is empty.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-char-char转换为string"><a class="markdownIt-Anchor" href="#4-char-char转换为string"></a> 4 char*、char[]转换为string</h2>
+<p>将 <code>char*</code>、<code>char[]</code> 转换为 <code>string</code> 类型时，直接进行赋值操作，将 <code>char*</code>、<code>char[]</code>的变量赋值给<code>string</code>对象即可。</p>
+<ul>
+<li>ps：这里所说的“赋值”操作，实际上是将<code>char*</code>、<code>char[]</code> 定义的字符串的首地址赋值给 <code>string</code> 对象了。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* pszName = <span class="string">&quot;liitdar&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> pszCamp[] = <span class="string">&quot;alliance&quot;</span>;</span><br><span class="line"></span><br><span class="line">    string strName;</span><br><span class="line">    string strCamp;</span><br><span class="line">     </span><br><span class="line">    strName = pszName;</span><br><span class="line">    strCamp = pszCamp;</span><br><span class="line">     </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strName is: &quot;</span> &lt;&lt; strName &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strCamp is: &quot;</span> &lt;&lt; strCamp &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-string类的find方法"><a class="markdownIt-Anchor" href="#5-string类的find方法"></a> 5 string类的find方法</h2>
+<p>使用string类的find方法，在字符串中检索自字符串是否存在。</p>
+<h3 id="51-用法"><a class="markdownIt-Anchor" href="#51-用法"></a> 5.1 用法</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">const</span> string&amp; str, <span class="keyword">size_t</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">size_t</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">size_t</span> pos, <span class="keyword">size_t</span> n)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">char</span> c, <span class="keyword">size_t</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="52-返回值"><a class="markdownIt-Anchor" href="#52-返回值"></a> 5.2 返回值</h3>
+<p>find函数返回值：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">The position of the first character of the first match. If no matches were found, the function returns string::npos.</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">size_t</span> is an <span class="keyword">unsigned</span> integral <span class="title">type</span> <span class="params">(the same as member type string::size_type)</span>.</span></span><br></pre></td></tr></table></figure>
+<h3 id="53示例代码"><a class="markdownIt-Anchor" href="#53示例代码"></a> 5.3示例代码</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 待检索的字符串</span></span><br><span class="line">    string strOutput = <span class="string">&quot;|0|1|2|&quot;</span>;</span><br><span class="line">    <span class="comment">// 需要检索的子串</span></span><br><span class="line">    string strObj = <span class="string">&quot;|1|&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 子串位于字符串中的位置</span></span><br><span class="line">    <span class="keyword">size_t</span> nLoc = strOutput.<span class="built_in">find</span>(strObj);</span><br><span class="line">    <span class="comment">// 如果检索到子串在字符串中，则打印子串的位置</span></span><br><span class="line">    <span class="keyword">if</span> (nLoc != string::npos)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;nLoc is: &quot;</span> &lt;&lt; nLoc &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-string类的insert方法"><a class="markdownIt-Anchor" href="#6-string类的insert方法"></a> 6 string类的insert方法</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string strDemo = <span class="string">&quot;I am&quot;</span>;</span><br><span class="line"></span><br><span class="line">    strDemo.<span class="built_in">insert</span>(<span class="number">4</span>, <span class="string">&quot; good.&quot;</span>);</span><br><span class="line">     </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strDemo is: &quot;</span> &lt;&lt; strDemo &lt;&lt; endl; <span class="comment">// I am good</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7-int类型转为string类的方法"><a class="markdownIt-Anchor" href="#7-int类型转为string类的方法"></a> 7 int类型转为string类的方法</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 方法1</span></span><br><span class="line">    <span class="keyword">int</span> nNum1 = <span class="number">123</span>;</span><br><span class="line">    stringstream ss;</span><br><span class="line"></span><br><span class="line">    ss &lt;&lt; nNum1;</span><br><span class="line">    string strTest1 = ss.<span class="built_in">str</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strTest1 is: &quot;</span> &lt;&lt; strTest1 &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    string strTest2;</span></span><br><span class="line"><span class="comment">    strTest2 &lt;&lt; ss;     // stringstream 未定义 &lt;&lt; 操作符，故此句报错</span></span><br><span class="line"><span class="comment">    cout &lt;&lt; &quot;strTest2 is: &quot; &lt;&lt; strTest2 &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">     </span><br><span class="line">    string strTest3;</span><br><span class="line">    ss &gt;&gt; strTest3;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strTest3 is: &quot;</span> &lt;&lt; strTest3 &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// 方法2</span></span><br><span class="line">    <span class="keyword">int</span> nNum2 = <span class="number">456</span>;</span><br><span class="line">    string strTest4;</span><br><span class="line">    strTest4 = <span class="built_in">to_string</span>(nNum2);    <span class="comment">// C++11 标准</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strTest4 is: &quot;</span> &lt;&lt; strTest4 &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>string</title>
     <url>/2021/05/12/string/</url>
     <content><![CDATA[<h1 id="string"><a class="markdownIt-Anchor" href="#string"></a> string</h1>
@@ -1223,63 +1282,9 @@ tags: C++</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>string类的常用方法</title>
-    <url>/2021/05/12/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="string类的常用方法"><a class="markdownIt-Anchor" href="#string类的常用方法"></a> string类的常用方法</h1>
-<h2 id="1-string转换为char"><a class="markdownIt-Anchor" href="#1-string转换为char"></a> 1 string转换为char*</h2>
-<h3 id="11-使用c_str方法"><a class="markdownIt-Anchor" href="#11-使用c_str方法"></a> 1.1 使用<code>c_str()</code>方法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string strOutput = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;[cout] strOutput is: &quot;</span> &lt;&lt; strOutput &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// string 转换为 char*</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* pszOutput = strOutput.<span class="built_in">c_str</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;[printf] strOutput is: %s\n&quot;</span>, pszOutput);</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p><code>cout</code>可直接输出<code>string</code>类的对象的内容；</p>
-</li>
-<li>
-<p>使用<code>c_str()</code>方法转换<code>string</code>类型到<code>char*</code>类型时，需要为<code>char*</code>添加<code>const</code>关键字；</p>
-</li>
-<li>
-<p><code>printf()</code>函数不能直接打印<code>string</code>类的对象的内容，可以通过将<code>string</code>转换为<code>char*</code>类型，再使用 <code>printf()</code>函数打印。</p>
-</li>
-</ul>
-<h3 id="22-data方法与c_str方法"><a class="markdownIt-Anchor" href="#22-data方法与c_str方法"></a> 2.2 data()方法与c_str()方法</h3>
-<p><code>data()</code>方法与<code>c_str()</code>方法相似，都返回<code>const char*</code>类型。两者区别和联系如下：</p>
-<ul>
-<li>在C++98版本中，c_str()返回 const char* 类型，返回的字符串会以空字符（null character）结尾；</li>
-<li>在C++98版本中，data()返回 const char* 类型，返回的字符串不以空字符（null character）结尾；</li>
-<li>在C++11版本中，c_str()与data()用法相同（Both string::data and string::c_str are synonyms and return the same value.）</li>
-</ul>
-<h2 id="2-计算string长度-string字符串比较"><a class="markdownIt-Anchor" href="#2-计算string长度-string字符串比较"></a> 2 计算string长度、string字符串比较</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HELLOSTR <span class="meta-string">&quot;Hello World&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string strOutput = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> nLen = strOutput.<span class="built_in">length</span>();</span><br><span class="line">     </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the length of strOutput is: &quot;</span> &lt;&lt; nLen &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> == strOutput.<span class="built_in">compare</span>(HELLOSTR))</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;strOutput equal with macro HELLOSTR&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p><code>string</code>类型可直接使用<code>length()</code>方法计算字符串长度，该方法计算结果为字符串的实际长度，如本例中<code>&quot;Hello World&quot;</code>字符串的长度为11；</p>
-</li>
-<li>
-<p><code>string</code>类型可使用 <code>compare(const string&amp; str)</code>方法进行字符串比较。</p>
-</li>
-</ul>
-<h2 id="3-string对象判空"><a class="markdownIt-Anchor" href="#3-string对象判空"></a> 3 string对象判空</h2>
-<p>可使用<code>empty()</code>方法对string类型的对象进行判空，如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (str2.<span class="built_in">empty</span>())</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str2 is empty.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-char-char转换为string"><a class="markdownIt-Anchor" href="#4-char-char转换为string"></a> 4 char*、char[]转换为string</h2>
-<p>将 <code>char*</code>、<code>char[]</code> 转换为 <code>string</code> 类型时，直接进行赋值操作，将 <code>char*</code>、<code>char[]</code>的变量赋值给<code>string</code>对象即可。</p>
-<ul>
-<li>ps：这里所说的“赋值”操作，实际上是将<code>char*</code>、<code>char[]</code> 定义的字符串的首地址赋值给 <code>string</code> 对象了。</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* pszName = <span class="string">&quot;liitdar&quot;</span>;</span><br><span class="line">    <span class="keyword">char</span> pszCamp[] = <span class="string">&quot;alliance&quot;</span>;</span><br><span class="line"></span><br><span class="line">    string strName;</span><br><span class="line">    string strCamp;</span><br><span class="line">     </span><br><span class="line">    strName = pszName;</span><br><span class="line">    strCamp = pszCamp;</span><br><span class="line">     </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strName is: &quot;</span> &lt;&lt; strName &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strCamp is: &quot;</span> &lt;&lt; strCamp &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-string类的find方法"><a class="markdownIt-Anchor" href="#5-string类的find方法"></a> 5 string类的find方法</h2>
-<p>使用string类的find方法，在字符串中检索自字符串是否存在。</p>
-<h3 id="51-用法"><a class="markdownIt-Anchor" href="#51-用法"></a> 5.1 用法</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">const</span> string&amp; str, <span class="keyword">size_t</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">size_t</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* s, <span class="keyword">size_t</span> pos, <span class="keyword">size_t</span> n)</span> <span class="keyword">const</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">find</span> <span class="params">(<span class="keyword">char</span> c, <span class="keyword">size_t</span> pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="52-返回值"><a class="markdownIt-Anchor" href="#52-返回值"></a> 5.2 返回值</h3>
-<p>find函数返回值：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">The position of the first character of the first match. If no matches were found, the function returns string::npos.</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">size_t</span> is an <span class="keyword">unsigned</span> integral <span class="title">type</span> <span class="params">(the same as member type string::size_type)</span>.</span></span><br></pre></td></tr></table></figure>
-<h3 id="53示例代码"><a class="markdownIt-Anchor" href="#53示例代码"></a> 5.3示例代码</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 待检索的字符串</span></span><br><span class="line">    string strOutput = <span class="string">&quot;|0|1|2|&quot;</span>;</span><br><span class="line">    <span class="comment">// 需要检索的子串</span></span><br><span class="line">    string strObj = <span class="string">&quot;|1|&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 子串位于字符串中的位置</span></span><br><span class="line">    <span class="keyword">size_t</span> nLoc = strOutput.<span class="built_in">find</span>(strObj);</span><br><span class="line">    <span class="comment">// 如果检索到子串在字符串中，则打印子串的位置</span></span><br><span class="line">    <span class="keyword">if</span> (nLoc != string::npos)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;nLoc is: &quot;</span> &lt;&lt; nLoc &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="6-string类的insert方法"><a class="markdownIt-Anchor" href="#6-string类的insert方法"></a> 6 string类的insert方法</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string strDemo = <span class="string">&quot;I am&quot;</span>;</span><br><span class="line"></span><br><span class="line">    strDemo.<span class="built_in">insert</span>(<span class="number">4</span>, <span class="string">&quot; good.&quot;</span>);</span><br><span class="line">     </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strDemo is: &quot;</span> &lt;&lt; strDemo &lt;&lt; endl; <span class="comment">// I am good</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="7-int类型转为string类的方法"><a class="markdownIt-Anchor" href="#7-int类型转为string类的方法"></a> 7 int类型转为string类的方法</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 方法1</span></span><br><span class="line">    <span class="keyword">int</span> nNum1 = <span class="number">123</span>;</span><br><span class="line">    stringstream ss;</span><br><span class="line"></span><br><span class="line">    ss &lt;&lt; nNum1;</span><br><span class="line">    string strTest1 = ss.<span class="built_in">str</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strTest1 is: &quot;</span> &lt;&lt; strTest1 &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    string strTest2;</span></span><br><span class="line"><span class="comment">    strTest2 &lt;&lt; ss;     // stringstream 未定义 &lt;&lt; 操作符，故此句报错</span></span><br><span class="line"><span class="comment">    cout &lt;&lt; &quot;strTest2 is: &quot; &lt;&lt; strTest2 &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">     </span><br><span class="line">    string strTest3;</span><br><span class="line">    ss &gt;&gt; strTest3;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strTest3 is: &quot;</span> &lt;&lt; strTest3 &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// 方法2</span></span><br><span class="line">    <span class="keyword">int</span> nNum2 = <span class="number">456</span>;</span><br><span class="line">    string strTest4;</span><br><span class="line">    strTest4 = <span class="built_in">to_string</span>(nNum2);    <span class="comment">// C++11 标准</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;strTest4 is: &quot;</span> &lt;&lt; strTest4 &lt;&lt; endl;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>test</title>
+    <url>/2021/06/08/test/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>this指针</title>
@@ -1290,11 +1295,6 @@ tags: C++</h2>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//源代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">Student::~<span class="built_in">Student</span>() <span class="comment">//析构函数需要定义</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student::<span class="built_in">Student</span>(std::string n, <span class="keyword">double</span> l, <span class="keyword">double</span> w)</span><br><span class="line">&#123;</span><br><span class="line">    name = n;</span><br><span class="line">    length = l;</span><br><span class="line">    weight = w;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Student::show_name</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; name &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Student::show_length</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; length &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Student::show_weight</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; weight &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">double</span> &amp; <span class="title">Student::taller</span><span class="params">(<span class="keyword">const</span> Student &amp; s)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s.length &gt; length)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;taller is &quot;</span> &lt;&lt; s.name &lt;&lt; <span class="string">&quot; length: &quot;</span> &lt;&lt; s.length &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> s.length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (s.length &lt; length)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;taller is &quot;</span> &lt;&lt; name &lt;&lt; <span class="string">&quot; length: &quot;</span> &lt;&lt; length &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> (*<span class="keyword">this</span>).length; <span class="comment">//this指针指的是调用对象的地址</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (s.length == length)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;the same length\n&quot;</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//main函数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;test.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Student A:\n&quot;</span>;</span><br><span class="line">    Student A = &#123;<span class="string">&quot;小明&quot;</span>, <span class="number">1.75</span>, <span class="number">90</span>&#125;;</span><br><span class="line">    A.<span class="built_in">show_name</span>();</span><br><span class="line">    A.<span class="built_in">show_length</span>();</span><br><span class="line">    A.<span class="built_in">show_weight</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Student B:\n&quot;</span>;</span><br><span class="line">    Student B &#123;<span class="string">&quot;小王&quot;</span>, <span class="number">1.80</span>, <span class="number">80</span>&#125;;</span><br><span class="line">    B.<span class="built_in">show_name</span>();</span><br><span class="line">    B.<span class="built_in">show_length</span>();</span><br><span class="line">    B.<span class="built_in">show_weight</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;-----------------------------\n&quot;</span>;</span><br><span class="line">    B.<span class="built_in">taller</span>(A);<span class="comment">//在这里this指的是B对象的地址</span></span><br><span class="line">    A.<span class="built_in">taller</span>(B);<span class="comment">//在这里this指的是A对象的地址</span></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/2021/06/08/test/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>typename和class的区别</title>
@@ -1437,6 +1437,36 @@ tags: C++</h2>
 ]]></content>
   </entry>
   <entry>
+    <title>关于delete的执行过程和delete后应该做的事情</title>
+    <url>/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/</url>
+    <content><![CDATA[<h1 id="关于new后delete的执行过程和delete后应该做的事情"><a class="markdownIt-Anchor" href="#关于new后delete的执行过程和delete后应该做的事情"></a> 关于new后delete的执行过程和delete后应该做的事情</h1>
+<h2 id="delete的机理"><a class="markdownIt-Anchor" href="#delete的机理"></a> delete的机理</h2>
+<p><code>delete object</code></p>
+<p>会调用object的析构函数</p>
+<h2 id="delete后应该做的事"><a class="markdownIt-Anchor" href="#delete后应该做的事"></a> delete后应该做的事</h2>
+<p>创建指针本身就会占用内存</p>
+<p>delete只是释放了指针指向对象的内存，而它本身还在。</p>
+<p>这个指针也就成了悬空指针。</p>
+<p><strong>所以</strong></p>
+<p>delete后应该把这个指针本身设置为nulllptr、</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>　* p = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">delete</span> p;</span><br><span class="line">p = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="但是在类中的情况"><a class="markdownIt-Anchor" href="#但是在类中的情况"></a> 但是在类中的情况</h2>
+<p>类中执行delete一般是在析构函数中执行而且是最后一段代码，执行析构函数就代表着退出了作用域，所以一般可以不设置nullptr</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关于返回值</title>
+    <url>/2021/05/12/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/</url>
+    <content><![CDATA[<h1 id="关于返回值"><a class="markdownIt-Anchor" href="#关于返回值"></a> 关于返回值</h1>
+<h1 id="1-返回类型对象"><a class="markdownIt-Anchor" href="#1-返回类型对象"></a> 1 返回类型对象</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然b是一个局部变量，但仍可返回。<strong>应为是返回int类型，所以会调用复制，把b复制一个</strong></p>
+<h1 id="2返回类型引用"><a class="markdownIt-Anchor" href="#2返回类型引用"></a> 2返回类型引用</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>&amp; <span class="title">a</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">return</span> b; <span class="comment">//错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b是一个局部变量，返回引用还是返回b自己，但b会在函数执行完毕被释放。<strong>返回引用时不会复制</strong>。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>关于new</title>
     <url>/2021/05/12/%E5%85%B3%E4%BA%8Enew/</url>
     <content><![CDATA[<h1 id="关于new"><a class="markdownIt-Anchor" href="#关于new"></a> 关于<code>new</code></h1>
@@ -1465,36 +1495,6 @@ tags: C++</h2>
 <p>常规<code>new</code>存放的内存是堆，定位<code>new</code>将内存放在指定的地方</p>
 </li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>关于delete的执行过程和delete后应该做的事情</title>
-    <url>/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/</url>
-    <content><![CDATA[<h1 id="关于new后delete的执行过程和delete后应该做的事情"><a class="markdownIt-Anchor" href="#关于new后delete的执行过程和delete后应该做的事情"></a> 关于new后delete的执行过程和delete后应该做的事情</h1>
-<h2 id="delete的机理"><a class="markdownIt-Anchor" href="#delete的机理"></a> delete的机理</h2>
-<p><code>delete object</code></p>
-<p>会调用object的析构函数</p>
-<h2 id="delete后应该做的事"><a class="markdownIt-Anchor" href="#delete后应该做的事"></a> delete后应该做的事</h2>
-<p>创建指针本身就会占用内存</p>
-<p>delete只是释放了指针指向对象的内存，而它本身还在。</p>
-<p>这个指针也就成了悬空指针。</p>
-<p><strong>所以</strong></p>
-<p>delete后应该把这个指针本身设置为nulllptr、</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>　* p = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">delete</span> p;</span><br><span class="line">p = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="但是在类中的情况"><a class="markdownIt-Anchor" href="#但是在类中的情况"></a> 但是在类中的情况</h2>
-<p>类中执行delete一般是在析构函数中执行而且是最后一段代码，执行析构函数就代表着退出了作用域，所以一般可以不设置nullptr</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>关于返回值</title>
-    <url>/2021/05/12/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/</url>
-    <content><![CDATA[<h1 id="关于返回值"><a class="markdownIt-Anchor" href="#关于返回值"></a> 关于返回值</h1>
-<h1 id="1-返回类型对象"><a class="markdownIt-Anchor" href="#1-返回类型对象"></a> 1 返回类型对象</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>虽然b是一个局部变量，但仍可返回。<strong>应为是返回int类型，所以会调用复制，把b复制一个</strong></p>
-<h1 id="2返回类型引用"><a class="markdownIt-Anchor" href="#2返回类型引用"></a> 2返回类型引用</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>&amp; <span class="title">a</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">return</span> b; <span class="comment">//错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>b是一个局部变量，返回引用还是返回b自己，但b会在函数执行完毕被释放。<strong>返回引用时不会复制</strong>。</p>
 ]]></content>
   </entry>
   <entry>
@@ -1710,13 +1710,6 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>函数对象</title>
-    <url>/2021/05/12/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h1 id="functional的函数符"><a class="markdownIt-Anchor" href="#functional的函数符"></a> <code>functional</code>的函数符</h1>
-<p><img src="/2021/05/12/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E9%A2%84%E5%AE%9A%E7%9A%84%E5%87%BD%E6%95%B0%E7%AC%A6.png" alt="预定的函数符"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>友元</title>
     <url>/2021/05/12/%E5%8F%8B%E5%85%83/</url>
     <content><![CDATA[<h1 id="友元"><a class="markdownIt-Anchor" href="#友元"></a> 友元</h1>
@@ -1738,6 +1731,13 @@ tags:</h2>
 <p>Tv中的友元函数含有Remote的方法，所以Tv前面必须要有Remote的set_chan()的声明，而Remote类中又含有Tv所以要在最前面声明一个<code>class Tv;</code></p>
 <h2 id="共同的友元"><a class="markdownIt-Anchor" href="#共同的友元"></a> 共同的友元</h2>
 <p>当函数需要访问两个类的私有数据，这是可以把这个函数可以声明为两个类的友元。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>函数对象</title>
+    <url>/2021/05/12/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="functional的函数符"><a class="markdownIt-Anchor" href="#functional的函数符"></a> <code>functional</code>的函数符</h1>
+<p><img src="/2021/05/12/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E9%A2%84%E5%AE%9A%E7%9A%84%E5%87%BD%E6%95%B0%E7%AC%A6.png" alt="预定的函数符"></p>
 ]]></content>
   </entry>
   <entry>
@@ -1794,23 +1794,6 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>备份</title>
-    <url>/2021/05/12/%E5%A4%87%E4%BB%BD/</url>
-    <content><![CDATA[<h1 id="备份"><a class="markdownIt-Anchor" href="#备份"></a> 备份</h1>
-<p>需要备份的数据</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/root/</span><br><span class="line">/home/</span><br><span class="line">/var/spool/mail/</span><br><span class="line">/etc/</span><br><span class="line">其他</span><br></pre></td></tr></table></figure>
-<h2 id="备份策略"><a class="markdownIt-Anchor" href="#备份策略"></a> 备份策略</h2>
-<ol>
-<li>完全备份</li>
-<li>增量备份</li>
-<li>差异备份</li>
-</ol>
-<h2 id="备份-2"><a class="markdownIt-Anchor" href="#备份-2"></a> 备份</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dump [option] 备份之后的文件名 原文件或目录</span><br><span class="line">	 -n：n为0-9十个备份级别，-0，-1，-2.....</span><br><span class="line">	 -f 文件名：指定备份之后的文件名</span><br><span class="line">	 -u：备份成功后，把备份时间放在/etc/dumpdates文件</span><br><span class="line">	 -v：显示备份过程中更多的输出信息</span><br><span class="line">	 -j：调用bzlib库压缩备份文件，就是把备份文件压缩为.bz2格式</span><br><span class="line">	 -W：显示允许被dump的分区的备份等级及备份时间</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">restore [模式选择] [option]</span><br><span class="line">		-C：比较备份数据和实际数据的变化</span><br><span class="line">		-i：进入交互模式，手工选择恢复的文件</span><br><span class="line">		-t：查看模式，用于查看备份文件中拥有的那些数据</span><br><span class="line">		-r：还原模式</span><br><span class="line">				 -f：指定备份文件的文件名</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>土壤改良剂</title>
     <url>/2021/05/12/%E5%9C%9F%E5%A3%A4%E6%94%B9%E8%89%AF%E5%89%82/</url>
     <content><![CDATA[<h1 id="土壤改良剂"><a class="markdownIt-Anchor" href="#土壤改良剂"></a> 土壤改良剂</h1>
@@ -1830,6 +1813,23 @@ tags:</h2>
 <p><strong>5</strong>**）产品适用广泛性强。**根据市场调查，现在市面上的土壤改良剂主要针对某种特定作物的土壤进行改良，使用的广泛性不足。本公司的煤矸石土壤改良剂对土壤改良有较强的广泛性，改良后的土壤对多种作物的生长具有极大的促进作用。</p>
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>备份</title>
+    <url>/2021/05/12/%E5%A4%87%E4%BB%BD/</url>
+    <content><![CDATA[<h1 id="备份"><a class="markdownIt-Anchor" href="#备份"></a> 备份</h1>
+<p>需要备份的数据</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/root/</span><br><span class="line">/home/</span><br><span class="line">/var/spool/mail/</span><br><span class="line">/etc/</span><br><span class="line">其他</span><br></pre></td></tr></table></figure>
+<h2 id="备份策略"><a class="markdownIt-Anchor" href="#备份策略"></a> 备份策略</h2>
+<ol>
+<li>完全备份</li>
+<li>增量备份</li>
+<li>差异备份</li>
+</ol>
+<h2 id="备份-2"><a class="markdownIt-Anchor" href="#备份-2"></a> 备份</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dump [option] 备份之后的文件名 原文件或目录</span><br><span class="line">	 -n：n为0-9十个备份级别，-0，-1，-2.....</span><br><span class="line">	 -f 文件名：指定备份之后的文件名</span><br><span class="line">	 -u：备份成功后，把备份时间放在/etc/dumpdates文件</span><br><span class="line">	 -v：显示备份过程中更多的输出信息</span><br><span class="line">	 -j：调用bzlib库压缩备份文件，就是把备份文件压缩为.bz2格式</span><br><span class="line">	 -W：显示允许被dump的分区的备份等级及备份时间</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">restore [模式选择] [option]</span><br><span class="line">		-C：比较备份数据和实际数据的变化</span><br><span class="line">		-i：进入交互模式，手工选择恢复的文件</span><br><span class="line">		-t：查看模式，用于查看备份文件中拥有的那些数据</span><br><span class="line">		-r：还原模式</span><br><span class="line">				 -f：指定备份文件的文件名</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -2193,6 +2193,11 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
+    <title>抽象基类(ABC编程)</title>
+    <url>/2021/05/12/%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB(ABC%E7%BC%96%E7%A8%8B)/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>必须使用成员初始化列表的几种情况</title>
     <url>/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/</url>
     <content><![CDATA[<p><strong>1、类成员为const类型</strong></p>
@@ -2206,57 +2211,6 @@ tags:</h2>
 <p>原因同样是创建对象时，要初始类成员的每一个成员</p>
 <p><strong>4、如果类存在继承关系，派生类必须在其初始化列表中调用基类的构造函数</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"> <span class="number">2</span> <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> <span class="number">3</span> </span><br><span class="line"> <span class="number">4</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class"> 5 &#123;</span></span><br><span class="line"> <span class="number">6</span> <span class="keyword">public</span>:</span><br><span class="line"> <span class="number">7</span>     <span class="built_in">Base</span>(<span class="keyword">int</span> a) : <span class="built_in">val</span>(a) &#123;&#125;</span><br><span class="line"> <span class="number">8</span> <span class="keyword">private</span>:</span><br><span class="line"> <span class="number">9</span>     <span class="keyword">int</span> val;</span><br><span class="line"><span class="number">10</span> &#125;;</span><br><span class="line"><span class="number">11</span> </span><br><span class="line"><span class="number">12</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> :</span> <span class="keyword">public</span> Base</span><br><span class="line"><span class="number">13</span> &#123;</span><br><span class="line"><span class="number">14</span> <span class="keyword">public</span>:</span><br><span class="line"><span class="number">15</span>     <span class="built_in">A</span>(<span class="keyword">int</span> v) : <span class="built_in">p</span>(v), <span class="built_in">Base</span>(v) &#123;&#125;<span class="comment">//类A继承自类Base，需在其初始化列表中调用Base的构造函数</span></span><br><span class="line"><span class="number">16</span>     <span class="function"><span class="keyword">void</span> <span class="title">print_val</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello:&quot;</span> &lt;&lt; p &lt;&lt; endl; &#125;</span><br><span class="line"><span class="number">17</span> <span class="keyword">private</span>:</span><br><span class="line"><span class="number">18</span>     <span class="keyword">int</span> p;</span><br><span class="line"><span class="number">19</span> &#125;;</span><br><span class="line"><span class="number">20</span> </span><br><span class="line"><span class="number">21</span> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function">22 </span>&#123;</span><br><span class="line"><span class="number">23</span>     <span class="keyword">int</span> pp = <span class="number">45</span>;</span><br><span class="line"><span class="number">24</span>     <span class="function">A <span class="title">b</span><span class="params">(pp)</span></span>;</span><br><span class="line"><span class="number">25</span>     b.<span class="built_in">print_val</span>();</span><br><span class="line"><span class="number">26</span> &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>抽象基类(ABC编程)</title>
-    <url>/2021/05/12/%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BB(ABC%E7%BC%96%E7%A8%8B)/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>日志管理</title>
-    <url>/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h1 id="日志管理"><a class="markdownIt-Anchor" href="#日志管理"></a> 日志管理</h1>
-<h2 id="常见日志"><a class="markdownIt-Anchor" href="#常见日志"></a> 常见日志</h2>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E5%B8%B8%E8%A7%81%E6%97%A5%E5%BF%97.png" alt="常见日志"></p>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E5%B8%B8%E8%A7%81%E6%97%A5%E5%BF%972.png" alt="常见日志2"></p>
-<p><strong>源码包安装的日志是在指定目录中，rpm包安装的在/var/log中</strong></p>
-<h2 id="rsyslogd日志"><a class="markdownIt-Anchor" href="#rsyslogd日志"></a> rsyslogd日志</h2>
-<h3 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">时间	产生事件的服务器主机名	产生时间的服务名或程序名	事件的具体信息</span><br><span class="line">Sep 29 23:12:04 izbp1clp96b0qjo5whikc9z sshd[4630]: Failed password <span class="keyword">for</span> invalid user admin from 80.11.39.203 port 31491 ssh2</span><br></pre></td></tr></table></figure>
-<h3 id="rsyslogd的配置文件"><a class="markdownIt-Anchor" href="#rsyslogd的配置文件"></a> rsyslogd的配置文件</h3>
-<p><code>/etc/rsyslog.conf</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">服务名称[连接服务]日志等级				日志记录位置</span><br><span class="line">cron.*                                 /var/<span class="built_in">log</span>/cron</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%90%8D%E7%A7%B0.png" alt="日志配置文件服务名称"></p>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%90%8D%E7%A7%B02.png" alt="日志配置文件服务名称2"></p>
-<h3 id="连接符号"><a class="markdownIt-Anchor" href="#连接符号"></a> 连接符号</h3>
-<p><code>*	.	.=	.!</code>	<br>
-<img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E8%BF%9E%E6%8E%A5%E7%AC%A6%E5%8F%B7.png" alt="连接符号"></p>
-<h3 id="日志等级"><a class="markdownIt-Anchor" href="#日志等级"></a> 日志等级</h3>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E6%97%A5%E5%BF%97%E7%AD%89%E7%BA%A7.png" alt="日志等级"></p>
-<h3 id="日志记录位置"><a class="markdownIt-Anchor" href="#日志记录位置"></a> 日志记录位置</h3>
-<ol>
-<li>日志文件的绝对路径</li>
-<li>系统设备文件</li>
-<li>转发给远程主机</li>
-<li>用户名，发给某个用户</li>
-<li>忽略或丢掉日志</li>
-</ol>
-<h2 id="日志轮替"><a class="markdownIt-Anchor" href="#日志轮替"></a> 日志轮替</h2>
-<p>轮替包含日志切割和旧日志删除</p>
-<h3 id="日志命名"><a class="markdownIt-Anchor" href="#日志命名"></a> 日志命名</h3>
-<ol>
-<li>如果logrotate配置文件中拥有“dateext”参数，那么日志会用日期来作为日志文件的后缀，例如“secure-20130605”。这样的话日志文件名不会重叠，所以也就不需要日志文件的改名，只需要保存指定的日志个数，删除多余的日志文件即可。</li>
-<li>如果配置文件中没有“dateext”参数，那么日志文件就需要进行改名了。当第一次进行日志轮替时，当前的“secure”日志会自动改名为<br>
-“secure.1”，然后新建“secure”日志，用来保存新的日志。当第二次进行日志轮替时，“secure.1”会自动改名为“secure.2”，当前的“secure”日志会自动改名为“secure.1”，然后也会新建“secure”日志，用来保存新的日志，以此类推。</li>
-</ol>
-<h3 id="logrotate配置文件"><a class="markdownIt-Anchor" href="#logrotate配置文件"></a> logrotate配置文件</h3>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Clogrotate%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="logrotate配置文件"></p>
-<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Clogrotate%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B62.png" alt="logrotate配置文件2"></p>
-<p><code>/etc/logrotate.conf</code></p>
-<h3 id="加入轮替"><a class="markdownIt-Anchor" href="#加入轮替"></a> 加入轮替</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/apache2/logs/access_log&#123;</span><br><span class="line">daily</span><br><span class="line">create</span><br><span class="line">rotate 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">logrotate [option] [配置文件名]</span><br><span class="line">		 -v：显示日志轮替过程</span><br><span class="line">		 -f：强制进行日志轮替，不管日志轮替条件是什么</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -2323,10 +2277,50 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>检测输入合法</title>
-    <url>/2021/05/12/%E6%A3%80%E6%B5%8B%E8%BE%93%E5%85%A5%E5%90%88%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="检测输入合法"><a class="markdownIt-Anchor" href="#检测输入合法"></a> 检测输入合法</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> factor;</span><br><span class="line">        <span class="keyword">while</span>(!(cin &gt;&gt; factor))</span><br><span class="line">        &#123;</span><br><span class="line">            cin.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">while</span>(cin.<span class="built_in">get</span>() != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Bad input; Please enter a number: &quot;</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>日志管理</title>
+    <url>/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="日志管理"><a class="markdownIt-Anchor" href="#日志管理"></a> 日志管理</h1>
+<h2 id="常见日志"><a class="markdownIt-Anchor" href="#常见日志"></a> 常见日志</h2>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E5%B8%B8%E8%A7%81%E6%97%A5%E5%BF%97.png" alt="常见日志"></p>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E5%B8%B8%E8%A7%81%E6%97%A5%E5%BF%972.png" alt="常见日志2"></p>
+<p><strong>源码包安装的日志是在指定目录中，rpm包安装的在/var/log中</strong></p>
+<h2 id="rsyslogd日志"><a class="markdownIt-Anchor" href="#rsyslogd日志"></a> rsyslogd日志</h2>
+<h3 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">时间	产生事件的服务器主机名	产生时间的服务名或程序名	事件的具体信息</span><br><span class="line">Sep 29 23:12:04 izbp1clp96b0qjo5whikc9z sshd[4630]: Failed password <span class="keyword">for</span> invalid user admin from 80.11.39.203 port 31491 ssh2</span><br></pre></td></tr></table></figure>
+<h3 id="rsyslogd的配置文件"><a class="markdownIt-Anchor" href="#rsyslogd的配置文件"></a> rsyslogd的配置文件</h3>
+<p><code>/etc/rsyslog.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">服务名称[连接服务]日志等级				日志记录位置</span><br><span class="line">cron.*                                 /var/<span class="built_in">log</span>/cron</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%90%8D%E7%A7%B0.png" alt="日志配置文件服务名称"></p>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%90%8D%E7%A7%B02.png" alt="日志配置文件服务名称2"></p>
+<h3 id="连接符号"><a class="markdownIt-Anchor" href="#连接符号"></a> 连接符号</h3>
+<p><code>*	.	.=	.!</code>	<br>
+<img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E8%BF%9E%E6%8E%A5%E7%AC%A6%E5%8F%B7.png" alt="连接符号"></p>
+<h3 id="日志等级"><a class="markdownIt-Anchor" href="#日志等级"></a> 日志等级</h3>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E6%97%A5%E5%BF%97%E7%AD%89%E7%BA%A7.png" alt="日志等级"></p>
+<h3 id="日志记录位置"><a class="markdownIt-Anchor" href="#日志记录位置"></a> 日志记录位置</h3>
+<ol>
+<li>日志文件的绝对路径</li>
+<li>系统设备文件</li>
+<li>转发给远程主机</li>
+<li>用户名，发给某个用户</li>
+<li>忽略或丢掉日志</li>
+</ol>
+<h2 id="日志轮替"><a class="markdownIt-Anchor" href="#日志轮替"></a> 日志轮替</h2>
+<p>轮替包含日志切割和旧日志删除</p>
+<h3 id="日志命名"><a class="markdownIt-Anchor" href="#日志命名"></a> 日志命名</h3>
+<ol>
+<li>如果logrotate配置文件中拥有“dateext”参数，那么日志会用日期来作为日志文件的后缀，例如“secure-20130605”。这样的话日志文件名不会重叠，所以也就不需要日志文件的改名，只需要保存指定的日志个数，删除多余的日志文件即可。</li>
+<li>如果配置文件中没有“dateext”参数，那么日志文件就需要进行改名了。当第一次进行日志轮替时，当前的“secure”日志会自动改名为<br>
+“secure.1”，然后新建“secure”日志，用来保存新的日志。当第二次进行日志轮替时，“secure.1”会自动改名为“secure.2”，当前的“secure”日志会自动改名为“secure.1”，然后也会新建“secure”日志，用来保存新的日志，以此类推。</li>
+</ol>
+<h3 id="logrotate配置文件"><a class="markdownIt-Anchor" href="#logrotate配置文件"></a> logrotate配置文件</h3>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Clogrotate%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt="logrotate配置文件"></p>
+<p><img src="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Clogrotate%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B62.png" alt="logrotate配置文件2"></p>
+<p><code>/etc/logrotate.conf</code></p>
+<h3 id="加入轮替"><a class="markdownIt-Anchor" href="#加入轮替"></a> 加入轮替</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/apache2/logs/access_log&#123;</span><br><span class="line">daily</span><br><span class="line">create</span><br><span class="line">rotate 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">logrotate [option] [配置文件名]</span><br><span class="line">		 -v：显示日志轮替过程</span><br><span class="line">		 -f：强制进行日志轮替，不管日志轮替条件是什么</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>条件判断</title>
@@ -2380,15 +2374,10 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>模板派生类访问基类保护成员的方式</title>
-    <url>/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="模板派生类访问基类保护成员的方式"><a class="markdownIt-Anchor" href="#模板派生类访问基类保护成员的方式"></a> 模板派生类访问基类保护成员的方式</h1>
-<p>一个模板基类派生出模板派生类</p>
-<p>其中模板派生类访问基类的保护成员时需要加上类名</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">    T a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A&lt;T&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="built_in">B</span>() &#123;c = A&lt;T&gt;::a;&#125; <span class="comment">//这里必须加上限定符号</span></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">    T c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>如果需要过多类名可以用</strong></p>
-<p><code>using A::a</code></p>
-]]></content>
+    <title>检测输入合法</title>
+    <url>/2021/05/12/%E6%A3%80%E6%B5%8B%E8%BE%93%E5%85%A5%E5%90%88%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="检测输入合法"><a class="markdownIt-Anchor" href="#检测输入合法"></a> 检测输入合法</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> factor;</span><br><span class="line">        <span class="keyword">while</span>(!(cin &gt;&gt; factor))</span><br><span class="line">        &#123;</span><br><span class="line">            cin.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">while</span>(cin.<span class="built_in">get</span>() != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Bad input; Please enter a number: &quot;</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>模板函数和模板类“坑”</title>
@@ -2406,23 +2395,14 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>流程控制</title>
-    <url>/2021/05/12/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="流程控制"><a class="markdownIt-Anchor" href="#流程控制"></a> 流程控制</h1>
-<h2 id="if"><a class="markdownIt-Anchor" href="#if"></a> if</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ condition ] <span class="comment">#中括号与条件两边要有空格</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ condition ] <span class="comment">#中括号与条件两边要有空格</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line"><span class="keyword">elif</span> [ condition ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="comment">#program</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<h2 id="case"><a class="markdownIt-Anchor" href="#case"></a> case</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$variable</span> <span class="keyword">in</span></span><br><span class="line">	<span class="string">&quot;value1&quot;</span>)</span><br><span class="line">		<span class="comment">#program1</span></span><br><span class="line">		;;</span><br><span class="line">	<span class="string">&quot;value&quot;</span>)</span><br><span class="line">		<span class="comment">#program2</span></span><br><span class="line">		;;</span><br><span class="line">	.........</span><br><span class="line">    *)  <span class="comment">#相当于c++中default</span></span><br><span class="line">    	<span class="comment">#program3</span></span><br><span class="line">		;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
-<h2 id="for"><a class="markdownIt-Anchor" href="#for"></a> for</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> value1 value2 value3 ........</span><br><span class="line">	<span class="keyword">do</span> </span><br><span class="line">		<span class="comment">#progame</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> $(cat file)</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (( i=1;i&lt;100;i=i+1 ))</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<h2 id="while"><a class="markdownIt-Anchor" href="#while"></a> while</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> condition</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">    	statements</span><br><span class="line">	<span class="keyword">done</span>	</span><br></pre></td></tr></table></figure>
-<h2 id="until"><a class="markdownIt-Anchor" href="#until"></a> until</h2>
-<p>与while相反</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">until condition</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+    <title>模板派生类访问基类保护成员的方式</title>
+    <url>/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="模板派生类访问基类保护成员的方式"><a class="markdownIt-Anchor" href="#模板派生类访问基类保护成员的方式"></a> 模板派生类访问基类保护成员的方式</h1>
+<p>一个模板基类派生出模板派生类</p>
+<p>其中模板派生类访问基类的保护成员时需要加上类名</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">    T a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A&lt;T&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="built_in">B</span>() &#123;c = A&lt;T&gt;::a;&#125; <span class="comment">//这里必须加上限定符号</span></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">    T c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果需要过多类名可以用</strong></p>
+<p><code>using A::a</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -2530,6 +2510,26 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
+    <title>流程控制</title>
+    <url>/2021/05/12/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="流程控制"><a class="markdownIt-Anchor" href="#流程控制"></a> 流程控制</h1>
+<h2 id="if"><a class="markdownIt-Anchor" href="#if"></a> if</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ condition ] <span class="comment">#中括号与条件两边要有空格</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ condition ] <span class="comment">#中括号与条件两边要有空格</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line"><span class="keyword">elif</span> [ condition ]</span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="comment">#program</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="case"><a class="markdownIt-Anchor" href="#case"></a> case</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$variable</span> <span class="keyword">in</span></span><br><span class="line">	<span class="string">&quot;value1&quot;</span>)</span><br><span class="line">		<span class="comment">#program1</span></span><br><span class="line">		;;</span><br><span class="line">	<span class="string">&quot;value&quot;</span>)</span><br><span class="line">		<span class="comment">#program2</span></span><br><span class="line">		;;</span><br><span class="line">	.........</span><br><span class="line">    *)  <span class="comment">#相当于c++中default</span></span><br><span class="line">    	<span class="comment">#program3</span></span><br><span class="line">		;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<h2 id="for"><a class="markdownIt-Anchor" href="#for"></a> for</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> value1 value2 value3 ........</span><br><span class="line">	<span class="keyword">do</span> </span><br><span class="line">		<span class="comment">#progame</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> $(cat file)</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (( i=1;i&lt;100;i=i+1 ))</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="comment">#program</span></span><br><span class="line">	<span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="while"><a class="markdownIt-Anchor" href="#while"></a> while</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> condition</span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">    	statements</span><br><span class="line">	<span class="keyword">done</span>	</span><br></pre></td></tr></table></figure>
+<h2 id="until"><a class="markdownIt-Anchor" href="#until"></a> until</h2>
+<p>与while相反</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">until condition</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>目前安装的插件</title>
     <url>/2021/05/12/%E7%9B%AE%E5%89%8D%E5%AE%89%E8%A3%85%E7%9A%84%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="hexo-wordcount"><a class="markdownIt-Anchor" href="#hexo-wordcount"></a> hexo-wordcount</h1>
@@ -2592,6 +2592,46 @@ tags:</h2>
 </tr>
 </tbody>
 </table>
+]]></content>
+  </entry>
+  <entry>
+    <title>类和动态内存分配</title>
+    <url>/2021/05/12/%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</url>
+    <content><![CDATA[<h1 id="类和动态内存分配"><a class="markdownIt-Anchor" href="#类和动态内存分配"></a> 类和动态内存分配</h1>
+<p>c++自动提供以下成员函数（如果未在类中声明）</p>
+<ul>
+<li>默认构造函数</li>
+<li>默认析构函数</li>
+<li>复制构造函数</li>
+<li>赋值运算符</li>
+<li>地址运算符</li>
+</ul>
+<h2 id="复制构造函数"><a class="markdownIt-Anchor" href="#复制构造函数"></a> 复制构造函数</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//头文件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringBad</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">char</span> * str;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="built_in">StringBad</span>();</span><br><span class="line">    	<span class="comment">//StringBad(const StringBad &amp;)   //复制构造函数    </span></span><br><span class="line">    	~<span class="built_in">StringBad</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调用复制构造函数"><a class="markdownIt-Anchor" href="#调用复制构造函数"></a> 调用复制构造函数</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//motto是StingBad的一个对象</span></span><br><span class="line">StringBad a = motto;</span><br><span class="line"><span class="function">StringBad <span class="title">a</span><span class="params">(motto)</span></span>;</span><br><span class="line">StringBad a = <span class="built_in">StringBad</span>(motto);</span><br><span class="line">StringBad* p = <span class="keyword">new</span> <span class="built_in">StringBad</span>(motto);</span><br></pre></td></tr></table></figure>
+<h2 id="默认的复制构造函数功能浅复制"><a class="markdownIt-Anchor" href="#默认的复制构造函数功能浅复制"></a> 默认的复制构造函数功能（浅复制）</h2>
+<p>默认的复制构造函数<strong>复制成员的值</strong>。例如</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">StringBad <span class="title">a</span><span class="params">(<span class="string">&quot;字符串&quot;</span>)</span></span>;</span><br><span class="line">StringBad b = a; <span class="comment">//复制a</span></span><br></pre></td></tr></table></figure>
+<p>但是由于类中<code>str</code>是一个指针它的值是一个地址，所以复制的时候<code>a.str</code>的**值(地址)**会复制给<code>b.str</code>。因此他们的值(地址)相同，也就是指向同一个字符串。</p>
+<p><img src="/2021/05/12/%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/E:%5Cmarkdown%5Cimages%5Cimgs%5C%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B5%85%E5%A4%8D%E5%88%B6-1585629924652.png" alt></p>
+<h2 id="深复制"><a class="markdownIt-Anchor" href="#深复制"></a> 深复制</h2>
+<p>用户可以自己定义一个复制构造函数实现深复制。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">StringBad::<span class="built_in">StringBad</span>(<span class="keyword">const</span> StringBad &amp; s)</span><br><span class="line">&#123;</span><br><span class="line">    std::<span class="built_in">strcpy</span>(str, s.str); <span class="comment">//拷贝副本</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/05/12/%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/E:%5Cmarkdown%5Cimages%5Cimgs%5C%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B7%B1%E5%A4%8D%E5%88%B6.png" alt></p>
+<p>由于复制构造函数中使用了<code>strcpy</code>函数拷贝了一个字符副本并让<code>str</code>指向这个副本，所以这是一个深复制。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>类模板</title>
+    <url>/2021/05/12/%E7%B1%BB%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h1 id="类模板"><a class="markdownIt-Anchor" href="#类模板"></a> 类模板</h1>
+<h2 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span> <span class="comment">//或者template &lt;typename T&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IC</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    T v;</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">IC</span>(<span class="keyword">const</span> T &amp; val) : <span class="built_in">v</span>(val) &#123;&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>T 是占字符随后实例化过程将被替代。</p>
+<h2 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IC&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>T被替换为int</p>
 ]]></content>
   </entry>
   <entry>
@@ -2676,31 +2716,39 @@ tags:</h2>
 ]]></content>
   </entry>
   <entry>
-    <title>类和动态内存分配</title>
-    <url>/2021/05/12/%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</url>
-    <content><![CDATA[<h1 id="类和动态内存分配"><a class="markdownIt-Anchor" href="#类和动态内存分配"></a> 类和动态内存分配</h1>
-<p>c++自动提供以下成员函数（如果未在类中声明）</p>
-<ul>
-<li>默认构造函数</li>
-<li>默认析构函数</li>
-<li>复制构造函数</li>
-<li>赋值运算符</li>
-<li>地址运算符</li>
-</ul>
-<h2 id="复制构造函数"><a class="markdownIt-Anchor" href="#复制构造函数"></a> 复制构造函数</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//头文件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringBad</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">char</span> * str;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	<span class="built_in">StringBad</span>();</span><br><span class="line">    	<span class="comment">//StringBad(const StringBad &amp;)   //复制构造函数    </span></span><br><span class="line">    	~<span class="built_in">StringBad</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="调用复制构造函数"><a class="markdownIt-Anchor" href="#调用复制构造函数"></a> 调用复制构造函数</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//motto是StingBad的一个对象</span></span><br><span class="line">StringBad a = motto;</span><br><span class="line"><span class="function">StringBad <span class="title">a</span><span class="params">(motto)</span></span>;</span><br><span class="line">StringBad a = <span class="built_in">StringBad</span>(motto);</span><br><span class="line">StringBad* p = <span class="keyword">new</span> <span class="built_in">StringBad</span>(motto);</span><br></pre></td></tr></table></figure>
-<h2 id="默认的复制构造函数功能浅复制"><a class="markdownIt-Anchor" href="#默认的复制构造函数功能浅复制"></a> 默认的复制构造函数功能（浅复制）</h2>
-<p>默认的复制构造函数<strong>复制成员的值</strong>。例如</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">StringBad <span class="title">a</span><span class="params">(<span class="string">&quot;字符串&quot;</span>)</span></span>;</span><br><span class="line">StringBad b = a; <span class="comment">//复制a</span></span><br></pre></td></tr></table></figure>
-<p>但是由于类中<code>str</code>是一个指针它的值是一个地址，所以复制的时候<code>a.str</code>的**值(地址)**会复制给<code>b.str</code>。因此他们的值(地址)相同，也就是指向同一个字符串。</p>
-<p><img src="/2021/05/12/%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/E:%5Cmarkdown%5Cimages%5Cimgs%5C%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B5%85%E5%A4%8D%E5%88%B6-1585629924652.png" alt></p>
-<h2 id="深复制"><a class="markdownIt-Anchor" href="#深复制"></a> 深复制</h2>
-<p>用户可以自己定义一个复制构造函数实现深复制。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">StringBad::<span class="built_in">StringBad</span>(<span class="keyword">const</span> StringBad &amp; s)</span><br><span class="line">&#123;</span><br><span class="line">    std::<span class="built_in">strcpy</span>(str, s.str); <span class="comment">//拷贝副本</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/05/12/%E7%B1%BB%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/E:%5Cmarkdown%5Cimages%5Cimgs%5C%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B7%B1%E5%A4%8D%E5%88%B6.png" alt></p>
-<p>由于复制构造函数中使用了<code>strcpy</code>函数拷贝了一个字符副本并让<code>str</code>指向这个副本，所以这是一个深复制。</p>
+    <title>系统资源控制</title>
+    <url>/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="系统资源控制"><a class="markdownIt-Anchor" href="#系统资源控制"></a> 系统资源控制</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vmstat [刷新延迟 刷新次数]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dmesg <span class="comment">#开机时内核检测信息</span></span><br><span class="line">dmesg | grep CPU</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free [-b|-k|-m|-g] <span class="comment">#查看内存使用状态</span></span><br><span class="line">	 -b：以字节为单位显示</span><br><span class="line">	 -k：以kb为单位显示，默认</span><br><span class="line">	 -m：以MB为单位显示</span><br><span class="line">	 -g：以GB为单位显示</span><br></pre></td></tr></table></figure>
+<h2 id="缓冲和缓存"><a class="markdownIt-Anchor" href="#缓冲和缓存"></a> 缓冲和缓存</h2>
+<p>缓存（cache）是用来加速数据的，从硬盘中“读取”的</p>
+<p>缓冲（buffer）是又来加速数据“写入”硬盘的</p>
+<hr>
+<h2 id="查看cpu"><a class="markdownIt-Anchor" href="#查看cpu"></a> 查看CPU</h2>
+<p><code>/proc/cpuinfo</code>文件</p>
+<hr>
+<h2 id="显示系统的启动时间和平均负载"><a class="markdownIt-Anchor" href="#显示系统的启动时间和平均负载"></a> 显示系统的启动时间和平均负载</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uptime <span class="comment">#显示系统的启动时间和平均负载 w命令</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="查看系统内核版本"><a class="markdownIt-Anchor" href="#查看系统内核版本"></a> 查看系统内核版本</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname [option]</span><br><span class="line">	  -a：查看系统所有信息</span><br><span class="line">	  -r：查看内核版本</span><br><span class="line">	  -s：查看内核名称</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="查看系统位数"><a class="markdownIt-Anchor" href="#查看系统位数"></a> 查看系统位数</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">file 随便一个命令的绝对路径</span><br><span class="line">例如：</span><br><span class="line">file /bin/ls</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="查看当前系统发行版本"><a class="markdownIt-Anchor" href="#查看当前系统发行版本"></a> 查看当前系统发行版本</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsb_release -a <span class="comment">#查看当前系统发行版本</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="列出进程和打开或使用的文件信息"><a class="markdownIt-Anchor" href="#列出进程和打开或使用的文件信息"></a> 列出进程和打开或使用的文件信息</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof [option]</span><br><span class="line">	-c 字符串：只列出以字符串开头的进程打开的文件</span><br><span class="line">	-u 用户名：只列出某个用户的进程打开的文件</span><br><span class="line">	-p pid：列出某个pid进程打开的文件</span><br></pre></td></tr></table></figure>
+<h1 id="系统定时任务"><a class="markdownIt-Anchor" href="#系统定时任务"></a> 系统定时任务</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab [option]</span><br><span class="line">		-e：编辑定时任务</span><br><span class="line">		-l：查询任务</span><br><span class="line">		-r：删除所有任务</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* * * * * 命令</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-10-01_143051.png" alt="2020-10-01_143051"></p>
+<p><img src="/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-10-01_143158.png" alt="2020-10-01_143158"></p>
+<p><img src="/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-10-01_143248.png" alt="2020-10-01_143248"></p>
 ]]></content>
   </entry>
   <entry>
@@ -2755,69 +2803,6 @@ tags:</h2>
 <p>纯虚函数声明的结尾是=0</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>当类中含有纯虚函数时，则不能使用这个类创建对象，包含纯虚函数的类只能做基类。纯虚函数可以不定义也可以定义</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>类模板</title>
-    <url>/2021/05/12/%E7%B1%BB%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h1 id="类模板"><a class="markdownIt-Anchor" href="#类模板"></a> 类模板</h1>
-<h2 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span> <span class="comment">//或者template &lt;typename T&gt;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IC</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    T v;</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">IC</span>(<span class="keyword">const</span> T &amp; val) : <span class="built_in">v</span>(val) &#123;&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>T 是占字符随后实例化过程将被替代。</p>
-<h2 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IC&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>T被替换为int</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>系统资源控制</title>
-    <url>/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<h1 id="系统资源控制"><a class="markdownIt-Anchor" href="#系统资源控制"></a> 系统资源控制</h1>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vmstat [刷新延迟 刷新次数]</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dmesg <span class="comment">#开机时内核检测信息</span></span><br><span class="line">dmesg | grep CPU</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free [-b|-k|-m|-g] <span class="comment">#查看内存使用状态</span></span><br><span class="line">	 -b：以字节为单位显示</span><br><span class="line">	 -k：以kb为单位显示，默认</span><br><span class="line">	 -m：以MB为单位显示</span><br><span class="line">	 -g：以GB为单位显示</span><br></pre></td></tr></table></figure>
-<h2 id="缓冲和缓存"><a class="markdownIt-Anchor" href="#缓冲和缓存"></a> 缓冲和缓存</h2>
-<p>缓存（cache）是用来加速数据的，从硬盘中“读取”的</p>
-<p>缓冲（buffer）是又来加速数据“写入”硬盘的</p>
-<hr>
-<h2 id="查看cpu"><a class="markdownIt-Anchor" href="#查看cpu"></a> 查看CPU</h2>
-<p><code>/proc/cpuinfo</code>文件</p>
-<hr>
-<h2 id="显示系统的启动时间和平均负载"><a class="markdownIt-Anchor" href="#显示系统的启动时间和平均负载"></a> 显示系统的启动时间和平均负载</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uptime <span class="comment">#显示系统的启动时间和平均负载 w命令</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="查看系统内核版本"><a class="markdownIt-Anchor" href="#查看系统内核版本"></a> 查看系统内核版本</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname [option]</span><br><span class="line">	  -a：查看系统所有信息</span><br><span class="line">	  -r：查看内核版本</span><br><span class="line">	  -s：查看内核名称</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="查看系统位数"><a class="markdownIt-Anchor" href="#查看系统位数"></a> 查看系统位数</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">file 随便一个命令的绝对路径</span><br><span class="line">例如：</span><br><span class="line">file /bin/ls</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="查看当前系统发行版本"><a class="markdownIt-Anchor" href="#查看当前系统发行版本"></a> 查看当前系统发行版本</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsb_release -a <span class="comment">#查看当前系统发行版本</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="列出进程和打开或使用的文件信息"><a class="markdownIt-Anchor" href="#列出进程和打开或使用的文件信息"></a> 列出进程和打开或使用的文件信息</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof [option]</span><br><span class="line">	-c 字符串：只列出以字符串开头的进程打开的文件</span><br><span class="line">	-u 用户名：只列出某个用户的进程打开的文件</span><br><span class="line">	-p pid：列出某个pid进程打开的文件</span><br></pre></td></tr></table></figure>
-<h1 id="系统定时任务"><a class="markdownIt-Anchor" href="#系统定时任务"></a> 系统定时任务</h1>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab [option]</span><br><span class="line">		-e：编辑定时任务</span><br><span class="line">		-l：查询任务</span><br><span class="line">		-r：删除所有任务</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">* * * * * 命令</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-10-01_143051.png" alt="2020-10-01_143051"></p>
-<p><img src="/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-10-01_143158.png" alt="2020-10-01_143158"></p>
-<p><img src="/2021/05/12/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E6%8E%A7%E5%88%B6/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-10-01_143248.png" alt="2020-10-01_143248"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>转换函数</title>
-    <url>/2021/05/12/%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="转换函数"><a class="markdownIt-Anchor" href="#转换函数"></a> 转换函数</h1>
-<ul>
-<li>转换函数必须是类方法</li>
-<li>转换函数不能指定返回类型</li>
-<li>转换函数不能有参数</li>
-</ul>
-<h2 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h2>
-<p><code>operator typeName()</code></p>
-<p>转换double类型的函数原型</p>
-<p><code>operator double()</code></p>
 ]]></content>
   </entry>
   <entry>
@@ -2930,6 +2915,21 @@ Time shiva;
 </tbody>
 </table>
 <p><strong>运算符左边是调用对象</strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>转换函数</title>
+    <url>/2021/05/12/%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="转换函数"><a class="markdownIt-Anchor" href="#转换函数"></a> 转换函数</h1>
+<ul>
+<li>转换函数必须是类方法</li>
+<li>转换函数不能指定返回类型</li>
+<li>转换函数不能有参数</li>
+</ul>
+<h2 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h2>
+<p><code>operator typeName()</code></p>
+<p>转换double类型的函数原型</p>
+<p><code>operator double()</code></p>
 ]]></content>
   </entry>
   <entry>
