@@ -79,7 +79,7 @@
   </entry>
   <entry>
     <title>1021 Deepest Root</title>
-    <url>/2021/06/05/1021-Deepest-Root/</url>
+    <url>/2021/05/26/1021-Deepest-Root/</url>
     <content><![CDATA[<p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
 <span id="more"></span>
 <h3 id="input-specification"><a class="markdownIt-Anchor" href="#input-specification"></a> Input Specification:</h3>
