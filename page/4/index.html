@@ -203,6 +203,222 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">模板派生类访问基类保护成员的方式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
+              </span>
+
+          
+            <span id="/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="模板派生类访问基类保护成员的方式" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>276</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="模板派生类访问基类保护成员的方式"><a class="markdownIt-Anchor" href="#模板派生类访问基类保护成员的方式"></a> 模板派生类访问基类保护成员的方式</h1>
+<p>一个模板基类派生出模板派生类</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E6%A8%A1%E6%9D%BF%E6%B4%BE%E7%94%9F%E7%B1%BB%E8%AE%BF%E9%97%AE%E5%9F%BA%E7%B1%BB%E4%BF%9D%E6%8A%A4%E6%88%90%E5%91%98%E7%9A%84%E6%96%B9%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">日志管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
+              </span>
+
+          
+            <span id="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="日志管理" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>840</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="日志管理"><a class="markdownIt-Anchor" href="#日志管理"></a> 日志管理</h1>
+<h2 id="常见日志"><a class="markdownIt-Anchor" href="#常见日志"></a> 常见日志</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%9C%9F%E5%A3%A4%E6%94%B9%E8%89%AF%E5%89%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1090,251 +1306,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%B5%8C%E5%A5%97%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/%E5%B5%8C%E5%A5%97%E7%B1%BB/" class="post-title-link" itemprop="url">嵌套类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
-              </span>
-
-          
-            <span id="/2021/05/12/%E5%B5%8C%E5%A5%97%E7%B1%BB/" class="post-meta-item leancloud_visitors" data-flag-title="嵌套类" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/12/%E5%B5%8C%E5%A5%97%E7%B1%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E5%B5%8C%E5%A5%97%E7%B1%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>75</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="嵌套类"><a class="markdownIt-Anchor" href="#嵌套类"></a> 嵌套类</h1>
-<table>
-<thead>
-<tr>
-<th>声明位置</th>
-<th>包含它的类是否可以使用它</th>
-<th>从包含它的类派生而来的类是否可以使用它</th>
-<th>在外部是否可以使用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>私有部分</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>保护部分</td>
-<td>是</td>
-<td>是</td>
-<td>否</td>
-</tr>
-<tr>
-<td>公有部分</td>
-<td>是</td>
-<td>是</td>
-<td>是，通过<code>::</code>使用</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E5%B5%8C%E5%A5%97%E7%B1%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/" class="post-title-link" itemprop="url">必须使用成员初始化列表的几种情况</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
-              </span>
-
-          
-            <span id="/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/" class="post-meta-item leancloud_visitors" data-flag-title="必须使用成员初始化列表的几种情况" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>1、类成员为const类型</strong></p>
-<p><strong>2、类成员为引用类型</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8%E6%88%90%E5%91%98%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1406,7 +1377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1467,12 +1438,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">114k</span>
+    <span title="站点总字数">119k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:44</span>
+    <span title="站点阅读时长">1:48</span>
 </div>
 
         
