@@ -3998,4 +3998,33 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Dynamic Programing</title>
+    <url>/2021/07/28/Dynamic-Programing/</url>
+    <content><![CDATA[<h2 id="何时使用动态规划"><a class="markdownIt-Anchor" href="#何时使用动态规划"></a> 何时使用动态规划</h2>
+<p>动态规划通常用来解决<strong>最优化问题</strong>(optimization problem)，这类问题通常可以有很多可行解，每个解都有一个值，我们希望寻找到<strong>最优解</strong>（例如最小值或最大值）的解。这个解就是问题的一个最优解。</p>
+<p>使用动态规划求解最优化问题的前提要符合一下<strong>两个条件</strong>：</p>
+<ul>
+<li>最优子结构</li>
+<li>子问题重叠</li>
+</ul>
+<p>这里给出最优子结构的定义：<strong>如果一个问题的最优解包含其子问题的最优解，我们就称此问题具有最优子结构性质。</strong></p>
+<p>子问题重叠的定义：递归算法会反复地求解相同的子问题，而不是一直生成新的子问题。一般来讲，不同子问题的总数是输入规模的多项式函数为好。<strong>如果递归算法反复求解相同的子问题，我们就称最优化问题具有重叠子问题(overlapping subproblems)性质</strong></p>
+<h2 id="求解动态规划的步骤"><a class="markdownIt-Anchor" href="#求解动态规划的步骤"></a> 求解动态规划的步骤</h2>
+<ol>
+<li>刻画一个最优解的结构特征</li>
+<li>递归地定义最优解的值</li>
+<li>计算最优解的值（通常采用自底向上的方法）</li>
+<li>利用计算出的信息构造一个最优解</li>
+</ol>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>algorithm</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
 </search>

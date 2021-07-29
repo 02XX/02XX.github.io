@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiaomaweb.xyz/2021/07/28/Dynamic-Programing/</loc>
+    
+    <lastmod>2021-07-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiaomaweb.xyz/2021/06/14/1025-PAT-Ranking/</loc>
     
     <lastmod>2021-06-14</lastmod>
@@ -585,7 +592,7 @@
 
   <url>
     <loc>http://xiaomaweb.xyz/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -593,35 +600,42 @@
   
   <url>
     <loc>http://xiaomaweb.xyz/tags/PAT/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/tags/C/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/tags/algorithm/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/tags/hexo/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/tags/next/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiaomaweb.xyz/tags/DP/</loc>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -630,28 +644,28 @@
   
   <url>
     <loc>http://xiaomaweb.xyz/categories/PAT/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/categories/algorithm/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://xiaomaweb.xyz/categories/hexo%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2021-06-14</lastmod>
+    <lastmod>2021-07-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
