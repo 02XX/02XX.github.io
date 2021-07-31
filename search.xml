@@ -4012,14 +4012,9 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 <p>子问题重叠的定义：递归算法会反复地求解相同的子问题，而不是一直生成新的子问题。一般来讲，不同子问题的总数是输入规模的多项式函数为好。<strong>如果递归算法反复求解相同的子问题，我们就称最优化问题具有重叠子问题(overlapping subproblems)性质</strong></p>
 <h2 id="2求解动态规划的步骤"><a class="markdownIt-Anchor" href="#2求解动态规划的步骤"></a> 2.求解动态规划的步骤</h2>
 <ol>
-<li>
-<p>刻画一个最优解的结构特征</p>
-</li>
-<li>
-<p>递归地定义最优解的值</p>
-</li>
-<li>
-<p>计算最优解的值（通常采用自底向上的方法）</p>
+<li>刻画一个最优解的结构特征</li>
+<li>递归地定义最优解的值</li>
+<li>计算最优解的值（通常采用自底向上的方法）
 <ol>
 <li>状态定义（数组代表的含义）</li>
 <li>转移方程</li>
@@ -4027,9 +4022,7 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 <li>返回值</li>
 </ol>
 </li>
-<li>
-<p>利用计算出的信息构造一个最优解</p>
-</li>
+<li>利用计算出的信息构造一个最优解</li>
 </ol>
 ]]></content>
       <categories>
