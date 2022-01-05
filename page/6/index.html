@@ -203,6 +203,224 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/" class="post-title-link" itemprop="url">关于delete的执行过程和delete后应该做的事情</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
+              </span>
+
+          
+            <span id="/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/" class="post-meta-item leancloud_visitors" data-flag-title="关于delete的执行过程和delete后应该做的事情" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>270</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于new后delete的执行过程和delete后应该做的事情"><a class="markdownIt-Anchor" href="#关于new后delete的执行过程和delete后应该做的事情"></a> 关于new后delete的执行过程和delete后应该做的事情</h1>
+<h2 id="delete的机理"><a class="markdownIt-Anchor" href="#delete的机理"></a> delete的机理</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
+              </span>
+
+          
+            <span id="/2021/05/12/%E5%87%BD%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="函数" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/12/%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h2 id="title-你好世界date-2021-05-10-114640tagsc"><a class="markdownIt-Anchor" href="#title-你好世界date-2021-05-10-114640tagsc"></a> title: 你好世界<br>
+date: 2021-05-10 11:46:40<br>
+tags:C++</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,116 +614,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/12/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
-              </span>
-
-          
-            <span id="/2021/05/12/%E5%87%BD%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="函数" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/12/%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="title-你好世界date-2021-05-10-114640tagsc"><a class="markdownIt-Anchor" href="#title-你好世界date-2021-05-10-114640tagsc"></a> title: 你好世界<br>
-date: 2021-05-10 11:46:40<br>
-tags:C++</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/%E5%87%BD%E6%95%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -749,6 +857,114 @@ tags:C++</h2>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/12/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">using声明和using编译指令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
+              </span>
+
+          
+            <span id="/2021/05/12/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="using声明和using编译指令" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/12/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>549</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="using声明和using编译指令"><a class="markdownIt-Anchor" href="#using声明和using编译指令"></a> using声明和using编译指令</h1>
+<h2 id="using声明"><a class="markdownIt-Anchor" href="#using声明"></a> using声明</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/12/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/RTTI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -834,114 +1050,6 @@ tags:C++</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/12/RTTI/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/STL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/STL/" class="post-title-link" itemprop="url">STL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
-              </span>
-
-          
-            <span id="/2021/05/12/STL/" class="post-meta-item leancloud_visitors" data-flag-title="STL" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/12/STL/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/STL/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="stl"><a class="markdownIt-Anchor" href="#stl"></a> STL</h1>
-<h2 id="map"><a class="markdownIt-Anchor" href="#map"></a> map</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/STL/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1073,7 +1181,7 @@ tags:C++</h2>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/STL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -1087,7 +1195,7 @@ tags:C++</h2>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/12/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">Shell数值运算和运算符</a>
+            <a href="/2021/05/12/STL/" class="post-title-link" itemprop="url">STL</a>
         </h2>
 
         <div class="post-meta">
@@ -1108,7 +1216,7 @@ tags:C++</h2>
               </span>
 
           
-            <span id="/2021/05/12/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Shell数值运算和运算符" title="阅读次数">
+            <span id="/2021/05/12/STL/" class="post-meta-item leancloud_visitors" data-flag-title="STL" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1123,8 +1231,8 @@ tags:C++</h2>
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/05/12/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/05/12/STL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/STL/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1134,7 +1242,7 @@ tags:C++</h2>
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>344</span>
+              <span>6</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1153,213 +1261,11 @@ tags:C++</h2>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="shell数值运算和运算符"><a class="markdownIt-Anchor" href="#shell数值运算和运算符"></a> Shell数值运算和运算符</h1>
-<table>
-<thead>
-<tr>
-<th>算术运算符</th>
-<th>说明/含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+、-</td>
-<td>加法（或正号）、减法（或负号）</td>
-</tr>
-<tr>
-<td>*、/、%</td>
-<td>乘法、除法、取余（取模）</td>
-</tr>
-<tr>
-<td>**</td>
-<td>幂运算</td>
-</tr>
-<tr>
-<td>++、–</td>
-<td>自增和自减，可以放在变量的前面也可以放在变量的后面</td>
-</tr>
-<tr>
-<td>!、&amp;&amp;、||</td>
-<td>逻辑非（取反）、逻辑与（and）、逻辑或（or）</td>
-</tr>
-<tr>
-<td>&lt;、&lt;=、&gt;、&gt;=</td>
-<td>比较符号（小于、小于等于、大于、大于等于）</td>
-</tr>
-<tr>
-<td>==、!=、=</td>
-<td>比较符号（相等、不相等；对于字符串，= 也可以表示相当于）</td>
-</tr>
-<tr>
-<td>&lt;&lt;、&gt;&gt;</td>
-<td>向左移位、向右移位</td>
-</tr>
-<tr>
-<td>~、|、 &amp;、^</td>
-<td>按位取反、按位或、按位与、按位异或</td>
-</tr>
-<tr>
-<td>=、+=、-=、*=、/=、%=</td>
-<td>赋值运算符，例如 a+=1 相当于 a=a+1，a-=1 相当于 a=a-1</td>
-</tr>
-</tbody>
-</table>
+          <h1 id="stl"><a class="markdownIt-Anchor" href="#stl"></a> STL</h1>
+<h2 id="map"><a class="markdownIt-Anchor" href="#map"></a> map</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/12/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xiaomaweb.xyz/2021/05/12/string/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/12/string/" class="post-title-link" itemprop="url">string</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-12 22:29:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:29:23+08:00">2021-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 17:36:00" itemprop="dateModified" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
-              </span>
-
-          
-            <span id="/2021/05/12/string/" class="post-meta-item leancloud_visitors" data-flag-title="string" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/05/12/string/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/12/string/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="string"><a class="markdownIt-Anchor" href="#string"></a> string</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">构造函数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">string(const char *s)</td>
-<td style="text-align:left">将string 对象初始化为s 指向的NBTS</td>
-</tr>
-<tr>
-<td style="text-align:left">string (size_ type n , char c)</td>
-<td style="text-align:left">创建一个包含n个元素的string对象，其中每个元素都别初始化为字符c</td>
-</tr>
-<tr>
-<td style="text-align:left">string(const string &amp; str)</td>
-<td style="text-align:left">将一个string对象初始化为string对象str</td>
-</tr>
-<tr>
-<td style="text-align:left">string()</td>
-<td style="text-align:left">默认构造函数</td>
-</tr>
-<tr>
-<td style="text-align:left">string(const char* s,size_type n)</td>
-<td style="text-align:left">将string对象初始化为s指向的NBTS的前n个字符，即使超过了NBTS结尾</td>
-</tr>
-<tr>
-<td style="text-align:left">template<class iter> string(Iter begin, Iter end)</class></td>
-<td style="text-align:left">将string 对象初始化为区间[begin, end)内的字符， 其中begin 和end 的行为就像指 针， 用千指定位置， 范围包括begin 在内， 但不包括end</td>
-</tr>
-<tr>
-<td style="text-align:left">string(const string &amp; str, string size_type pos=0, size_type = npos)</td>
-<td style="text-align:left">将一个string对象初始化为对象str中从位置pos开始到结尾的字符，或从位置pos开始的n个字符</td>
-</tr>
-<tr>
-<td style="text-align:left">string(string &amp;&amp; str) noexcept</td>
-<td style="text-align:left">这是C++11 新增的， 它将一个string 对象初始化为string 对象str, 并可能修改str（移动构造函数）</td>
-</tr>
-<tr>
-<td style="text-align:left">string(initializer_list<char> il)</char></td>
-<td style="text-align:left">这是C++11 新增的， 它将一个string 对象初始化为初始化列表il 中的字符</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/12/string/#more" rel="contents">
+              <a class="btn" href="/2021/05/12/STL/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1450,20 +1356,20 @@ tags:C++</h2>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1502,7 +1408,7 @@ tags:C++</h2>
 <div class="copyright">
   
   &copy; 2021.5.11 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1511,12 +1417,12 @@ tags:C++</h2>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">120k</span>
+    <span title="站点总字数">121k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:49</span>
+    <span title="站点阅读时长">1:50</span>
 </div>
 
         
