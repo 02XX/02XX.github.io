@@ -471,7 +471,7 @@ tags: C++
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd gcc</span><br><span class="line">./contrib/download_prerequisites</span><br></pre></td></tr></table></figure>
 <p>这一步会自动下载所需的依赖包，结束之后可能会报错。这时返回gcc的根目录看是否有<code>gmp isl mpc mpfr</code>这几个压缩包，若有则不必理会报错，若无则需要手动下载。</p>
 <h2 id="3-configure"><a class="markdownIt-Anchor" href="#3-configure"></a> 3 configure</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">../configure configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc12 --enable-checking=release --enable-languages=c,c++ --disable-multilib </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">../configure configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc12 --enable-checking=release --enable-languages=c,c++ --disable-multilib </span><br></pre></td></tr></table></figure>
 <h2 id="4-make-and-install"><a class="markdownIt-Anchor" href="#4-make-and-install"></a> 4 make and install</h2>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">make -j16 //make 开启漫长的等待</span><br><span class="line">make install //insatll</span><br></pre></td></tr></table></figure>
 <h2 id="5-使用新的gcc"><a class="markdownIt-Anchor" href="#5-使用新的gcc"></a> 5 使用新的gcc</h2>
