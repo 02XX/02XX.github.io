@@ -1367,37 +1367,6 @@ istringstream instr(facts);  // use facts to initialize stream</p>
 ]]></content>
   </entry>
   <entry>
-    <title>Live Longly</title>
-    <url>/2021/09/26/Live-Longly/</url>
-    <content><![CDATA[<span id="more"></span>
-<h1 id="生活不易向往孤独"><a class="markdownIt-Anchor" href="#生活不易向往孤独"></a> 生活不易，向往孤独</h1>
-<p>好想好想一个人生活，在大山里、森林里。与树木为友，与日月为伴、与花草虫鱼倾诉、与山川河流嬉戏。</p>
-<p>不用面对现实的世俗，不用承受人心的险恶。</p>
-<h2 id="黑子"><a class="markdownIt-Anchor" href="#黑子"></a> 黑子</h2>
-<p>我会把黑子带在身边，带着它漫步在森林里。清晨，阳光透过树叶散射在地面，抬头便可看见一道道光束，露水顺着树叶滴落，空气中弥漫着令人愉悦的气味。深呼吸，感受清凉的气体顺着鼻孔到达脑袋再到达肺部，仿佛世界都明朗了，阴郁的情绪瞬间消散，我与天地融为一体，仿佛能够感受到万物的情绪。</p>
-<p>黑子欢快的奔跑，这是它第一次在开阔的土地上奔跑，它已经被关了很久。以前我不敢将它撒开，因为害怕被人偷走，现在不管它跑到哪里我也无需担心。</p>
-<h2 id="阳光"><a class="markdownIt-Anchor" href="#阳光"></a> 阳光</h2>
-<p>太阳逐渐升高，森林已经褪去了清晨的稚气。我和黑子来到了一处高地，这里视野开阔，也是林中木屋的所在之地。高地下面有一条小溪，水流不是很急，一眼望去能够看到湖底。溪面映射着阳光，我捧着一汪清水饮下，凉爽再次弥漫全身，大脑变得犀利清明。</p>
-<p>黑子跑下高低跳入小溪，在水中翻腾嬉戏。黑子逆流而上，看准时机捉到了一只鱼，就把这条鱼当作它的午餐吧。</p>
-<h2 id="黄昏"><a class="markdownIt-Anchor" href="#黄昏"></a> 黄昏</h2>
-<p>太阳快要落山了，眺望远方看到天空被染成红色。“落霞与孤鹜齐飞，秋水共长天一色”，此时此刻恰如彼时彼刻。我拖着一只幼鹿，这是我和黑子今天的晚餐。生活在原始森林必须学会打猎，而我的弓术也愈发熟练。</p>
-<h2 id="傍晚"><a class="markdownIt-Anchor" href="#傍晚"></a> 傍晚</h2>
-<p>生起一堆篝火，望着熊熊的火焰，脑海不禁浮现起在城市的生活。现在他们应该很热闹吧，可惜我并不适应喧嚣。</p>
-<p>我用一把长刀清理了今天的小鹿，架起支架，用木棍穿上小鹿肉。鹿肉被火焰烤的滋滋流油，黑子在一旁流着口水，虽然没有调料但味道却很不错，分给黑子一条鹿腿，黑子不顾被烫马上开吃了。</p>
-<p>吃饱喝足，躺在搭好的吊床上。眼前没有树木遮挡，可以看的很远，看到漫天星空，看到银河。数着星星，耳边伴随着虫鸣，我进入了梦乡。</p>
-<h2 id="梦"><a class="markdownIt-Anchor" href="#梦"></a> 梦</h2>
-<p>我梦到了我在城市里，今天早早起来去教学楼上课，放学后去食堂吃饭，去图书馆学习，回寝室睡觉。虽然在森林里生活了好久，但一幕幕仿佛就在昨天刚刚发生。即使周围有人群但一个个人却又似乎毫无联系，看似热闹实则孤独。</p>
-<p>到处充满了形式和虚伪，与人打交道太累。</p>
-<p>只希望赶快梦醒，离开这虚伪的梦境，等待清晨的一缕阳光洒在脸上将我唤醒。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bindlst</title>
     <url>/2021/05/12/bindlst/</url>
     <content><![CDATA[<h1 id="bind1st和binder2nd"><a class="markdownIt-Anchor" href="#bind1st和binder2nd"></a> <code>bind1st</code>和<code>binder2nd</code></h1>
@@ -4105,6 +4074,17 @@ Time shiva;
       <tags>
         <tag>hexo</tag>
         <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows使用GCC12</title>
+    <url>/2022/01/11/windows%E4%BD%BF%E7%94%A8GCC12/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>-GCC</category>
+      </categories>
+      <tags>
+        <tag>GCC</tag>
       </tags>
   </entry>
 </search>
