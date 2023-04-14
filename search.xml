@@ -5305,9 +5305,9 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
   <entry>
     <title>machine learning</title>
     <url>/2023/04/14/machine-learning/</url>
-    <content><![CDATA[<span id="more"></span>
-<h2 id="whats-macine-learning"><a class="markdownIt-Anchor" href="#whats-macine-learning"></a> What’s macine learning?</h2>
+    <content><![CDATA[<h2 id="whats-macine-learning"><a class="markdownIt-Anchor" href="#whats-macine-learning"></a> What’s macine learning?</h2>
 <p>Field of study that qives computers the ability to learn without being explicitly programmed. Arthur Samuel (1959)</p>
+<span id="more"></span>
 <h2 id="machine-learning-algorithms"><a class="markdownIt-Anchor" href="#machine-learning-algorithms"></a> machine learning algorithms</h2>
 <ul>
 <li>supervised learning</li>
