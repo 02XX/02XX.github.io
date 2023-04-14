@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/02.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/02.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="DBU0v7-2Sg84ilgMInOJ3DBLAvVKz_CRT2TSCNoaxcA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"02xx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="列举一些C++面试可能问到的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++面试问题">
+<meta property="og:url" content="http://02xx.github.io/2023/03/22/c-%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="小马のblog">
+<meta property="og:description" content="列举一些C++面试可能问到的问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-22T04:06:58.000Z">
+<meta property="article:modified_time" content="2023-04-03T16:49:17.359Z">
+<meta property="article:author" content="02">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://02xx.github.io/2023/03/22/c-%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>c++面试问题 | 小马のblog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16ba83018302e73fb3820eacba1e8d72";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小马のblog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">小马的个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/03/22/c-%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          c++面试问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-22 12:06:58" itemprop="dateCreated datePublished" datetime="2023-03-22T12:06:58+08:00">2023-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-04 00:49:17" itemprop="dateModified" datetime="2023-04-04T00:49:17+08:00">2023-04-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/03/22/c-%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="c++面试问题" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>列举一些C++面试可能问到的问题</p>
+<span id="more"></span>
+<p>2023/3/21 20:48:40</p>
+<p>面向过程和面向对象的区别</p>
+<p>2023/3/21 20:48:54</p>
+<p>面向过程是一种编程方法论，它将程序分解为一个个的步骤或者函数，并通过控制这些步骤或函数的顺序和参数来达到程序的目的。而面向对象则是一种更高层次的抽象，通过将数据和相应的操作封装在一起，形成一个对象，从而实现对程序进行建模和设计。面向对象的主要特征包括继承、封装和多态性，能够提高程序的可重用性和可扩展性，同时也能够简化程序的复杂度。总之，面向过程强调流程控制，而面向对象强调数据抽象和封装。</p>
+<p>2023/3/21 20:50:07</p>
+<p>c和c++区别</p>
+<p>2023/3/21 20:50:31</p>
+<p>C和C++是两种不同的编程语言，它们之间的主要区别包括：</p>
+<ol>
+<li>
+<p>C++是C语言的扩展，与C语言相比具有更多的功能和特性，如类、继承、多态、命名空间等。</p>
+</li>
+<li>
+<p>C++支持面向对象编程（OOP）和泛型编程，而C语言只支持过程式编程。</p>
+</li>
+<li>
+<p>C++在语法上比C语言更加复杂，需要更高的学习门槛。</p>
+</li>
+<li>
+<p>C++中的一些关键字和语法与C语言不同，例如引用、模板和命名空间等。</p>
+</li>
+<li>
+<p>C++支持函数重载和运算符重载，这可以方便地实现多态性，而C语言不支持这些特性。</p>
+</li>
+<li>
+<p>由于C<ins>中的许多特性需要额外的程序库和工具支持，因此C</ins>程序通常比C程序更大。</p>
+</li>
+</ol>
+<p>总之，C<ins>在C语言的基础上增加了更多的特性和功能，尤其是面向对象编程方面。但是，由于C</ins>的复杂性和体量较大，相比之下，C语言更加简单易学且适用范围更广泛。</p>
+<p>2023/3/21 20:51:51</p>
+<p>类型和结构的区别</p>
+<p>2023/3/21 20:52:07</p>
+<p>类型（Type）和结构（Structure）是两个不同的概念。</p>
+<p>类型指的是变量或表达式的数据类型，包括整型、浮点型、字符型等。类型定义了变量或表达式所能存储的数据种类和范围，同时也决定了这些数据的操作方式和内存分配情况。</p>
+<p>结构指的是将多个不同类型的数据组合在一起形成的一个复合数据类型，也就是所谓的“结构体”。结构体可以包含任意数量的不同类型的数据成员，并且可以根据需要自由地组织和使用这些成员，以便更好地描述和处理复杂的数据关系。</p>
+<p>总之，类型是用来描述数据元素本身的性质，而结构则是用来描述多个数据元素之间的关系和组织方式。</p>
+<p>2023/3/21 20:54:28</p>
+<p>c++存储的五个区</p>
+<p>2023/3/21 20:54:50</p>
+<p>C++ 程序在运行时使用的内存被分成以下五个区：</p>
+<ol>
+<li>
+<p>代码区（Code Segment）：存放程序的指令代码，通常是只读的，不允许写入或修改。</p>
+</li>
+<li>
+<p>全局数据区（Global Data Segment）：存放全局变量和静态变量，这些变量在程序启动时就已经分配好了空间，并一直存在于整个程序的生命周期中。</p>
+</li>
+<li>
+<p>堆区（Heap）：由程序员手动管理，用于动态分配和释放内存。通过new和delete等操作来进行内存的分配和释放。</p>
+</li>
+<li>
+<p>栈区（Stack）：用于存放函数调用时需要的临时变量、参数和返回地址等信息，由系统自动管理，不需要手动分配和释放。</p>
+</li>
+<li>
+<p>常量区（Constant Segment）：存放常量数据，如字符串常量等，通常也是只读的，不允许修改。</p>
+</li>
+</ol>
+<p>这些区域的大小和位置取决于编译器和操作系统的具体实现方式。</p>
+<p>2023/3/21 20:56:13</p>
+<p>c++ static的作用</p>
+<p>2023/3/21 20:56:34</p>
+<p>C++ 中 static 关键字有多种用法，常见的包括：</p>
+<ol>
+<li>
+<p>静态变量：在函数内部使用 static 关键字声明的变量称为静态变量，它与普通变量的区别在于静态变量只会被初始化一次，在函数调用结束后也不会被销毁，而是一直存在于整个程序的生命周期中。</p>
+</li>
+<li>
+<p>静态成员变量：在类中使用 static 关键字声明的成员变量称为静态成员变量，它属于整个类而不是某个对象，可以被所有同一类的对象所共享。</p>
+</li>
+<li>
+<p>静态成员函数：在类中使用 static 关键字声明的成员函数称为静态成员函数，它与普通成员函数的区别在于静态成员函数可以通过类名直接调用，而无需创建对象实例。同时，静态成员函数不能访问非静态成员变量和成员函数，只能访问静态成员变量和成员函数以及全局变量和函数。</p>
+</li>
+</ol>
+<p>总之，static 关键字的作用主要是控制变量、函数或成员的生命周期、作用域和访问方式，使得程序更加灵活和高效。</p>
+<p>2023/3/21 20:57:47</p>
+<p>c++ extern作用</p>
+<p>2023/3/21 20:58:07</p>
+<p>C++ 中 extern 关键字主要用于指示函数或变量的声明或定义在其他文件中，以便在当前文件中进行使用。具体来说，extern 有以下两种用法：</p>
+<ol>
+<li>
+<p>声明全局变量或函数：在某个源文件中使用 extern 关键字声明一个全局变量或函数，表示该变量或函数实际上是在另外一个源文件中定义的，编译器会在链接时将其与定义进行匹配。</p>
+</li>
+<li>
+<p>引用外部全局变量或函数：在某个源文件中使用 extern 关键字引用另一个源文件中定义的全局变量或函数，以便在编译时能够正确地解析依赖关系并生成目标代码。</p>
+</li>
+</ol>
+<p>总之，extern 关键字主要用于在不同源文件之间共享变量和函数，并且需要在其中一个文件中进行声明或定义（通常是定义），以便编译器和链接器能够正确地处理依赖关系。</p>
+<p>2023/3/21 21:03:04</p>
+<p>什么是类什么是对象</p>
+<p>2023/3/21 21:03:28</p>
+<p>在面向对象编程中，类（Class）和对象（Object）是两个基本的概念。</p>
+<p>类指的是一种数据类型，用于描述具有相同属性和行为的对象集合。类定义了一组公共的特性、方法和操作，可以被多个对象所共享和复用，从而实现对现实世界中某种事物或概念的抽象和建模。</p>
+<p>对象则是类的一个实例，它具有类定义的所有属性和行为，并且可以进行各种操作和交互。每个对象都是独立的，有自己的状态和行为，与其他对象之间相互独立。</p>
+<p>例如，人类可以看作是一个类，每个具体的人则是该类的一个对象。人类具有共同的属性和行为，如姓名、年龄、性别、说话、走路等，而不同的人具有不同的属性和行为。因此，我们可以通过定义一个人类的类来描述人类的共同点和特征，并创建不同的人类对象来表示不同的人。</p>
+<p>总之，类是一种模板或蓝图，用于定义一组共同的属性、行为和操作，而对象则是类的实例，具有这些属性、行为和操作的具体实现和表现。</p>
+<p>2023/3/21 21:05:01</p>
+<p>构造函数和析构函数的作用</p>
+<p>2023/3/21 21:05:39</p>
+<p>构造函数和析构函数是 C++ 中用于初始化和清理对象的两种特殊函数。</p>
+<p>构造函数（Constructor）是一种特殊的成员函数，用于在创建对象时对其进行初始化。构造函数的名称必须与类名相同，没有返回值类型，可以带有参数，也可以重载多个构造函数。当对象被创建时，程序会自动调用该对象的构造函数来初始化它的各个属性和状态。</p>
+<p>析构函数（Destructor）是一种特殊的成员函数，用于在对象被销毁时进行清理操作。析构函数的名称必须是类名前加上“~”，没有返回值类型，不带参数，也不能重载。当对象被销毁时，程序会自动调用该对象的析构函数来释放它所占用的内存资源、关闭文件、释放锁等。</p>
+<p>构造函数和析构函数的作用如下：</p>
+<ol>
+<li>
+<p>构造函数用于在对象创建时对其进行初始化，确保对象的属性和状态正确地设置，避免出现未定义或未知的行为。</p>
+</li>
+<li>
+<p>析构函数用于在对象销毁时进行清理工作，释放对象占用的内存资源和系统资源，避免出现内存泄漏和资源浪费。</p>
+</li>
+<li>
+<p>构造函数和析构函数都是自动调用的，无需手动调用，从而保证了代码的简洁性和可靠性。</p>
+</li>
+</ol>
+<p>总之，构造函数和析构函数是 C++ 中非常重要的概念，用于确保对象的正确性、可靠性和安全性。</p>
+<p>2023/3/21 22:50:26</p>
+<p>什么是封装、继承、多态</p>
+<p>2023/3/21 22:51:09</p>
+<p>封装、继承和多态是面向对象编程的三个基本概念，分别表示了不同的抽象和实现层次。</p>
+<ol>
+<li>
+<p>封装（Encapsulation）：封装是将数据和操作（或方法）组合在一起形成一个独立、完整的单位，并限制外部对其直接访问和修改。通过封装，可以有效地保护数据的安全性和完整性，避免数据被误用或破坏。同时，封装也使得代码更加模块化，易于维护和复用。</p>
+</li>
+<li>
+<p>继承（Inheritance）：继承是一种从已有类派生出新类的机制，新类会自动获得已有类的全部属性和方法，并可以在此基础上进行修改和扩展。通过继承，可以实现代码的重用和扩展，降低系统的复杂度和开发成本。同时，继承也使得代码更加易于理解和维护，因为它能够体现出类之间的关系和层次结构。</p>
+</li>
+<li>
+<p>多态（Polymorphism）：多态是指同一操作作用于不同的对象上，会产生不同的结果。多态包括静态多态和动态多态两种形式，其中静态多态是指函数重载和运算符重载等编译期决定的多态，而动态多态是指虚函数和动态绑定等运行期决定的多态。通过多态，可以实现代码的灵活性和扩展性，充分发挥代码的潜力和适应性。</p>
+</li>
+</ol>
+<p>总之，封装、继承和多态是面向对象编程中最基本、最重要、最核心的三个概念，它们共同构成了面向对象编程的思想和特点，能够大大提高代码的可读性、可维护性和可扩展性。</p>
+<p>2023/3/21 22:53:28</p>
+<p>什么是友元</p>
+<p>2023/3/21 22:54:04</p>
+<p>C++ 中，友元（Friend）是一种特殊的机制，用于允许某个类或函数访问另一个类的私有成员或保护成员。具体来说，友元是通过在类或函数之间建立非继承关系的访问权限，使得它们能够互相访问对方的私有成员或保护成员。</p>
+<p>需要注意的是，友元并不是继承或派生关系，而是一种临时的访问授权机制，从而可以在一定程度上打破访问权限的限制，提供更加灵活和实用的编程方式。同时，使用友元应该慎重，因为它会引入额外的耦合性和风险，并可能破坏封装性和安全性。</p>
+<p>友元可以是以下三种类型：</p>
+<ol>
+<li>
+<p>友元函数：在类中声明函数时，可以在前面添加 friend 关键字，将该函数声明为类的友元函数，从而允许它访问类的私有成员和保护成员。</p>
+</li>
+<li>
+<p>友元类：在类中声明另一个类时，可以在前面添加 friend 关键字，将该类声明为当前类的友元类，从而允许它访问当前类的私有成员和保护成员。</p>
+</li>
+<li>
+<p>友元成员函数：在类中定义成员函数时，可以在函数定义前面添加 friend 关键字，将该成员函数声明为其他类或函数的友元成员函数，从而允许它访问这些类或函数的私有成员和保护成员。</p>
+</li>
+</ol>
+<p>总之，友元是一种特殊的权限机制，用于允许某些类或函数访问另一些类的私有成员或保护成员，从而提高了程序的灵活性和可用性。但是，在使用友元时需要注意平衡代码的封装性和安全性，并避免滥用和误用。</p>
+<p>2023/3/21 22:54:14</p>
+<p>为什么不直接将友元声明为成员函数</p>
+<p>2023/3/21 22:54:45</p>
+<p>虽然在 C++ 中可以将友元函数或类用于访问另一个类的私有成员或保护成员，但为什么不直接将它们声明为该类的成员函数呢？这是因为友元与成员函数之间存在以下两点区别：</p>
+<ol>
+<li>
+<p>作用域不同：友元函数或类不属于目标类的作用域，而是在外部声明和定义的，因此它们能够访问目标类的私有成员或保护成员，但不能直接使用目标类的成员函数和成员变量。相反，成员函数属于目标类本身的作用域，可以直接访问该类的私有成员、保护成员和公共成员。</p>
+</li>
+<li>
+<p>关系不同：友元并不是继承或派生关系，而是一种临时的授权机制。其作用是允许某个函数或类访问另一个类的私有成员或保护成员，从而提高了代码的灵活性和可用性。相反，成员函数是目标类所拥有的方法，它们被设计为操作该类的成员变量和状态，具有更稳定和持久的关系。</p>
+</li>
+</ol>
+<p>因此，友元通过临时的权限机制实现了对类成员的访问，而成员函数则是类自身的方法，具有更稳定和持久的关系。由于它们的特性和作用不同，我们需要根据实际情况选择合适的方式来访问类的私有成员或保护成员，从而避免滥用和误用。</p>
+<p>2023/3/21 23:00:28</p>
+<p>ADT是什么</p>
+<p>2023/3/21 23:00:59</p>
+<p>ADT 的全称是抽象数据类型（Abstract Data Type）。它是一种数学模型，定义了一组数据和对这些数据进行操作的一系列运算，而不涉及具体的实现细节。ADT 是独立于编程语言和具体实现的，可以被看作是一种高层次的抽象概念。</p>
+<p>在计算机科学中，ADT 是一种非常重要的概念，它提供了一种通用的方法来描述和设计数据结构，可以使得程序更加模块化、可维护和可扩展。通过 ADT，我们可以将数据和操作分离，从而降低代码的耦合性和复杂度，提高代码的可读性和可靠性。</p>
+<p>常见的 ADT 包括栈、队列、链表、二叉树、图等。这些 ADT 同时也是数据结构的基本概念，在实现具体的算法和程序时，需要根据具体需求选择合适的 ADT，并采用相应的实现方式。</p>
+<p>总之，ADT 是一种高层次的抽象概念，用于描述和设计数据结构的数据和操作，提高了程序的模块化、可维护性和可扩展性，是计算机科学中非常重要的概念之一。</p>
+<p>2023/3/21 23:17:24</p>
+<p>c++中explicit是什么</p>
+<p>2023/3/21 23:17:55</p>
+<p>在 C++ 中，explicit 是一个关键字，用于声明构造函数或转换函数为显式构造函数或显式转换函数。</p>
+<p>当一个构造函数被声明为 explicit 时，在调用该构造函数时必须使用直接初始化的方式，即使用括号将参数括起来，否则编译器将会报错。这样可以避免隐式类型转换和意外的行为发生。</p>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">Test</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Test obj = <span class="number">10</span>; <span class="comment">// 错误，不能调用Test(10)隐式转换成Test对象</span></span><br><span class="line">  <span class="function">Test <span class="title">obj2</span><span class="params">(<span class="number">10</span>)</span></span>; <span class="comment">// 正确，使用直接初始化调用构造函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样地，当一个转换函数被声明为 explicit 时，它不再能够进行隐式类型转换，只能通过显式类型转换来进行调用。</p>
+<p>例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">explicit</span> <span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Test obj;</span><br><span class="line">  <span class="type">int</span> x = obj; <span class="comment">// 错误，不能将obj隐式转换成int类型</span></span><br><span class="line">  <span class="type">int</span> y = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(obj); <span class="comment">// 正确，使用显式类型转换调用转换函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过使用 explicit 关键字，我们能够更加明确地声明构造函数或转换函数的语义，避免隐式类型转换和可能出现的错误和问题。</p>
+<p>2023/3/22 11:59:20</p>
+<p>c++内存泄漏的情况</p>
+<p>2023/3/22 11:59:54</p>
+<p>在 C++ 中，内存泄漏（Memory Leak）指的是程序在运行过程中分配的内存空间没有被正确地释放，从而导致系统中出现了一些不可用的内存块。这些内存块会逐渐积累，最终可能导致整个系统崩溃或运行缓慢等问题。</p>
+<p>C++ 中内存泄漏的情况包括以下几种：</p>
+<ol>
+<li>没有使用 delete 关键字释放 new 动态分配的内存。当使用 new 运算符为对象分配内存时，应当在不需要该对象时使用 delete 运算符手动释放内存。如果没有释放该内存，则可能会导致内存泄漏。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line"><span class="comment">// do something with ptr</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">delete</span> ptr; <span class="comment">// 释放内存</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在构造函数或析构函数中发生异常而未能释放资源。在 C++ 中，当对象抛出异常时，程序会自动调用析构函数来清理内存和资源。如果在析构函数中发生异常，则可能导致部分资源无法被正确地释放，从而引发内存泄漏。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">Test</span>() &#123;</span><br><span class="line">    ptr = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line">    <span class="comment">// 可能发生异常</span></span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  ~<span class="built_in">Test</span>() &#123;</span><br><span class="line">    <span class="comment">// 发生异常时未释放内存</span></span><br><span class="line">    <span class="keyword">delete</span> ptr;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="type">int</span>* ptr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>指针使用错误导致内存泄漏。在 C++ 中，使用指针时必须小心谨慎，避免出现指针悬挂、指针越界、重复释放等问题，否则可能导致内存泄漏。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">10</span>];</span><br><span class="line">ptr++; <span class="comment">// 导致原始指针丢失，无法释放</span></span><br><span class="line"><span class="keyword">delete</span>[] ptr;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>* ptr2 = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line"><span class="keyword">delete</span>[] ptr2; <span class="comment">// 错误，使用 delete[] 释放单个对象会导致未定义行为</span></span><br></pre></td></tr></table></figure>
+<p>总之，内存泄漏是 C++ 程序中常见的问题之一，需要小心处理以确保程序的稳定性和安全性。遵循内存管理的良好实践，例如使用智能指针、RAII 等技术，可以有效地预防和修复内存泄漏问题。</p>
+<p>2023/3/22 12:10:19</p>
+<p>c++源程序执行过程中，有哪些步骤</p>
+<p>2023/3/22 12:10:30</p>
+<p>通常情况下，C++源程序的执行过程可以概括为以下几个步骤：</p>
+<ol>
+<li>预处理：对源代码进行宏展开、头文件包含等预处理操作，生成预处理后的代码。</li>
+<li>编译：将预处理后的代码翻译成汇编语言或机器语言的目标文件。</li>
+<li>链接：将编译生成的目标文件与库文件进行链接，生成可执行文件。</li>
+<li>加载：将可执行文件加载到内存中，操作系统为其分配运行所需的资源。</li>
+<li>执行：CPU按照指令集执行加载到内存中的可执行文件，完成程序的执行。</li>
+</ol>
+<p>需要注意的是，这是一个简化的执行过程，实际上还有很多细节和特殊情况需要考虑，例如优化、调试等。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢你的阔乐</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat-pay.png" alt="02 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali-pay.png" alt="02 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://02xx.github.io/2023/03/22/c-%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/" title="c++面试问题">http://02xx.github.io/2023/03/22/c-面试问题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+        
+      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/" rel="prev" title="数据库设计">
+      <i class="fa fa-chevron-left"></i> 数据库设计
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/03/29/html5%E6%A0%87%E7%AD%BE/" rel="next" title="html5标签">
+      html5标签 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="02"
+      src="/images/02.jpg">
+  <p class="site-author-name" itemprop="name">02</p>
+  <div class="site-description" itemprop="description">记录一切</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/02XX" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;02XX" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1101533765@qq.com" title="E-Mail → mailto:1101533765@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://02xx.github.io/" title="首页 → https:&#x2F;&#x2F;02xx.github.io&#x2F;"><i class="fa fa-user fa-fw"></i>首页</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/32869824" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;32869824" rel="noopener" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021.5.11 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">02</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">142k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:09</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '7VQh5nB9f1Mj4WkUDz52bNqd-MdYXbMMI',
+      appKey     : '4KFubW0i5tnaz2YnBw642bG8',
+      placeholder: "啊ヾ(≧▽≦*)o快活呀！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

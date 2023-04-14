@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/02.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/02.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="DBU0v7-2Sg84ilgMInOJ3DBLAvVKz_CRT2TSCNoaxcA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"02xx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="assistant qt助手，手册">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt工具链">
+<meta property="og:url" content="http://02xx.github.io/2023/04/04/QT/index.html">
+<meta property="og:site_name" content="小马のblog">
+<meta property="og:description" content="assistant qt助手，手册">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-03T16:49:29.953Z">
+<meta property="article:modified_time" content="2023-04-03T16:49:16.392Z">
+<meta property="article:author" content="02">
+<meta property="article:tag" content="Qt">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://02xx.github.io/2023/04/04/QT/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Qt工具链 | 小马のblog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16ba83018302e73fb3820eacba1e8d72";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小马のblog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">小马的个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/QT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Qt工具链
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-04 00:49:16" itemprop="dateModified" datetime="2023-04-04T00:49:16+08:00">2023-04-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/04/04/QT/" class="post-meta-item leancloud_visitors" data-flag-title="Qt工具链" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>379</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="assistant"><a class="markdownIt-Anchor" href="#assistant"></a> assistant</h4>
+<p>qt助手，手册</p>
+<h4 id="qmake"><a class="markdownIt-Anchor" href="#qmake"></a> qmake</h4>
+<p>qt构建</p>
+<h4 id="designer"><a class="markdownIt-Anchor" href="#designer"></a> designer</h4>
+<p>设计</p>
+<h4 id="uic"><a class="markdownIt-Anchor" href="#uic"></a> uic</h4>
+<p>ui文件转化</p>
+<h4 id="rcc"><a class="markdownIt-Anchor" href="#rcc"></a> rcc</h4>
+<p>qt资源编译器</p>
+<h4 id="moc"><a class="markdownIt-Anchor" href="#moc"></a> moc</h4>
+<p>qt元对象编译器</p>
+<h4 id="qtcreater"><a class="markdownIt-Anchor" href="#qtcreater"></a> qtcreater</h4>
+<h1 id="2qt程序编译流程"><a class="markdownIt-Anchor" href="#2qt程序编译流程"></a> 2QT程序编译流程</h1>
+<h2 id="21构建工程"><a class="markdownIt-Anchor" href="#21构建工程"></a> 2.1构建工程</h2>
+<p><code>qmake -project</code> 需要在工程文件<code>.pro</code>中添加构建选项<code>QT += ...</code></p>
+<h2 id="22创建makefile"><a class="markdownIt-Anchor" href="#22创建makefile"></a> 2.2创建Makefile</h2>
+<p><code>qmake</code></p>
+<h2 id="23编译链接"><a class="markdownIt-Anchor" href="#23编译链接"></a> 2.3编译链接</h2>
+<p><code>make</code></p>
+<h2 id="24完成"><a class="markdownIt-Anchor" href="#24完成"></a> 2.4完成</h2>
+<h1 id="3父窗口"><a class="markdownIt-Anchor" href="#3父窗口"></a> 3父窗口</h1>
+<h2 id="31父窗口类"><a class="markdownIt-Anchor" href="#31父窗口类"></a> 3.1父窗口类</h2>
+<p>QWidget,QMainWindow,QDialog</p>
+<p>如果子窗口的创建是通过<code>new</code>来创建的且指定了父窗口，则不用显示执行<code>delete</code>父窗口的析构函数会自动执行，只要保证父窗口被正常销毁就不会发生内存泄漏</p>
+<h1 id="4信号和槽"><a class="markdownIt-Anchor" href="#4信号和槽"></a> 4信号和槽</h1>
+<h2 id="41使用"><a class="markdownIt-Anchor" href="#41使用"></a> 4.1使用</h2>
+<p>使用QObject的静态成员函数connect函数</p>
+<h2 id="42注意"><a class="markdownIt-Anchor" href="#42注意"></a> 4.2注意</h2>
+<p>信号和槽的参数要一致，或槽的参数缺省，或信号的参数多于槽也可以</p>
+<ul>
+<li>一个信号可以多个槽</li>
+<li>多个信号可以一个槽</li>
+<li>两个信号可以直接链接（信号级联）</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢你的阔乐</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat-pay.png" alt="02 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali-pay.png" alt="02 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://02xx.github.io/2023/04/04/QT/" title="Qt工具链">http://02xx.github.io/2023/04/04/QT/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+        
+      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Qt/" rel="tag"># Qt</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/04/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/" rel="prev" title="Linux服务管理">
+      <i class="fa fa-chevron-left"></i> Linux服务管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/04/04/return/" rel="next" title="return">
+      return <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#assistant"><span class="nav-number">1.</span> <span class="nav-text"> assistant</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qmake"><span class="nav-number">2.</span> <span class="nav-text"> qmake</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#designer"><span class="nav-number">3.</span> <span class="nav-text"> designer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uic"><span class="nav-number">4.</span> <span class="nav-text"> uic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rcc"><span class="nav-number">5.</span> <span class="nav-text"> rcc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moc"><span class="nav-number">6.</span> <span class="nav-text"> moc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qtcreater"><span class="nav-number">7.</span> <span class="nav-text"> qtcreater</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2qt%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text"> 2QT程序编译流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21%E6%9E%84%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text"> 2.1构建工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22%E5%88%9B%E5%BB%BAmakefile"><span class="nav-number"></span> <span class="nav-text"> 2.2创建Makefile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5"><span class="nav-number"></span> <span class="nav-text"> 2.3编译链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24%E5%AE%8C%E6%88%90"><span class="nav-number"></span> <span class="nav-text"> 2.4完成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E7%88%B6%E7%AA%97%E5%8F%A3"><span class="nav-number"></span> <span class="nav-text"> 3父窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31%E7%88%B6%E7%AA%97%E5%8F%A3%E7%B1%BB"><span class="nav-number"></span> <span class="nav-text"> 3.1父窗口类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD"><span class="nav-number"></span> <span class="nav-text"> 4信号和槽</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41%E4%BD%BF%E7%94%A8"><span class="nav-number"></span> <span class="nav-text"> 4.1使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42%E6%B3%A8%E6%84%8F"><span class="nav-number"></span> <span class="nav-text"> 4.2注意</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="02"
+      src="/images/02.jpg">
+  <p class="site-author-name" itemprop="name">02</p>
+  <div class="site-description" itemprop="description">记录一切</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/02XX" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;02XX" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1101533765@qq.com" title="E-Mail → mailto:1101533765@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://02xx.github.io/" title="首页 → https:&#x2F;&#x2F;02xx.github.io&#x2F;"><i class="fa fa-user fa-fw"></i>首页</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/32869824" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;32869824" rel="noopener" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021.5.11 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">02</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">142k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:09</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '7VQh5nB9f1Mj4WkUDz52bNqd-MdYXbMMI',
+      appKey     : '4KFubW0i5tnaz2YnBw642bG8',
+      placeholder: "啊ヾ(≧▽≦*)o快活呀！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

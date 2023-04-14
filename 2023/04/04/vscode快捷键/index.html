@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/02.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/02.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="DBU0v7-2Sg84ilgMInOJ3DBLAvVKz_CRT2TSCNoaxcA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"02xx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="vscode快捷键 所有快捷键设置：文件→首选项→键盘快捷方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode快捷键">
+<meta property="og:url" content="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/index.html">
+<meta property="og:site_name" content="小马のblog">
+<meta property="og:description" content="vscode快捷键 所有快捷键设置：文件→首选项→键盘快捷方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-03T16:49:29.963Z">
+<meta property="article:modified_time" content="2021-06-15T14:24:43.000Z">
+<meta property="article:author" content="02">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>vscode快捷键 | 小马のblog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16ba83018302e73fb3820eacba1e8d72";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小马のblog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">小马的个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vscode快捷键
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
+              </span>
+
+          
+            <span id="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="vscode快捷键" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="vscode快捷键"><a class="markdownIt-Anchor" href="#vscode快捷键"></a> vscode快捷键</h1>
+<p>所有快捷键设置：文件→首选项→键盘快捷方式</p>
+<ol>
+<li>在当前行中间换行到下一行：ctrl+enter</li>
+<li>当光标点击到某一行时，默认选中全行，可以直接复制剪切</li>
+<li>直接删除某一行：shift+delete或者ctrl+shift+k</li>
+<li>多行光标选择：alt+鼠标左键</li>
+<li>自动生成html结构和meta声明：首先输入“!”，然后按tab键</li>
+<li>标签自动补全：tab键</li>
+<li>折叠所有代码：ctrl+k、ctrl+0</li>
+<li>拆分编辑器：ctrl+\</li>
+<li>跳转行号：ctrl+G</li>
+<li>添加函数注释：在函数上方输入“/**”，然后点击enter</li>
+<li>格式化：alt+shift+f</li>
+<li>注释：ctrl+/</li>
+<li>全部保存：ctrl+k, 然后只按s一个键</li>
+<li>向上移动一行：alt+↑</li>
+<li>向下移动一行：alt+↓</li>
+<li>向上复制一行：alt+shift+↑</li>
+<li>向下复制一行：alt+shift+↓</li>
+<li>查找：ctrl+F</li>
+<li>替换：ctrl+H</li>
+<li>文件中查找：ctrl+shift+f</li>
+<li>文件中替换：ctrl+shift+h</li>
+<li>转到定义：F12</li>
+<li>转到实现：ctrl+F12</li>
+<li>打开文件夹：ctrl+k, ctrl+o</li>
+<li>关闭文件夹：ctrl+k, 然后单按一个f</li>
+<li>选中一段代码，通过“ctrl+[”可以左移，“ctrl+]”可以右移</li>
+</ol>
+<h3 id="编辑器与窗口管理"><a class="markdownIt-Anchor" href="#编辑器与窗口管理"></a> 编辑器与窗口管理</h3>
+<ol>
+<li>打开一个新窗口： <code>Ctrl+Shift+N</code></li>
+<li>关闭窗口： <code>Ctrl+Shift+W</code></li>
+<li>同时打开多个编辑器（查看多个文件）</li>
+<li>新建文件 <code>Ctrl+N</code></li>
+<li>文件之间切换 <code>Ctrl+Tab</code></li>
+<li>切出一个新的编辑器（最多 <code>3</code> 个） <code>Ctrl+\</code>，也可以按住 <code>Ctrl</code> 鼠标点击 <code>Explorer</code> 里的文件名</li>
+<li>左中右 <code>3</code> 个编辑器的快捷键 <code>Ctrl+1</code> <code>Ctrl+2</code> <code>Ctrl+3</code></li>
+<li><code>3</code> 个编辑器之间循环切换 <code>Ctrl+</code></li>
+<li>编辑器换位置， <code>Ctrl+k</code>然后按 <code>Left</code>或 <code>Right</code></li>
+</ol>
+<h3 id="代码编辑"><a class="markdownIt-Anchor" href="#代码编辑"></a> 代码编辑</h3>
+<h4 id="格式调整"><a class="markdownIt-Anchor" href="#格式调整"></a> 格式调整</h4>
+<ol>
+<li>代码行缩进 <code>Ctrl+[</code> 、 <code>Ctrl+]</code></li>
+<li><code>Ctrl+C</code> 、 <code>Ctrl+V</code> 复制或剪切当前行/当前选中内容</li>
+<li>代码格式化： <code>Shift+Alt+F</code>，或 <code>Ctrl+Shift+P</code> 后输入 <code>format code</code></li>
+<li>上下移动一行： <code>Alt+Up</code> 或 <code>Alt+Down</code></li>
+<li>向上向下复制一行： <code>Shift+Alt+Up</code> 或 <code>Shift+Alt+Down</code></li>
+<li>在当前行下边插入一行 <code>Ctrl+Enter</code></li>
+<li>在当前行上方插入一行 <code>Ctrl+Shift+Enter</code></li>
+</ol>
+<h4 id="光标相关"><a class="markdownIt-Anchor" href="#光标相关"></a> 光标相关</h4>
+<ol>
+<li>移动到行首： <code>Home</code></li>
+<li>移动到行尾： <code>End</code></li>
+<li>移动到文件结尾： <code>Ctrl+End</code></li>
+<li>移动到文件开头： <code>Ctrl+Home</code></li>
+<li>移动到定义处： <code>F12</code></li>
+<li>定义处缩略图：只看一眼而不跳转过去 <code>Alt+F12</code></li>
+<li>移动到后半个括号： <code>Ctrl+Shift+]</code></li>
+<li>选择从光标到行尾： <code>Shift+End</code></li>
+<li>选择从行首到光标处： <code>Shift+Home</code></li>
+<li>删除光标右侧的所有字： <code>Ctrl+Delete</code></li>
+<li>扩展/缩小选取范围： <code>Shift+Alt+Left</code> 和 <code>Shift+Alt+Right</code></li>
+<li>多行编辑(列编辑)：<code>Alt+Shift+鼠标左键</code>，<code>Ctrl+Alt+Down/Up</code></li>
+<li>同时选中所有匹配： <code>Ctrl+Shift+L</code></li>
+<li><code>Ctrl+D</code> 下一个匹配的也被选中 (在 sublime 中是删除当前行，后面自定义快键键中，设置与 <code>Ctrl+Shift+K</code> 互换了)</li>
+<li>回退上一个光标操作： <code>Ctrl+U</code></li>
+</ol>
+<h4 id="重构代码"><a class="markdownIt-Anchor" href="#重构代码"></a> 重构代码</h4>
+<ol>
+<li>找到所有的引用： <code>Shift+F12</code></li>
+<li>同时修改本文件中所有匹配的： <code>Ctrl+F12</code></li>
+<li>重命名：比如要修改一个方法名，可以选中后按 <code>F2</code>，输入新的名字，回车，会发现所有的文件都修改了</li>
+<li>跳转到下一个 <code>Error</code> 或 <code>Warning</code>：当有多个错误时可以按 <code>F8</code> 逐个跳转</li>
+<li>查看 <code>diff</code>： 在 <code>explorer</code> 里选择文件右键 <code>Set file to compare</code>，然后需要对比的文件上右键选择 <code>Compare with file_name_you_chose</code></li>
+</ol>
+<h4 id="查找替换"><a class="markdownIt-Anchor" href="#查找替换"></a> 查找替换</h4>
+<ol>
+<li>查找 <code>Ctrl+F</code></li>
+<li>查找替换 <code>Ctrl+H</code></li>
+<li>整个文件夹中查找 <code>Ctrl+Shift+F</code></li>
+</ol>
+<h3 id="显示相关"><a class="markdownIt-Anchor" href="#显示相关"></a> 显示相关</h3>
+<ol>
+<li>全屏：<code>F11</code></li>
+<li>zoomIn/zoomOut：<code>Ctrl +/-</code></li>
+<li>侧边栏显/隐：<code>Ctrl+B</code></li>
+<li>显示资源管理器 <code>Ctrl+Shift+E</code></li>
+<li>显示搜索 <code>Ctrl+Shift+F</code></li>
+<li>显示 Git <code>Ctrl+Shift+G</code></li>
+<li>显示 Debug <code>Ctrl+Shift+D</code></li>
+<li>显示 Output <code>Ctrl+Shift+U</code></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢你的阔乐</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat-pay.png" alt="02 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali-pay.png" alt="02 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="vscode快捷键">http://02xx.github.io/2023/04/04/vscode快捷键/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+        
+      </div>
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" rel="prev" title="using声明和using编译指令">
+      <i class="fa fa-chevron-left"></i> using声明和using编译指令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/04/04/%E9%98%BF%E9%87%8C%E6%BA%90%EF%BC%9A/" rel="next" title="阿里源：">
+      阿里源： <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-valine">valine</a></li>
+            <li class="tab"><a href="#comment-livere">livere</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane valine" id="comment-valine">
+              <div class="comments" id="valine-comments"></div>
+            </div>
+            <div class="tab-pane livere" id="comment-livere">
+              
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81ODE3My8zNDYzNg=="></div>
+  </div>
+  
+            </div>
+        </div>
+      </div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vscode%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.</span> <span class="nav-text"> vscode快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8%E4%B8%8E%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 编辑器与窗口管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 代码编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E8%B0%83%E6%95%B4"><span class="nav-number">1.0.2.1.</span> <span class="nav-text"> 格式调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%89%E6%A0%87%E7%9B%B8%E5%85%B3"><span class="nav-number">1.0.2.2.</span> <span class="nav-text"> 光标相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81"><span class="nav-number">1.0.2.3.</span> <span class="nav-text"> 重构代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.0.2.4.</span> <span class="nav-text"> 查找替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%85%B3"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 显示相关</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="02"
+      src="/images/02.jpg">
+  <p class="site-author-name" itemprop="name">02</p>
+  <div class="site-description" itemprop="description">记录一切</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/02XX" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;02XX" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1101533765@qq.com" title="E-Mail → mailto:1101533765@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://02xx.github.io/" title="首页 → https:&#x2F;&#x2F;02xx.github.io&#x2F;"><i class="fa fa-user fa-fw"></i>首页</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/32869824" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;32869824" rel="noopener" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021.5.11 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">02</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">142k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:09</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '7VQh5nB9f1Mj4WkUDz52bNqd-MdYXbMMI',
+      appKey     : '4KFubW0i5tnaz2YnBw642bG8',
+      placeholder: "啊ヾ(≧▽≦*)o快活呀！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
