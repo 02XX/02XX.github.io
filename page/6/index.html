@@ -203,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -217,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">string类的常用方法</a>
+            <a href="/2023/04/04/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">Shell数值运算和运算符</a>
         </h2>
 
         <div class="post-meta">
@@ -238,7 +238,7 @@
               </span>
 
           
-            <span id="/2023/04/04/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="string类的常用方法" title="阅读次数">
+            <span id="/2023/04/04/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Shell数值运算和运算符" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -253,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,14 +264,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>344</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -283,11 +283,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="string类的常用方法"><a class="markdownIt-Anchor" href="#string类的常用方法"></a> string类的常用方法</h1>
-<h2 id="1-string转换为char"><a class="markdownIt-Anchor" href="#1-string转换为char"></a> 1 string转换为char*</h2>
+          <h1 id="shell数值运算和运算符"><a class="markdownIt-Anchor" href="#shell数值运算和运算符"></a> Shell数值运算和运算符</h1>
+<table>
+<thead>
+<tr>
+<th>算术运算符</th>
+<th>说明/含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+、-</td>
+<td>加法（或正号）、减法（或负号）</td>
+</tr>
+<tr>
+<td>*、/、%</td>
+<td>乘法、除法、取余（取模）</td>
+</tr>
+<tr>
+<td>**</td>
+<td>幂运算</td>
+</tr>
+<tr>
+<td>++、–</td>
+<td>自增和自减，可以放在变量的前面也可以放在变量的后面</td>
+</tr>
+<tr>
+<td>!、&amp;&amp;、||</td>
+<td>逻辑非（取反）、逻辑与（and）、逻辑或（or）</td>
+</tr>
+<tr>
+<td>&lt;、&lt;=、&gt;、&gt;=</td>
+<td>比较符号（小于、小于等于、大于、大于等于）</td>
+</tr>
+<tr>
+<td>==、!=、=</td>
+<td>比较符号（相等、不相等；对于字符串，= 也可以表示相当于）</td>
+</tr>
+<tr>
+<td>&lt;&lt;、&gt;&gt;</td>
+<td>向左移位、向右移位</td>
+</tr>
+<tr>
+<td>~、|、 &amp;、^</td>
+<td>按位取反、按位或、按位与、按位异或</td>
+</tr>
+<tr>
+<td>=、+=、-=、*=、/=、%=</td>
+<td>赋值运算符，例如 a+=1 相当于 a=a+1，a-=1 相当于 a=a-1</td>
+</tr>
+</tbody>
+</table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/string%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/Shell%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -311,7 +360,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/this%E6%8C%87%E9%92%88/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/bindlst/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -325,7 +374,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/this%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">this指针</a>
+            <a href="/2023/04/04/bindlst/" class="post-title-link" itemprop="url">bindlst</a>
         </h2>
 
         <div class="post-meta">
@@ -346,7 +395,7 @@
               </span>
 
           
-            <span id="/2023/04/04/this%E6%8C%87%E9%92%88/" class="post-meta-item leancloud_visitors" data-flag-title="this指针" title="阅读次数">
+            <span id="/2023/04/04/bindlst/" class="post-meta-item leancloud_visitors" data-flag-title="bindlst" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -361,8 +410,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/this%E6%8C%87%E9%92%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/this%E6%8C%87%E9%92%88/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/bindlst/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/bindlst/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -372,7 +421,115 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>187</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="bind1st和binder2nd"><a class="markdownIt-Anchor" href="#bind1st和binder2nd"></a> <code>bind1st</code>和<code>binder2nd</code></h1>
+<p><code>bind1st</code>可以将自适应二元函数转换为一元函数</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/04/bindlst/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/cin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/04/cin/" class="post-title-link" itemprop="url">cin</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
+              </span>
+
+          
+            <span id="/2023/04/04/cin/" class="post-meta-item leancloud_visitors" data-flag-title="cin" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/04/cin/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/cin/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -391,11 +548,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="this指针"><a class="markdownIt-Anchor" href="#this指针"></a> this指针</h1>
-<p>在类中每一个成员函数都有一个this指针指向它调用对象的地址。</p>
+          <p>C++的输入是一种流，而cin就是这种流的对象。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/this%E6%8C%87%E9%92%88/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/cin/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -419,7 +575,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/cin%E7%9A%84%E8%A1%A5%E5%85%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -433,7 +589,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">vscode快捷键</a>
+            <a href="/2023/04/04/cin%E7%9A%84%E8%A1%A5%E5%85%85/" class="post-title-link" itemprop="url">cin的补充</a>
         </h2>
 
         <div class="post-meta">
@@ -454,7 +610,7 @@
               </span>
 
           
-            <span id="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="vscode快捷键" title="阅读次数">
+            <span id="/2023/04/04/cin%E7%9A%84%E8%A1%A5%E5%85%85/" class="post-meta-item leancloud_visitors" data-flag-title="cin的补充" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -469,8 +625,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/cin%E7%9A%84%E8%A1%A5%E5%85%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/cin%E7%9A%84%E8%A1%A5%E5%85%85/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -480,7 +636,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>981</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -499,11 +655,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="vscode快捷键"><a class="markdownIt-Anchor" href="#vscode快捷键"></a> vscode快捷键</h1>
-<p>所有快捷键设置：文件→首选项→键盘快捷方式</p>
+          <h1 id="cin的补充"><a class="markdownIt-Anchor" href="#cin的补充"></a> cin的补充</h1>
+<h2 id><a class="markdownIt-Anchor" href="#"></a> &gt;&gt;</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/cin%E7%9A%84%E8%A1%A5%E5%85%85/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -527,7 +683,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2021/05/10/cout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -541,7 +697,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">typename和class的区别</a>
+            <a href="/2021/05/10/cout/" class="post-title-link" itemprop="url">cout</a>
         </h2>
 
         <div class="post-meta">
@@ -551,7 +707,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+              <time title="创建时间：2021-05-10 17:36:00" itemprop="dateCreated datePublished" datetime="2021-05-10T17:36:00+08:00">2021-05-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -560,9 +716,18 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="typename和class的区别" title="阅读次数">
+            <span id="/2021/05/10/cout/" class="post-meta-item leancloud_visitors" data-flag-title="cout" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -577,8 +742,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/05/10/cout/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/10/cout/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -588,7 +753,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>355</span>
+              <span>144</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -607,11 +772,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="typename和class的区别"><a class="markdownIt-Anchor" href="#typename和class的区别"></a> typename和class的区别</h1>
-<h2 id="作为定义模板时功能是一样的"><a class="markdownIt-Anchor" href="#作为定义模板时功能是一样的"></a> 作为定义模板时功能是一样的</h2>
+          <h1 id="cout"><a class="markdownIt-Anchor" href="#cout"></a> cout</h1>
+<p><code>cout.precision()</code>其实是输出流cout的一个格式控制函数，也就是在<code>iostream</code>中的一个成员函数。<code>precision()</code>返回当前的浮点数的精度值，而<code>cout.precision(val)</code>其实就是在输出的时候设定输出值以新的浮点数精度值显示，即小数点后保留val位。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
+              <a class="btn" href="/2021/05/10/cout/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -635,7 +800,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E4%B8%80%E4%B8%AA%E9%AA%9A%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/decltype%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -649,7 +814,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/%E4%B8%80%E4%B8%AA%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">一个骚操作</a>
+            <a href="/2023/04/04/decltype%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%9D%91/" class="post-title-link" itemprop="url">decltype关键字的坑</a>
         </h2>
 
         <div class="post-meta">
@@ -670,7 +835,7 @@
               </span>
 
           
-            <span id="/2023/04/04/%E4%B8%80%E4%B8%AA%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="post-meta-item leancloud_visitors" data-flag-title="一个骚操作" title="阅读次数">
+            <span id="/2023/04/04/decltype%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%9D%91/" class="post-meta-item leancloud_visitors" data-flag-title="decltype关键字的坑" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -685,8 +850,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/%E4%B8%80%E4%B8%AA%E9%AA%9A%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E4%B8%80%E4%B8%AA%E9%AA%9A%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/decltype%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%9D%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/decltype%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%9D%91/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -696,7 +861,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>418</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -715,11 +880,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一个骚操作"><a class="markdownIt-Anchor" href="#一个骚操作"></a> 一个骚操作</h1>
-<p>权限不够的时候，可以随便找一个安装程序，用<strong>管理员身份启动</strong>之后在选择安装地址的时候，对权限不够的盘或者文件进行删除。</p>
+          <h1 id="decltype关键字的坑"><a class="markdownIt-Anchor" href="#decltype关键字的坑"></a> decltype关键字的坑</h1>
+<h2 id="a为变量"><a class="markdownIt-Anchor" href="#a为变量"></a> a为变量</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/%E4%B8%80%E4%B8%AA%E9%AA%9A%E6%93%8D%E4%BD%9C/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/decltype%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%9D%91/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -743,7 +908,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2021/05/16/dijksra/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -757,7 +922,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/" class="post-title-link" itemprop="url">关于delete的执行过程和delete后应该做的事情</a>
+            <a href="/2021/05/16/dijksra/" class="post-title-link" itemprop="url">图的最短路径dijksra算法</a>
         </h2>
 
         <div class="post-meta">
@@ -767,7 +932,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+              <time title="创建时间：2021-05-16 09:51:08" itemprop="dateCreated datePublished" datetime="2021-05-16T09:51:08+08:00">2021-05-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -776,9 +941,18 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2023/04/04/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/" class="post-meta-item leancloud_visitors" data-flag-title="关于delete的执行过程和delete后应该做的事情" title="阅读次数">
+            <span id="/2021/05/16/dijksra/" class="post-meta-item leancloud_visitors" data-flag-title="图的最短路径dijksra算法" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -793,8 +967,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/05/16/dijksra/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/16/dijksra/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -804,7 +978,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>270</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -823,11 +997,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="关于new后delete的执行过程和delete后应该做的事情"><a class="markdownIt-Anchor" href="#关于new后delete的执行过程和delete后应该做的事情"></a> 关于new后delete的执行过程和delete后应该做的事情</h1>
-<h2 id="delete的机理"><a class="markdownIt-Anchor" href="#delete的机理"></a> delete的机理</h2>
+          <p>dijksra也是贪婪算法的一种</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/%E5%85%B3%E4%BA%8Edelete%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E5%92%8Cdelete%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/#more" rel="contents">
+              <a class="btn" href="/2021/05/16/dijksra/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -851,7 +1024,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -865,7 +1038,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">using声明和using编译指令</a>
+            <a href="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/" class="post-title-link" itemprop="url">docker使用ipv6</a>
         </h2>
 
         <div class="post-meta">
@@ -886,7 +1059,7 @@
               </span>
 
           
-            <span id="/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="using声明和using编译指令" title="阅读次数">
+            <span id="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/" class="post-meta-item leancloud_visitors" data-flag-title="docker使用ipv6" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -901,8 +1074,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -912,7 +1085,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>549</span>
+              <span>302</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -931,11 +1104,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="using声明和using编译指令"><a class="markdownIt-Anchor" href="#using声明和using编译指令"></a> using声明和using编译指令</h1>
-<h2 id="using声明"><a class="markdownIt-Anchor" href="#using声明"></a> using声明</h2>
+          <h1 id="docker使用ipv6"><a class="markdownIt-Anchor" href="#docker使用ipv6"></a> docker使用ipv6</h1>
+<p>开启ipv6首先按照官方文档修改/etc/docker/daemon.json</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/using%E5%A3%B0%E6%98%8E%E5%92%8Cusing%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -959,7 +1132,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%85%B3%E4%BA%8Enew/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2021/05/16/floyd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -973,7 +1146,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/%E5%85%B3%E4%BA%8Enew/" class="post-title-link" itemprop="url">关于new</a>
+            <a href="/2021/05/16/floyd/" class="post-title-link" itemprop="url">图的最短路径floyd算法</a>
         </h2>
 
         <div class="post-meta">
@@ -983,7 +1156,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+              <time title="创建时间：2021-05-16 10:36:56" itemprop="dateCreated datePublished" datetime="2021-05-16T10:36:56+08:00">2021-05-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -992,9 +1165,18 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2023/04/04/%E5%85%B3%E4%BA%8Enew/" class="post-meta-item leancloud_visitors" data-flag-title="关于new" title="阅读次数">
+            <span id="/2021/05/16/floyd/" class="post-meta-item leancloud_visitors" data-flag-title="图的最短路径floyd算法" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1009,8 +1191,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/%E5%85%B3%E4%BA%8Enew/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%85%B3%E4%BA%8Enew/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/05/16/floyd/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/16/floyd/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1020,7 +1202,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>518</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1039,11 +1221,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="关于new"><a class="markdownIt-Anchor" href="#关于new"></a> 关于<code>new</code></h1>
-<p><code>new</code>分两种一种是常规<code>new</code>，另一种是定位<code>new</code>。</p>
+          <p>floyd查找最短路径的核心就是中转点。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/%E5%85%B3%E4%BA%8Enew/#more" rel="contents">
+              <a class="btn" href="/2021/05/16/floyd/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1067,7 +1248,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -1081,7 +1262,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">函数对象</a>
+            <a href="/2023/04/04/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">iomanip头文件</a>
         </h2>
 
         <div class="post-meta">
@@ -1102,7 +1283,7 @@
               </span>
 
           
-            <span id="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" class="post-meta-item leancloud_visitors" data-flag-title="函数对象" title="阅读次数">
+            <span id="/2023/04/04/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="iomanip头文件" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1117,8 +1298,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1128,7 +1309,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>14</span>
+              <span>268</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1147,121 +1328,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="functional的函数符"><a class="markdownIt-Anchor" href="#functional的函数符"></a> <code> functional</code>的函数符</h1>
-<p><img src="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E9%A2%84%E5%AE%9A%E7%9A%84%E5%87%BD%E6%95%B0%E7%AC%A6.png" alt="预定的函数符"></p>
+          <h1 id="iomanip头文件"><a class="markdownIt-Anchor" href="#iomanip头文件"></a> <code>iomanip</code>头文件</h1>
+<h2 id="setwint"><a class="markdownIt-Anchor" href="#setwint"></a> <code>setw(int)</code></h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/04/%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
-              </span>
-
-          
-            <span id="/2023/04/04/%E5%87%BD%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="函数" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/04/04/%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="title-你好世界date-2021-05-10-114640tagsc"><a class="markdownIt-Anchor" href="#title-你好世界date-2021-05-10-114640tagsc"></a> title: 你好世界<br>
-date: 2021-05-10 11:46:40<br>
-tags:C++</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/04/04/%E5%87%BD%E6%95%B0/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/iomanip%E5%A4%B4%E6%96%87%E4%BB%B6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1284,7 +1355,7 @@ tags:C++</h2>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1352,20 +1423,20 @@ tags:C++</h2>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1419,12 +1490,12 @@ tags:C++</h2>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">143k</span>
+    <span title="站点总字数">165k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:10</span>
+    <span title="站点阅读时长">2:30</span>
 </div>
 
         
