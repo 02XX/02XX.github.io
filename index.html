@@ -203,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/51-N-%E7%9A%87%E5%90%8E/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -217,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/09/51-N-%E7%9A%87%E5%90%8E/" class="post-title-link" itemprop="url">51. N 皇后</a>
+            <a href="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">738. 单调递增的数字</a>
         </h2>
 
         <div class="post-meta">
@@ -227,7 +227,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-09 06:09:03" itemprop="dateCreated datePublished" datetime="2023-07-09T06:09:03+08:00">2023-07-09</time>
+              <time title="创建时间：2023-07-29 00:48:24" itemprop="dateCreated datePublished" datetime="2023-07-29T00:48:24+08:00">2023-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
             </span>
 
           
-            <span id="/2023/07/09/51-N-%E7%9A%87%E5%90%8E/" class="post-meta-item leancloud_visitors" data-flag-title="51. N 皇后" title="阅读次数">
+            <span id="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-meta-item leancloud_visitors" data-flag-title="738. 单调递增的数字" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -259,8 +259,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/07/09/51-N-%E7%9A%87%E5%90%8E/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/51-N-%E7%9A%87%E5%90%8E/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -270,259 +270,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/n-queens/">51. N 皇后 - 力扣（LeetCode）</a></p>
-<p>按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。</p>
-<p><strong>n 皇后问题</strong> 研究的是如何将 <code>n</code> 个皇后放置在 <code>n×n</code> 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>给你一个整数 <code>n</code> ，返回所有不同的 <strong>n 皇后问题</strong> 的解决方案。</p>
-<p>每一种解法包含一个不同的 <strong>n 皇后问题</strong> 的棋子放置方案，该方案中 <code>'Q'</code> 和 <code>'.'</code> 分别代表了皇后和空位。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" alt></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 4</span><br><span class="line">输出：[[&quot;.Q..&quot;,&quot;...Q&quot;,&quot;Q...&quot;,&quot;..Q.&quot;],[&quot;..Q.&quot;,&quot;Q...&quot;,&quot;...Q&quot;,&quot;.Q..&quot;]]</span><br><span class="line">解释：如上图所示，4 皇后问题存在两个不同的解法。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 1</span><br><span class="line">输出：[[&quot;Q&quot;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 9</code></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;string&gt; path;</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; result;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="type">int</span> n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//数值&gt;0表示不可放入Queen，数值a大小代表该格可以被a个Queen攻击</span></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">chessboard</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n,<span class="number">0</span>));</span><br><span class="line">        <span class="built_in">backTrack</span>(<span class="number">0</span>,n,chessboard);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTrack</span><span class="params">(<span class="type">int</span> row, <span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; chessboard)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//递归终止条件</span></span><br><span class="line">        <span class="comment">//处理完N行返回</span></span><br><span class="line">        <span class="keyword">if</span>(row == n)</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 从该行遍历</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 找到棋盘该行可以放入的位置</span></span><br><span class="line">            <span class="keyword">if</span>(chessboard[row][i] == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                path.<span class="built_in">push_back</span>(<span class="built_in">string</span>(i,<span class="string">&#x27;.&#x27;</span>) + <span class="string">&quot;Q&quot;</span> + <span class="built_in">string</span>(n<span class="number">-1</span>-i,<span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">                <span class="comment">// 处理不能放入Q的位置</span></span><br><span class="line">                <span class="comment">//行</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> boardRow = <span class="number">0</span>; boardRow &lt; n; boardRow++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(boardRow != i)</span><br><span class="line">                        chessboard[row][boardRow]++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//列</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> boardCol = <span class="number">0</span>; boardCol &lt; n; boardCol++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(boardCol != row)</span><br><span class="line">                        chessboard[boardCol][i]++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//斜边</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> boardRow = row-<span class="built_in">min</span>(row,i), boardCol=i-<span class="built_in">min</span>(row,i); boardRow &lt; n &amp;&amp; boardCol &lt; n; boardRow++,boardCol++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(boardRow != row &amp;&amp; boardCol != i)</span><br><span class="line">                        chessboard[boardRow][boardCol]++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> boardRow = row + i - <span class="built_in">min</span>(i + row, n - <span class="number">1</span>), boardCol = <span class="built_in">min</span>(i + row, n - <span class="number">1</span>); boardRow &lt; n &amp;&amp; boardCol &gt;= <span class="number">0</span>; boardRow++, boardCol--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (boardRow != row &amp;&amp; boardCol != i)</span><br><span class="line">                        chessboard[boardRow][boardCol]++;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">backTrack</span>(row+<span class="number">1</span>,n,chessboard);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 撤回不能放入Q的位置</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> boardRow = <span class="number">0</span>; boardRow &lt; n; boardRow++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (boardRow != i)</span><br><span class="line">                        chessboard[row][boardRow]--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 列</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> boardCol = <span class="number">0</span>; boardCol &lt; n; boardCol++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (boardCol != row)</span><br><span class="line">                        chessboard[boardCol][i]--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 斜边</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> boardRow = row - <span class="built_in">min</span>(row, i), boardCol = i - <span class="built_in">min</span>(row, i); boardRow &lt; n &amp;&amp; boardCol &lt; n; boardRow++, boardCol++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (boardRow != row &amp;&amp; boardCol != i)</span><br><span class="line">                        chessboard[boardRow][boardCol]--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> boardRow = row + i - <span class="built_in">min</span>(i + row, n - <span class="number">1</span>), boardCol = <span class="built_in">min</span>(i + row, n - <span class="number">1</span>); boardRow &lt; n &amp;&amp; boardCol &gt;= <span class="number">0</span>; boardRow++, boardCol--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (boardRow != row &amp;&amp; boardCol != i)</span><br><span class="line">                        chessboard[boardRow][boardCol]--;</span><br><span class="line">                &#125;</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i == n) <span class="comment">//剪枝</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/09/332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/" class="post-title-link" itemprop="url">332. 重新安排行程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-09 06:08:03" itemprop="dateCreated datePublished" datetime="2023-07-09T06:08:03+08:00">2023-07-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/09/332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="332. 重新安排行程" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/09/332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/332-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reconstruct-itinerary/">332. 重新安排行程 - 力扣（LeetCode）</a></p>
-<p>给你一份航线列表 <code>tickets</code> ，其中 <code>tickets[i] = [from&lt;sub&gt;i&lt;/sub&gt;, to&lt;sub&gt;i&lt;/sub&gt;]</code> 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。</p>
-<p>所有这些机票都属于一个从 <code>JFK</code>（肯尼迪国际机场）出发的先生，所以该行程必须从 <code>JFK</code> 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。</p>
-<ul>
-<li>例如，行程 <code>[&quot;JFK&quot;, &quot;LGA&quot;]</code> 与 <code>[&quot;JFK&quot;, &quot;LGB&quot;]</code> 相比就更小，排序更靠前。</li>
-</ul>
-<p>假定所有机票至少存在一种合理的行程。且所有的机票 必须都用一次 且 只能用一次。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/03/14/itinerary1-graph.jpg" alt></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：tickets = [[&quot;MUC&quot;,&quot;LHR&quot;],[&quot;JFK&quot;,&quot;MUC&quot;],[&quot;SFO&quot;,&quot;SJC&quot;],[&quot;LHR&quot;,&quot;SFO&quot;]]</span><br><span class="line">输出：[&quot;JFK&quot;,&quot;MUC&quot;,&quot;LHR&quot;,&quot;SFO&quot;,&quot;SJC&quot;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/03/14/itinerary2-graph.jpg" alt></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：tickets = [[&quot;JFK&quot;,&quot;SFO&quot;],[&quot;JFK&quot;,&quot;ATL&quot;],[&quot;SFO&quot;,&quot;ATL&quot;],[&quot;ATL&quot;,&quot;JFK&quot;],[&quot;ATL&quot;,&quot;SFO&quot;]]</span><br><span class="line">输出：[&quot;JFK&quot;,&quot;ATL&quot;,&quot;JFK&quot;,&quot;SFO&quot;,&quot;ATL&quot;,&quot;SFO&quot;]</span><br><span class="line">解释：另一种有效的行程是 [&quot;JFK&quot;,&quot;SFO&quot;,&quot;ATL&quot;,&quot;JFK&quot;,&quot;ATL&quot;,&quot;SFO&quot;] ，但是它字典排序更大更靠后。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= tickets.length &lt;= 300</code></li>
-<li><code>tickets[i].length == 2</code></li>
-<li><code>from&lt;sub&gt;i&lt;/sub&gt;.length == 3</code></li>
-<li><code>to&lt;sub&gt;i&lt;/sub&gt;.length == 3</code></li>
-<li><code>from&lt;sub&gt;i&lt;/sub&gt;</code> 和 <code>to&lt;sub&gt;i&lt;/sub&gt;</code> 由大写英文字母组成</li>
-<li><code>from&lt;sub&gt;i&lt;/sub&gt; != to&lt;sub&gt;i&lt;/sub&gt;</code></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;string&gt; path;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">findItinerary</span><span class="params">(vector&lt;vector&lt;string&gt;&gt; &amp;tickets)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        map&lt;string,map&lt;string,<span class="type">int</span>&gt;&gt; mapping;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; x : tickets)</span><br><span class="line">        &#123;</span><br><span class="line">            mapping[x[<span class="number">0</span>]][x[<span class="number">1</span>]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        path.<span class="built_in">push_back</span>(<span class="string">&quot;JFK&quot;</span>);</span><br><span class="line">        <span class="built_in">backTracking</span>(tickets.<span class="built_in">size</span>(),mapping);</span><br><span class="line">        <span class="keyword">return</span> path;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">backTracking</span><span class="params">(<span class="type">int</span> ticketSize, map&lt;string, map&lt;string, <span class="type">int</span>&gt;&gt; &amp;mapping)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == ticketSize + <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; plane : mapping[path.<span class="built_in">back</span>()])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(plane.second &gt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                path.<span class="built_in">push_back</span>(plane.first);</span><br><span class="line">                plane.second--;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">backTracking</span>(ticketSize,mapping)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                plane.second++;</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/47-%E5%85%A8%E6%8E%92%E5%88%97-II/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/09/47-%E5%85%A8%E6%8E%92%E5%88%97-II/" class="post-title-link" itemprop="url">47. 全排列 II</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-09 06:07:24" itemprop="dateCreated datePublished" datetime="2023-07-09T06:07:24+08:00">2023-07-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/09/47-%E5%85%A8%E6%8E%92%E5%88%97-II/" class="post-meta-item leancloud_visitors" data-flag-title="47. 全排列 II" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/09/47-%E5%85%A8%E6%8E%92%E5%88%97-II/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/47-%E5%85%A8%E6%8E%92%E5%88%97-II/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>26</span>
+              <span>766</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -543,131 +291,21 @@
       
           <span id="more"></span>
 <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations-ii/">47. 全排列 II - 力扣（LeetCode）</a></p>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/46-%E5%85%A8%E6%8E%92%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/09/46-%E5%85%A8%E6%8E%92%E5%88%97/" class="post-title-link" itemprop="url">46. 全排列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-09 06:06:26" itemprop="dateCreated datePublished" datetime="2023-07-09T06:06:26+08:00">2023-07-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/09/46-%E5%85%A8%E6%8E%92%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="46. 全排列" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/09/46-%E5%85%A8%E6%8E%92%E5%88%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/46-%E5%85%A8%E6%8E%92%E5%88%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/permutations/">46. 全排列 - 力扣（LeetCode）</a></p>
-<p>给定一个不含重复数字的数组 <code>nums</code> ，返回其 <em>所有可能的全排列</em> 。你可以 <strong>按任意顺序</strong> 返回答案。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,3]</span><br><span class="line">输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0,1]</span><br><span class="line">输出：[[0,1],[1,0]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1]</span><br><span class="line">输出：[[1]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/monotone-increasing-digits/">738. 单调递增的数字 - 力扣（LeetCode）</a></p>
+<p>当且仅当每个相邻位数上的数字 <code>x</code> 和 <code>y</code> 满足 <code>x &lt;= y</code> 时，我们称这个整数是<strong>单调递增</strong>的。</p>
+<p>给定一个整数 <code>n</code> ，返回 <em>小于或等于 <code>n</code> 的最大数字，且数字呈 <strong>单调递增</strong></em> 。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 10</span><br><span class="line">输出: 9</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 1234</span><br><span class="line">输出: 1234</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 332</span><br><span class="line">输出: 299</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示:</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 6</code></li>
-<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
-<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
+<li><code>0 &lt;= n &lt;= 10&lt;sup&gt;9&lt;/sup&gt;</code></li>
 </ul>
 <h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; result;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; used;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span><br><span class="line">    &#123;</span><br><span class="line">        used.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>(),<span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">backTracking</span>(nums,used);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, vector&lt;<span class="type">bool</span>&gt;&amp; used)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!used[i])</span><br><span class="line">            &#123;</span><br><span class="line">                path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">                used[i] = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">backTracking</span>(nums,used);</span><br><span class="line">                used[i] = <span class="literal">false</span>;</span><br><span class="line">                path.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">monotoneIncreasingDigits</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        string num = <span class="built_in">to_string</span>(n);</span><br><span class="line">        string result;</span><br><span class="line">        <span class="type">char</span> beforeNum = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; num.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="string">&#x27;9&#x27;</span>; j &gt;= beforeNum; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                string generateLast = <span class="built_in">string</span>(<span class="built_in">int</span>(num.<span class="built_in">size</span>())-i,j);</span><br><span class="line">                <span class="keyword">if</span>(num &gt;= result + generateLast)</span><br><span class="line">                &#123;</span><br><span class="line">                    result.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    beforeNum = j;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> resultNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; result.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            resultNum += (result[i]-<span class="string">&#x27;0&#x27;</span>)*<span class="built_in">pow</span>(<span class="number">10</span>,<span class="built_in">int</span>(result.<span class="built_in">size</span>())-i<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -686,7 +324,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/491-%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -700,7 +338,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/09/491-%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" class="post-title-link" itemprop="url">491. 递增子序列</a>
+            <a href="/2023/07/29/56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" class="post-title-link" itemprop="url">56. 合并区间</a>
         </h2>
 
         <div class="post-meta">
@@ -710,7 +348,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-09 06:05:38" itemprop="dateCreated datePublished" datetime="2023-07-09T06:05:38+08:00">2023-07-09</time>
+              <time title="创建时间：2023-07-29 00:47:50" itemprop="dateCreated datePublished" datetime="2023-07-29T00:47:50+08:00">2023-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -727,7 +365,7 @@
             </span>
 
           
-            <span id="/2023/07/09/491-%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="491. 递增子序列" title="阅读次数">
+            <span id="/2023/07/29/56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="56. 合并区间" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -742,8 +380,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/07/09/491-%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/491-%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/07/29/56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -774,20 +412,20 @@
       
           <span id="more"></span>
 <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/non-decreasing-subsequences/">491. 递增子序列 - 力扣（LeetCode）</a></p>
-<p>给你一个整数数组 <code>nums</code> ，找出并返回所有该数组中不同的递增子序列，递增子序列中 <strong>至少有两个元素</strong> 。你可以按 <strong>任意顺序</strong> 返回答案。</p>
-<p>数组中可能含有重复元素，如出现两个整数相等，也可以视作递增序列的一种特殊情况。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-intervals/">56. 合并区间 - 力扣（LeetCode）</a></p>
+<p>以数组 <code>intervals</code> 表示若干个区间的集合，其中单个区间为 <code>intervals[i] = [start&lt;sub&gt;i&lt;/sub&gt;, end&lt;sub&gt;i&lt;/sub&gt;]</code> 。请你合并所有重叠的区间，并返回 <em>一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间</em> 。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [4,6,7,7]</span><br><span class="line">输出：[[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [4,4,3,2,1]</span><br><span class="line">输出：[[4,4]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：intervals = [[1,3],[2,6],[8,10],[15,18]]</span><br><span class="line">输出：[[1,6],[8,10],[15,18]]</span><br><span class="line">解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：intervals = [[1,4],[4,5]]</span><br><span class="line">输出：[[1,5]]</span><br><span class="line">解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 15</code></li>
-<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
+<li><code>1 &lt;= intervals.length &lt;= 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
+<li><code>intervals[i].length == 2</code></li>
+<li><code>0 &lt;= start&lt;sub&gt;i&lt;/sub&gt; &lt;= end&lt;sub&gt;i&lt;/sub&gt; &lt;= 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
 </ul>
 <h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; result;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">findSubsequences</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">backTracking</span>(nums, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> startIndex)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (path.<span class="built_in">size</span>() &gt; <span class="number">1</span>)</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">        <span class="keyword">if</span> (startIndex  == nums.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = startIndex; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s.<span class="built_in">find</span>(nums[i]) != s.<span class="built_in">end</span>()) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (path.<span class="built_in">size</span>() &gt; <span class="number">0</span> &amp;&amp; path.<span class="built_in">back</span>() &gt; nums[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            s.<span class="built_in">insert</span>(nums[i]);</span><br><span class="line">            <span class="built_in">backTracking</span>(nums, i + <span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Solution a;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; b &#123;<span class="number">4</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    a.<span class="built_in">findSubsequences</span>(b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">merge</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(intervals.<span class="built_in">begin</span>(),intervals.<span class="built_in">end</span>(),[](vector&lt;<span class="type">int</span>&gt;&amp;a,vector&lt;<span class="type">int</span>&gt;&amp;b)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[<span class="number">0</span>] == b[<span class="number">0</span>]) <span class="keyword">return</span> a[<span class="number">1</span>] &gt; b[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">0</span>] &gt; b[<span class="number">0</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; temp = intervals;       </span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; result;</span><br><span class="line">        result.<span class="built_in">push_back</span>(intervals[<span class="built_in">int</span>(intervals.<span class="built_in">size</span>())<span class="number">-1</span>]);</span><br><span class="line">        <span class="type">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="built_in">int</span>(intervals.<span class="built_in">size</span>())<span class="number">-2</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(intervals[i][<span class="number">0</span>] &lt;= result[right][<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                vector&lt;<span class="type">int</span>&gt; tempMerge = &#123;<span class="built_in">min</span>(result[right][<span class="number">0</span>],intervals[i][<span class="number">0</span>]),<span class="built_in">max</span>(result[right][<span class="number">1</span>],intervals[i][<span class="number">1</span>])&#125;;</span><br><span class="line">                result.<span class="built_in">pop_back</span>();</span><br><span class="line">                result.<span class="built_in">push_back</span>(tempMerge);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                result.<span class="built_in">push_back</span>(intervals[i]);</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -806,7 +444,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/90-%E5%AD%90%E9%9B%86-II/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -820,7 +458,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/09/90-%E5%AD%90%E9%9B%86-II/" class="post-title-link" itemprop="url">90. 子集 II</a>
+            <a href="/2023/07/29/763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/" class="post-title-link" itemprop="url">763. 划分字母区间</a>
         </h2>
 
         <div class="post-meta">
@@ -830,7 +468,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-09 06:04:53" itemprop="dateCreated datePublished" datetime="2023-07-09T06:04:53+08:00">2023-07-09</time>
+              <time title="创建时间：2023-07-29 00:47:16" itemprop="dateCreated datePublished" datetime="2023-07-29T00:47:16+08:00">2023-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -847,7 +485,7 @@
             </span>
 
           
-            <span id="/2023/07/09/90-%E5%AD%90%E9%9B%86-II/" class="post-meta-item leancloud_visitors" data-flag-title="90. 子集 II" title="阅读次数">
+            <span id="/2023/07/29/763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="763. 划分字母区间" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -862,8 +500,129 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/07/09/90-%E5%AD%90%E9%9B%86-II/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/90-%E5%AD%90%E9%9B%86-II/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/07/29/763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>873</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/partition-labels/">763. 划分字母区间 - 力扣（LeetCode）</a></p>
+<p>给你一个字符串 <code>s</code> 。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。</p>
+<p>注意，划分结果需要满足：将所有划分结果按顺序连接，得到的字符串仍然是 <code>s</code> 。</p>
+<p>返回一个表示每个字符串片段的长度的列表。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;ababcbacadefegdehijhklij&quot;</span><br><span class="line">输出：[9,7,8]</span><br><span class="line">解释：</span><br><span class="line">划分结果为 &quot;ababcbaca&quot;、&quot;defegde&quot;、&quot;hijhklij&quot; 。</span><br><span class="line">每个字母最多出现在一个片段中。</span><br><span class="line">像 &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; 这样的划分是错误的，因为划分的片段数较少。 </span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;eccbbbbdec&quot;</span><br><span class="line">输出：[10]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 500</code></li>
+<li><code>s</code> 仅由小写英文字母组成</li>
+</ul>
+<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">partitionLabels</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>,<span class="type">int</span>&gt; maxPostion;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            maxPostion[s[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> endPostion = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            endPostion = <span class="built_in">max</span>(endPostion, maxPostion[s[i]]);</span><br><span class="line">            <span class="keyword">if</span>(i == endPostion)&#123;</span><br><span class="line">                result.<span class="built_in">push_back</span>(endPostion - start + <span class="number">1</span>);</span><br><span class="line">                start = i+<span class="number">1</span>;</span><br><span class="line">                endPostion = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/" class="post-title-link" itemprop="url">435. 无重叠区间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-29 00:46:45" itemprop="dateCreated datePublished" datetime="2023-07-29T00:46:45+08:00">2023-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="435. 无重叠区间" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -894,20 +653,22 @@
       
           <span id="more"></span>
 <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets-ii/">90. 子集 II - 力扣（LeetCode）</a></p>
-<p>给你一个整数数组 <code>nums</code> ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。</p>
-<p>解集 <strong>不能</strong> 包含重复的子集。返回的解集中，子集可以按 <strong>任意顺序</strong> 排列。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,2]</span><br><span class="line">输出：[[],[1],[1,2],[1,2,2],[2],[2,2]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0]</span><br><span class="line">输出：[[],[0]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/non-overlapping-intervals/">435. 无重叠区间 - 力扣（LeetCode）</a></p>
+<p>给定一个区间的集合 <code>intervals</code> ，其中 <code>intervals[i] = [start&lt;sub&gt;i&lt;/sub&gt;, end&lt;sub&gt;i&lt;/sub&gt;]</code> 。返回 <em>需要移除区间的最小数量，使剩余区间互不重叠</em> 。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: intervals = [[1,2],[2,3],[3,4],[1,3]]</span><br><span class="line">输出: 1</span><br><span class="line">解释: 移除 [1,3] 后，剩下的区间没有重叠。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: intervals = [ [1,2], [1,2], [1,2] ]</span><br><span class="line">输出: 2</span><br><span class="line">解释: 你需要移除两个 [1,2] 来使剩下的区间没有重叠。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: intervals = [ [1,2], [2,3] ]</span><br><span class="line">输出: 0</span><br><span class="line">解释: 你不需要移除任何区间，因为它们已经是无重叠的了。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示:</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 10</code></li>
-<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
+<li><code>1 &lt;= intervals.length &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
+<li><code>intervals[i].length == 2</code></li>
+<li><code>-5 * 10&lt;sup&gt;4&lt;/sup&gt; &lt;= start&lt;sub&gt;i&lt;/sub&gt; &lt; end&lt;sub&gt;i&lt;/sub&gt; &lt;= 5 * 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
 </ul>
 <h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; result;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; used;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsetsWithDup</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span><br><span class="line">    &#123;</span><br><span class="line">        used.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>());</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">backTracking</span>(nums, <span class="number">0</span>, used);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> startIndex,vector&lt;<span class="type">bool</span>&gt;&amp; used)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        result.<span class="built_in">push_back</span>(path);</span><br><span class="line">        <span class="keyword">if</span> (path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = startIndex; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>] &amp;&amp; !used[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            used[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">backTracking</span>(nums, i + <span class="number">1</span>,used);</span><br><span class="line">            used[i] = <span class="literal">false</span>;</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">eraseOverlapIntervals</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;intervals)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(intervals.<span class="built_in">begin</span>(), intervals.<span class="built_in">end</span>(), [](vector&lt;<span class="type">int</span>&gt; &amp; a, vector&lt;<span class="type">int</span>&gt;b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; pre = intervals[<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span> remove = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; intervals.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (intervals[i][<span class="number">0</span>] &lt; pre[<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (intervals[i][<span class="number">1</span>] &lt; pre[<span class="number">1</span>])</span><br><span class="line">                &#123;</span><br><span class="line">                    pre = intervals[i];</span><br><span class="line">                &#125;</span><br><span class="line">                remove++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                pre = intervals[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> remove;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -926,7 +687,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/78-%E5%AD%90%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -940,7 +701,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/09/78-%E5%AD%90%E9%9B%86/" class="post-title-link" itemprop="url">78. 子集</a>
+            <a href="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/" class="post-title-link" itemprop="url">452. 用最少数量的箭引爆气球</a>
         </h2>
 
         <div class="post-meta">
@@ -950,7 +711,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-09 06:03:47" itemprop="dateCreated datePublished" datetime="2023-07-09T06:03:47+08:00">2023-07-09</time>
+              <time title="创建时间：2023-07-29 00:46:04" itemprop="dateCreated datePublished" datetime="2023-07-29T00:46:04+08:00">2023-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -967,7 +728,7 @@
             </span>
 
           
-            <span id="/2023/07/09/78-%E5%AD%90%E9%9B%86/" class="post-meta-item leancloud_visitors" data-flag-title="78. 子集" title="阅读次数">
+            <span id="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/" class="post-meta-item leancloud_visitors" data-flag-title="452. 用最少数量的箭引爆气球" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -982,8 +743,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/07/09/78-%E5%AD%90%E9%9B%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/78-%E5%AD%90%E9%9B%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -993,7 +754,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>859</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1014,146 +775,24 @@
       
           <span id="more"></span>
 <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subsets/">78. 子集 - 力扣（LeetCode）</a></p>
-<p>给你一个整数数组 <code>nums</code> ，数组中的元素 <strong>互不相同</strong> 。返回该数组所有可能的子集（幂集）。</p>
-<p>解集 <strong>不能</strong> 包含重复的子集。你可以按 <strong>任意顺序</strong> 返回解集。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/">452. 用最少数量的箭引爆气球 - 力扣（LeetCode）</a></p>
+<p>有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 <code>points</code> ，其中<code>points[i] = [x&lt;sub&gt;start&lt;/sub&gt;, x&lt;sub&gt;end&lt;/sub&gt;]</code> 表示水平直径在 <code>x&lt;sub&gt;start&lt;/sub&gt;</code> 和 <code>x&lt;sub&gt;end&lt;/sub&gt;</code>之间的气球。你不知道气球的确切 y 坐标。</p>
+<p>一支弓箭可以沿着 x 轴从不同点 <strong>完全垂直</strong> 地射出。在坐标 <code>x</code> 处射出一支箭，若有一个气球的直径的开始和结束坐标为 <code>x</code><sub><code>start</code>，</sub><code>x</code><sub><code>end</code>，</sub> 且满足  <code>x&lt;sub&gt;start&lt;/sub&gt; ≤ x ≤ x</code><sub><code>end</code>，</sub>则该气球会被 <strong>引爆</strong> <sub>。</sub>可以射出的弓箭的数量 <strong>没有限制</strong> 。 弓箭一旦被射出之后，可以无限地前进。</p>
+<p>给你一个数组 <code>points</code> ，<em>返回引爆所有气球所必须射出的 <strong>最小</strong> 弓箭数</em> 。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,3]</span><br><span class="line">输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：points = [[10,16],[2,8],[1,6],[7,12]]</span><br><span class="line">输出：2</span><br><span class="line">解释：气球可以用2支箭来爆破:</span><br><span class="line">-在x = 6处射出箭，击破气球[2,8]和[1,6]。</span><br><span class="line">-在x = 11处发射箭，击破气球[10,16]和[7,12]。</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0]</span><br><span class="line">输出：[[],[0]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 10</code></li>
-<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
-<li><code>nums</code> 中的所有元素 <strong>互不相同</strong></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; result;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">backTracking</span>(nums,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> startIndex)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        result.<span class="built_in">push_back</span>(path);</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = startIndex; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">backTracking</span>(nums,i+<span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/93-%E5%A4%8D%E5%8E%9F-IP-%E5%9C%B0%E5%9D%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/09/93-%E5%A4%8D%E5%8E%9F-IP-%E5%9C%B0%E5%9D%80/" class="post-title-link" itemprop="url">93. 复原 IP 地址</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-09 06:02:42" itemprop="dateCreated datePublished" datetime="2023-07-09T06:02:42+08:00">2023-07-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/09/93-%E5%A4%8D%E5%8E%9F-IP-%E5%9C%B0%E5%9D%80/" class="post-meta-item leancloud_visitors" data-flag-title="93. 复原 IP 地址" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/09/93-%E5%A4%8D%E5%8E%9F-IP-%E5%9C%B0%E5%9D%80/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/93-%E5%A4%8D%E5%8E%9F-IP-%E5%9C%B0%E5%9D%80/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/restore-ip-addresses/">93. 复原 IP 地址 - 力扣（LeetCode）</a></p>
-<p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 <code>0</code> 到 <code>255</code> 之间组成，且不能含有前导 <code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>
-<ul>
-<li>例如：<code>&quot;0.1.2.201&quot;</code> 和 <code>&quot;192.168.1.1&quot;</code> 是 <strong>有效</strong> IP 地址，但是 <code>&quot;0.011.255.245&quot;</code>、<code>&quot;192.168.1.312&quot;</code> 和 <code>&quot;192.168@1.1&quot;</code> 是 <strong>无效</strong> IP 地址。</li>
-</ul>
-<p>给定一个只包含数字的字符串 <code>s</code> ，用以表示一个 IP 地址，返回所有可能的<strong>有效 IP 地址</strong>，这些地址可以通过在 <code>s</code> 中插入 <code>'.'</code> 来形成。你 <strong>不能</strong> 重新排序或删除 <code>s</code> 中的任何数字。你可以按 <strong>任何</strong> 顺序返回答案。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;25525511135&quot;</span><br><span class="line">输出：[&quot;255.255.11.135&quot;,&quot;255.255.111.35&quot;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;0000&quot;</span><br><span class="line">输出：[&quot;0.0.0.0&quot;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：points = [[1,2],[3,4],[5,6],[7,8]]</span><br><span class="line">输出：4</span><br><span class="line">解释：每个气球需要射出一支箭，总共需要4支箭。</span><br></pre></td></tr></table></figure>
 <p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;101023&quot;</span><br><span class="line">输出：[&quot;1.0.10.23&quot;,&quot;1.0.102.3&quot;,&quot;10.1.0.23&quot;,&quot;10.10.2.3&quot;,&quot;101.0.2.3&quot;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：points = [[1,2],[2,3],[3,4],[4,5]]</span><br><span class="line">输出：2</span><br><span class="line">解释：气球可以用2支箭来爆破:</span><br><span class="line">- 在x = 2处发射箭，击破气球[1,2]和[2,3]。</span><br><span class="line">- 在x = 4处射出箭，击破气球[3,4]和[4,5]。</span><br></pre></td></tr></table></figure>
+<p><strong>提示:</strong></p>
 <ul>
-<li><code>1 &lt;= s.length &lt;= 20</code></li>
-<li><code>s</code> 仅由数字组成</li>
+<li><code>1 &lt;= points.length &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
+<li><code>points[i].length == 2</code></li>
+<li><code>-2&lt;sup&gt;31&lt;/sup&gt; &lt;= x&lt;sub&gt;start&lt;/sub&gt; &lt; x&lt;sub&gt;end&lt;/sub&gt; &lt;= 2&lt;sup&gt;31&lt;/sup&gt; - 1</code></li>
 </ul>
 <h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">restoreIpAddresses</span><span class="params">(string s)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        vector&lt;string&gt; path;</span><br><span class="line">        vector&lt;string&gt; result;</span><br><span class="line">        <span class="built_in">backTracking</span>(s,<span class="number">0</span>,path,result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">biggerThan255</span><span class="params">(string s)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() &gt; <span class="number">3</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s.<span class="built_in">size</span>() &lt; <span class="number">3</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(s &gt; <span class="string">&quot;255&quot;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPreHas0</span><span class="params">(string s)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (s.<span class="built_in">size</span>() == <span class="number">1</span> &amp;&amp; s [<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (s.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; s [<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(string s,<span class="type">int</span> startIndex, vector&lt;string&gt;&amp; path, vector&lt;string&gt;&amp; result)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == <span class="number">3</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.<span class="built_in">substr</span>(startIndex, s.<span class="built_in">size</span>()).<span class="built_in">size</span>() == <span class="number">0</span> || <span class="built_in">isPreHas0</span>(s.<span class="built_in">substr</span>(startIndex, s.<span class="built_in">size</span>())) || <span class="built_in">biggerThan255</span>(s.<span class="built_in">substr</span>(startIndex, s.<span class="built_in">size</span>())))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                string temp = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                <span class="keyword">for</span> (string x : path)</span><br><span class="line">                &#123;</span><br><span class="line">                    temp += x + <span class="string">&quot;.&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                temp += s.<span class="built_in">substr</span>(startIndex,s.<span class="built_in">size</span>());</span><br><span class="line">                result.<span class="built_in">push_back</span>(temp);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = startIndex; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            string cutStr = s.<span class="built_in">substr</span>(startIndex, i - startIndex + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isPreHas0</span>(cutStr) || <span class="built_in">biggerThan255</span>(cutStr)) <span class="comment">//剪枝</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            path.<span class="built_in">push_back</span>(cutStr);</span><br><span class="line">            <span class="built_in">backTracking</span>(s,i+<span class="number">1</span>,path,result);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMinArrowShots</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> bow = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">sort</span>(points.<span class="built_in">begin</span>(), points.<span class="built_in">end</span>(), [](vector&lt;<span class="type">int</span>&gt; &amp; a, vector&lt;<span class="type">int</span>&gt;&amp; b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="type">int</span> left = points[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        bow++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp; point : points)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point[<span class="number">0</span>] &gt; left)</span><br><span class="line">            &#123;</span><br><span class="line">                left = point[<span class="number">1</span>];</span><br><span class="line">                bow++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1172,7 +811,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/131-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -1186,7 +825,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/09/131-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/" class="post-title-link" itemprop="url">131. 分割回文串</a>
+            <a href="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">406. 根据身高重建队列</a>
         </h2>
 
         <div class="post-meta">
@@ -1196,7 +835,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-09 05:57:01" itemprop="dateCreated datePublished" datetime="2023-07-09T05:57:01+08:00">2023-07-09</time>
+              <time title="创建时间：2023-07-29 00:45:27" itemprop="dateCreated datePublished" datetime="2023-07-29T00:45:27+08:00">2023-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1213,7 +852,7 @@
             </span>
 
           
-            <span id="/2023/07/09/131-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/" class="post-meta-item leancloud_visitors" data-flag-title="131. 分割回文串" title="阅读次数">
+            <span id="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="406. 根据身高重建队列" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -1228,128 +867,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/07/09/131-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/131-%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/palindrome-partitioning/">131. 分割回文串 - 力扣（LeetCode）</a></p>
-<p>给你一个字符串 <code>s</code>，请你将 <code>s</code> 分割成一些子串，使每个子串都是 <strong>回文串</strong> 。返回 <code>s</code> 所有可能的分割方案。</p>
-<p><strong>回文串</strong> 是正着读和反着读都一样的字符串。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;aab&quot;</span><br><span class="line">输出：[[&quot;a&quot;,&quot;a&quot;,&quot;b&quot;],[&quot;aa&quot;,&quot;b&quot;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;a&quot;</span><br><span class="line">输出：[[&quot;a&quot;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 16</code></li>
-<li><code>s</code> 仅由小写英文字母组成</li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">partition</span>(string s) &#123;</span><br><span class="line">        vector&lt;string&gt; path;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; result;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; <span class="built_in">dp</span>(s.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(s.<span class="built_in">size</span>(), <span class="literal">false</span>));</span><br><span class="line">        <span class="built_in">computerPalindrome</span>(s,dp);</span><br><span class="line">        <span class="built_in">backTracking</span>(s,<span class="number">0</span>,path,result,dp);</span><br><span class="line">        cout &lt;&lt; result.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">computerPalindrome</span><span class="params">(string s, vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; &amp;dp)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == j || i - j == <span class="number">1</span>)</span><br><span class="line">                    dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = s.<span class="built_in">size</span>() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; s.<span class="built_in">size</span>(); j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (dp[i + <span class="number">1</span>][j - <span class="number">1</span>] &amp;&amp; s[i] == s[j])</span><br><span class="line">                    dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(string s, <span class="type">int</span> startIndex ,vector&lt;string&gt;&amp; path, vector&lt;vector&lt;string&gt;&gt;&amp; result,vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt;&amp; dp)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(startIndex &gt;= s.<span class="built_in">size</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = startIndex; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            string cutStr = s.<span class="built_in">substr</span>(startIndex,i - startIndex + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(dp[startIndex][i])</span><br><span class="line">            &#123;</span><br><span class="line">                path.<span class="built_in">push_back</span>(cutStr);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="built_in">backTracking</span>(s,i + <span class="number">1</span>,path,result,dp);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Solution a;</span><br><span class="line">    string s = <span class="string">&quot;abbab&quot;</span>;</span><br><span class="line">    a.<span class="built_in">partition</span>(s);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/09/40-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-II/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/09/40-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-II/" class="post-title-link" itemprop="url">40. 组合总和 II</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-09 05:56:03" itemprop="dateCreated datePublished" datetime="2023-07-09T05:56:03+08:00">2023-07-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/09/40-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-II/" class="post-meta-item leancloud_visitors" data-flag-title="40. 组合总和 II" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/09/40-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-II/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/09/40-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-II/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1380,22 +899,520 @@
       
           <span id="more"></span>
 <h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combination-sum-ii/">40. 组合总和 II - 力扣（LeetCode）</a></p>
-<p>给定一个候选人编号的集合 <code>candidates</code> 和一个目标数 <code>target</code> ，找出 <code>candidates</code> 中所有可以使数字和为 <code>target</code> 的组合。</p>
-<p><code>candidates</code> 中的每个数字在每个组合中只能使用 <strong>一次</strong> 。</p>
-<p>**注意：**解集不能包含重复的组合。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入: candidates = [10,1,2,7,6,1,5], target = 8,</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">[1,1,6],</span><br><span class="line">[1,2,5],</span><br><span class="line">[1,7],</span><br><span class="line">[2,6]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: candidates = [2,5,2,1,2], target = 5,</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">[1,2,2],</span><br><span class="line">[5]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><strong>提示:</strong></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/queue-reconstruction-by-height/">406. 根据身高重建队列 - 力扣（LeetCode）</a></p>
+<p>假设有打乱顺序的一群人站成一个队列，数组 <code>people</code> 表示队列中一些人的属性（不一定按顺序）。每个 <code>people[i] = [h&lt;sub&gt;i&lt;/sub&gt;, k&lt;sub&gt;i&lt;/sub&gt;]</code> 表示第 <code>i</code> 个人的身高为 <code>h&lt;sub&gt;i&lt;/sub&gt;</code> ，前面 <strong>正好</strong> 有 <code>k&lt;sub&gt;i&lt;/sub&gt;</code> 个身高大于或等于 <code>h&lt;sub&gt;i&lt;/sub&gt;</code> 的人。</p>
+<p>请你重新构造并返回输入数组 <code>people</code> 所表示的队列。返回的队列应该格式化为数组 <code>queue</code> ，其中 <code>queue[j] = [h&lt;sub&gt;j&lt;/sub&gt;, k&lt;sub&gt;j&lt;/sub&gt;]</code> 是队列中第 <code>j</code> 个人的属性（<code>queue[0]</code> 是排在队列前面的人）。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]</span><br><span class="line">输出：[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]</span><br><span class="line">解释：</span><br><span class="line">编号为 0 的人身高为 5 ，没有身高更高或者相同的人排在他前面。</span><br><span class="line">编号为 1 的人身高为 7 ，没有身高更高或者相同的人排在他前面。</span><br><span class="line">编号为 2 的人身高为 5 ，有 2 个身高更高或者相同的人排在他前面，即编号为 0 和 1 的人。</span><br><span class="line">编号为 3 的人身高为 6 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。</span><br><span class="line">编号为 4 的人身高为 4 ，有 4 个身高更高或者相同的人排在他前面，即编号为 0、1、2、3 的人。</span><br><span class="line">编号为 5 的人身高为 7 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。</span><br><span class="line">因此 [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] 是重新构造后的队列。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]</span><br><span class="line">输出：[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= candidates.length &lt;= 100</code></li>
-<li><code>1 &lt;= candidates[i] &lt;= 50</code></li>
-<li><code>1 &lt;= target &lt;= 30</code></li>
+<li><code>1 &lt;= people.length &lt;= 2000</code></li>
+<li><code>0 &lt;= h&lt;sub&gt;i&lt;/sub&gt; &lt;= 10&lt;sup&gt;6&lt;/sup&gt;</code></li>
+<li><code>0 &lt;= k&lt;sub&gt;i&lt;/sub&gt; &lt; people.length</code></li>
+<li>题目数据确保队列可以被重建</li>
 </ul>
 <h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combinationSum2</span>(vector&lt;<span class="type">int</span>&gt; &amp;candidates, <span class="type">int</span> target)</span><br><span class="line">    &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; result;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">used</span><span class="params">(candidates.size(),<span class="literal">false</span>)</span></span>;</span><br><span class="line">        <span class="built_in">sort</span>(candidates.<span class="built_in">begin</span>(), candidates.<span class="built_in">end</span>()); <span class="comment">// 排序以便于剪枝操作</span></span><br><span class="line">        <span class="built_in">backTracking</span>(candidates, <span class="number">0</span>, target, <span class="number">0</span>, path, result,used);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backTracking</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;candidates, <span class="type">int</span> sum, <span class="type">int</span> target, <span class="type">int</span> startIndex, vector&lt;<span class="type">int</span>&gt; &amp;path, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;result, vector&lt;<span class="type">bool</span>&gt;&amp; used)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sum == target)</span><br><span class="line">        &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = startIndex; i &lt; candidates.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; candidates[i] == candidates[i<span class="number">-1</span>] &amp;&amp; used[i<span class="number">-1</span>] == <span class="literal">false</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span> (sum + candidates[i] &gt; target)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            sum += candidates[i];</span><br><span class="line">            path.<span class="built_in">push_back</span>(candidates[i]);</span><br><span class="line">            used[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">backTracking</span>(candidates, sum, target, i + <span class="number">1</span>, path, result,used);</span><br><span class="line">            used[i] = <span class="literal">false</span>;</span><br><span class="line">            sum -= candidates[i];</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">reconstructQueue</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;people)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">sort</span>(people.<span class="built_in">begin</span>(),people.<span class="built_in">end</span>(),[](vector&lt;<span class="type">int</span>&gt;&amp; a, vector&lt;<span class="type">int</span>&gt; b)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[<span class="number">0</span>] == b[<span class="number">0</span>]) <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">0</span>] &gt; b[<span class="number">0</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; people.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp.<span class="built_in">insert</span>(temp.<span class="built_in">begin</span>() + people[i][<span class="number">1</span>], people[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/" class="post-title-link" itemprop="url">860. 柠檬水找零</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-29 00:44:52" itemprop="dateCreated datePublished" datetime="2023-07-29T00:44:52+08:00">2023-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/" class="post-meta-item leancloud_visitors" data-flag-title="860. 柠檬水找零" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lemonade-change/">860. 柠檬水找零 - 力扣（LeetCode）</a></p>
+<p>在柠檬水摊上，每一杯柠檬水的售价为 <code>5</code> 美元。顾客排队购买你的产品，（按账单 <code>bills</code> 支付的顺序）一次购买一杯。</p>
+<p>每位顾客只买一杯柠檬水，然后向你付 <code>5</code> 美元、<code>10</code> 美元或 <code>20</code> 美元。你必须给每个顾客正确找零，也就是说净交易是每位顾客向你支付 <code>5</code> 美元。</p>
+<p>注意，一开始你手头没有任何零钱。</p>
+<p>给你一个整数数组 <code>bills</code> ，其中 <code>bills[i]</code> 是第 <code>i</code> 位顾客付的账。如果你能给每位顾客正确找零，返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：bills = [5,5,5,10,20]</span><br><span class="line">输出：true</span><br><span class="line">解释：</span><br><span class="line">前 3 位顾客那里，我们按顺序收取 3 张 5 美元的钞票。</span><br><span class="line">第 4 位顾客那里，我们收取一张 10 美元的钞票，并返还 5 美元。</span><br><span class="line">第 5 位顾客那里，我们找还一张 10 美元的钞票和一张 5 美元的钞票。</span><br><span class="line">由于所有客户都得到了正确的找零，所以我们输出 true。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：bills = [5,5,10,10,20]</span><br><span class="line">输出：false</span><br><span class="line">解释：</span><br><span class="line">前 2 位顾客那里，我们按顺序收取 2 张 5 美元的钞票。</span><br><span class="line">对于接下来的 2 位顾客，我们收取一张 10 美元的钞票，然后返还 5 美元。</span><br><span class="line">对于最后一位顾客，我们无法退回 15 美元，因为我们现在只有两张 10 美元的钞票。</span><br><span class="line">由于不是每位顾客都得到了正确的找零，所以答案是 false。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= bills.length &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
+<li><code>bills[i]</code> 不是 <code>5</code> 就是 <code>10</code> 或是 <code>20</code></li>
+</ul>
+<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">lemonadeChange</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;bills)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> five = <span class="number">0</span>, ten = <span class="number">0</span>, twenty = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> needFive = <span class="number">0</span>, needTen = <span class="number">0</span>, needTwenty = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : bills)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span> (x)</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                five++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">                <span class="keyword">if</span>(five &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                ten++;</span><br><span class="line">                five--;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">20</span>:</span><br><span class="line">                <span class="keyword">if</span>(five &gt; <span class="number">0</span> &amp;&amp; ten &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    five--;</span><br><span class="line">                    ten--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(five &gt;= <span class="number">3</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    five -= <span class="number">3</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/135-%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/29/135-%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/" class="post-title-link" itemprop="url">135. 分发糖果</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-29 00:44:14" itemprop="dateCreated datePublished" datetime="2023-07-29T00:44:14+08:00">2023-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/07/29/135-%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/" class="post-meta-item leancloud_visitors" data-flag-title="135. 分发糖果" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/07/29/135-%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/135-%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>949</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/candy/">135. 分发糖果 - 力扣（LeetCode）</a></p>
+<p><code>n</code> 个孩子站成一排。给你一个整数数组 <code>ratings</code> 表示每个孩子的评分。</p>
+<p>你需要按照以下要求，给这些孩子分发糖果：</p>
+<ul>
+<li>每个孩子至少分配到 <code>1</code> 个糖果。</li>
+<li>相邻两个孩子评分更高的孩子会获得更多的糖果。</li>
+</ul>
+<p>请你给每个孩子分发糖果，计算并返回需要准备的 <strong>最少糖果数目</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：ratings = [1,0,2]</span><br><span class="line">输出：5</span><br><span class="line">解释：你可以分别给第一个、第二个、第三个孩子分发 2、1、2 颗糖果。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：ratings = [1,2,2]</span><br><span class="line">输出：4</span><br><span class="line">解释：你可以分别给第一个、第二个、第三个孩子分发 1、2、1 颗糖果。</span><br><span class="line">     第三个孩子只得到 1 颗糖果，这满足题面中的两个条件。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == ratings.length</code></li>
+<li><code>1 &lt;= n &lt;= 2 * 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
+<li><code>0 &lt;= ratings[i] &lt;= 2 * 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
+</ul>
+<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">candy</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; ratings)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">result</span><span class="params">(ratings.size(),<span class="number">0</span>)</span></span>;</span><br><span class="line">        result[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; ratings.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ratings[i] &gt; ratings[i<span class="number">-1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                result[i] = result[i<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                result[i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="built_in">int</span>(ratings.<span class="built_in">size</span>())<span class="number">-2</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ratings[i] &gt; ratings[i+<span class="number">1</span>] &amp;&amp; result[i] &lt; result[i+<span class="number">1</span>]+<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                result[i] = result[i+<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : result)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/134-%E5%8A%A0%E6%B2%B9%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/29/134-%E5%8A%A0%E6%B2%B9%E7%AB%99/" class="post-title-link" itemprop="url">134. 加油站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-29 00:43:39" itemprop="dateCreated datePublished" datetime="2023-07-29T00:43:39+08:00">2023-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/07/29/134-%E5%8A%A0%E6%B2%B9%E7%AB%99/" class="post-meta-item leancloud_visitors" data-flag-title="134. 加油站" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/07/29/134-%E5%8A%A0%E6%B2%B9%E7%AB%99/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/134-%E5%8A%A0%E6%B2%B9%E7%AB%99/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/gas-station/">134. 加油站 - 力扣（LeetCode）</a></p>
+<p>在一条环路上有 <code>n</code> 个加油站，其中第 <code>i</code> 个加油站有汽油 <code>gas[i]</code> 升。</p>
+<p>你有一辆油箱容量无限的的汽车，从第 <code>i</code> 个加油站开往第 <code>i+1</code> 个加油站需要消耗汽油 <code>cost[i]</code> 升。你从其中的一个加油站出发，开始时油箱为空。</p>
+<p>给定两个整数数组 <code>gas</code> 和 <code>cost</code> ，如果你可以按顺序绕环路行驶一周，则返回出发时加油站的编号，否则返回 <code>-1</code> 。如果存在解，则 <strong>保证</strong> 它是 <strong>唯一</strong> 的。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入: gas = [1,2,3,4,5], cost = [3,4,5,1,2]</span><br><span class="line">输出: 3</span><br><span class="line">解释:</span><br><span class="line">从 3 号加油站(索引为 3 处)出发，可获得 4 升汽油。此时油箱有 = 0 + 4 = 4 升汽油</span><br><span class="line">开往 4 号加油站，此时油箱有 4 - 1 + 5 = 8 升汽油</span><br><span class="line">开往 0 号加油站，此时油箱有 8 - 2 + 1 = 7 升汽油</span><br><span class="line">开往 1 号加油站，此时油箱有 7 - 3 + 2 = 6 升汽油</span><br><span class="line">开往 2 号加油站，此时油箱有 6 - 4 + 3 = 5 升汽油</span><br><span class="line">开往 3 号加油站，你需要消耗 5 升汽油，正好足够你返回到 3 号加油站。</span><br><span class="line">因此，3 可为起始索引。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入: gas = [2,3,4], cost = [3,4,3]</span><br><span class="line">输出: -1</span><br><span class="line">解释:</span><br><span class="line">你不能从 0 号或 1 号加油站出发，因为没有足够的汽油可以让你行驶到下一个加油站。</span><br><span class="line">我们从 2 号加油站出发，可以获得 4 升汽油。 此时油箱有 = 0 + 4 = 4 升汽油</span><br><span class="line">开往 0 号加油站，此时油箱有 4 - 3 + 2 = 3 升汽油</span><br><span class="line">开往 1 号加油站，此时油箱有 3 - 3 + 3 = 3 升汽油</span><br><span class="line">你无法返回 2 号加油站，因为返程需要消耗 4 升汽油，但是你的油箱只有 3 升汽油。</span><br><span class="line">因此，无论怎样，你都不可能绕环路行驶一周。</span><br></pre></td></tr></table></figure>
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>gas.length == n</code></li>
+<li><code>cost.length == n</code></li>
+<li><code>1 &lt;= n &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
+<li><code>0 &lt;= gas[i], cost[i] &lt;= 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
+</ul>
+<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">canCompleteCircuit</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;gas, vector&lt;<span class="type">int</span>&gt; &amp;cost)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> total = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; gas.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += gas[i] - cost[i];</span><br><span class="line">            total += gas[i] - cost[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(sum &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                index = i+<span class="number">1</span>;</span><br><span class="line">                sum = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(total &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/29/1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C/" class="post-title-link" itemprop="url">1005. K 次取反后最大化的数组和</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-29 00:43:05" itemprop="dateCreated datePublished" datetime="2023-07-29T00:43:05+08:00">2023-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/07/29/1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C/" class="post-meta-item leancloud_visitors" data-flag-title="1005. K 次取反后最大化的数组和" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/07/29/1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>876</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/">1005. K 次取反后最大化的数组和 - 力扣（LeetCode）</a></p>
+<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，按以下方法修改该数组：</p>
+<ul>
+<li>选择某个下标 <code>i</code> 并将 <code>nums[i]</code> 替换为 <code>-nums[i]</code> 。</li>
+</ul>
+<p>重复这个过程恰好 <code>k</code> 次。可以多次选择同一个下标 <code>i</code> 。</p>
+<p>以这种方式修改数组后，返回数组 <strong>可能的最大和</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [4,2,3], k = 1</span><br><span class="line">输出：5</span><br><span class="line">解释：选择下标 1 ，nums 变为 [4,-2,3] 。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,-1,0,2], k = 3</span><br><span class="line">输出：6</span><br><span class="line">解释：选择下标 (1, 2, 2) ，nums 变为 [3,1,0,2] 。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,-3,-1,5,-4], k = 2</span><br><span class="line">输出：13</span><br><span class="line">解释：选择下标 (1, 4) ，nums 变为 [2,3,-1,5,4] 。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
+<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
+<li><code>1 &lt;= k &lt;= 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
+</ul>
+<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">largestSumAfterKNegations</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//找到最小元素的下标</span></span><br><span class="line">            <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> minNum = nums[index];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i] &lt; minNum)</span><br><span class="line">                &#123;</span><br><span class="line">                    minNum = nums[i];</span><br><span class="line">                    index = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[index] = -nums[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1413,7 +1430,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1481,7 +1498,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1548,12 +1565,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">165k</span>
+    <span title="站点总字数">181k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:30</span>
+    <span title="站点阅读时长">2:44</span>
 </div>
 
         
