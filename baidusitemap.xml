@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://02xx.github.io/2023/09/21/Socket%E7%BC%96%E7%A8%8B%E4%B8%ADTCP%E7%9A%84%E6%8A%A5%E6%96%87%E6%AE%B5%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98-%E7%B2%98%E5%8C%85-or-%E5%8D%8A%E5%8C%85/</loc>
+    <lastmod>2023-09-21</lastmod>
+  </url>
+  <url>
+    <loc>http://02xx.github.io/2023/03/29/html5%E6%A0%87%E7%AD%BE/</loc>
+    <lastmod>2023-09-02</lastmod>
+  </url>
+  <url>
     <loc>http://02xx.github.io/2023/03/14/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E4%B8%8E%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/</loc>
     <lastmod>2023-07-29</lastmod>
   </url>
@@ -158,10 +166,6 @@
   </url>
   <url>
     <loc>http://02xx.github.io/2021/07/28/Dynamic-Programing/</loc>
-    <lastmod>2023-04-03</lastmod>
-  </url>
-  <url>
-    <loc>http://02xx.github.io/2023/03/29/html5%E6%A0%87%E7%AD%BE/</loc>
     <lastmod>2023-04-03</lastmod>
   </url>
   <url>

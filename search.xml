@@ -3554,6 +3554,28 @@ tags: C++</h2>
 </tr>
 </tbody>
 </table>
+<h2 id="显示模式"><a class="markdownIt-Anchor" href="#显示模式"></a> 显示模式</h2>
+<h3 id="block块元素"><a class="markdownIt-Anchor" href="#block块元素"></a> block(块元素)</h3>
+<ol>
+<li>主题结构标签<code>&lt;html&gt;</code> <code>&lt;body&gt;</code></li>
+<li>排版标签<code>&lt;h1&gt;~&lt;h6&gt;</code> <code>&lt;hr&gt;</code> <code>&lt;p&gt;</code> <code>&lt;pre&gt;</code> <code>&lt;div&gt;</code></li>
+<li>列表标签<code>&lt;ul&gt;</code> <code>&lt;ol&gt;</code> <code>&lt;li&gt;</code> <code>&lt;dl&gt;</code> <code>&lt;dt&gt;</code> <code>&lt;dd&gt;</code></li>
+<li>表格相关标签<code>&lt;table&gt;</code> <code>&lt;tbody&gt;</code> <code>&lt;thead&gt;</code> <code>&lt;tfoot&gt;</code> <code>&lt;tr&gt;</code> <code>&lt;caption&gt;</code></li>
+<li><code>&lt;from&gt;</code> <code>&lt;option&gt;</code></li>
+</ol>
+<h3 id="inline行内元素"><a class="markdownIt-Anchor" href="#inline行内元素"></a> inline(行内元素)</h3>
+<ol>
+<li>文本标签 <code>&lt;br&gt;</code> <code>&lt;em&gt;</code><br>
+<code>&lt;strong&gt;</code> <code>&lt;sup&gt;</code> <code>&lt;sub&gt;</code> <code>&lt;del&gt;</code> <code>&lt;ins&gt;</code></li>
+<li><code>&lt;a&gt;</code> <code>&lt;label&gt;</code></li>
+</ol>
+<h3 id="inline-block行内块元素"><a class="markdownIt-Anchor" href="#inline-block行内块元素"></a> inline-block(行内块元素)</h3>
+<ol>
+<li>图片<code>&lt;img&gt;</code></li>
+<li>单元格 <code>&lt;td&gt;</code> <code>&lt;th&gt;</code></li>
+<li>表单控件 <code>&lt;input&gt;</code> <code>&lt;textarea&gt;</code> <code>&lt;select&gt;</code> <code>&lt;button&gt;</code></li>
+<li>框架标签<code>&lt;iframe&gt;</code></li>
+</ol>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -6391,5 +6413,26 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 <h2 id="静态无链接性"><a class="markdownIt-Anchor" href="#静态无链接性"></a> 静态，无链接性</h2>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> a;<span class="comment">//静态，无链接性</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Socket编程中TCP的报文段传输问题(粘包 or 半包)</title>
+    <url>/2023/09/21/Socket%E7%BC%96%E7%A8%8B%E4%B8%ADTCP%E7%9A%84%E6%8A%A5%E6%96%87%E6%AE%B5%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98-%E7%B2%98%E5%8C%85-or-%E5%8D%8A%E5%8C%85/</url>
+    <content><![CDATA[<h2 id="何为粘包和半包注意传输层的单位是报文段segment只是大家都这么叫"><a class="markdownIt-Anchor" href="#何为粘包和半包注意传输层的单位是报文段segment只是大家都这么叫"></a> 何为粘包和半包（注意传输层的单位是报文段segment，只是大家都这么叫）</h2>
+<p>原因：TCP是基于流式传输的</p>
+<h3 id="粘包"><a class="markdownIt-Anchor" href="#粘包"></a> 粘包</h3>
+<p>TCP连接会维护发送缓冲区和接受缓冲区，如果发送方send的数据小于接收方的接受缓冲区的大小，同时接收方不及时的receive数据或者发送发send太快，就会造成粘包。</p>
+<h2 id="半包"><a class="markdownIt-Anchor" href="#半包"></a> 半包</h2>
+<p>发送方send数据的大小大于发送缓冲区的大小，或者大于一个mss就会造成半包(拆包)。</p>
+<h2 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h2>
+<p>（1）发送端给每个数据包添加包首部，首部长度应该至少包含数据包的长度 ；</p>
+<p>（2）固定每次发送的报文长度，不够用0补充；</p>
+<p>（3）约定好包的边界，添加首部尾部标识，如特许字符；</p>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>Socket</tag>
+      </tags>
   </entry>
 </search>
