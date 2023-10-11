@@ -6415,27 +6415,6 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 ]]></content>
   </entry>
   <entry>
-    <title>Socket编程中TCP的报文段传输问题(粘包 or 半包)</title>
-    <url>/2023/09/21/Socket%E7%BC%96%E7%A8%8B%E4%B8%ADTCP%E7%9A%84%E6%8A%A5%E6%96%87%E6%AE%B5%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98-%E7%B2%98%E5%8C%85-or-%E5%8D%8A%E5%8C%85/</url>
-    <content><![CDATA[<h2 id="何为粘包和半包注意传输层的单位是报文段segment只是大家都这么叫"><a class="markdownIt-Anchor" href="#何为粘包和半包注意传输层的单位是报文段segment只是大家都这么叫"></a> 何为粘包和半包（注意传输层的单位是报文段segment，只是大家都这么叫）</h2>
-<p>原因：TCP是基于流式传输的</p>
-<h3 id="粘包"><a class="markdownIt-Anchor" href="#粘包"></a> 粘包</h3>
-<p>TCP连接会维护发送缓冲区和接受缓冲区，如果发送方send的数据小于接收方的接受缓冲区的大小，同时接收方不及时的receive数据或者发送发send太快，就会造成粘包。</p>
-<h2 id="半包"><a class="markdownIt-Anchor" href="#半包"></a> 半包</h2>
-<p>发送方send数据的大小大于发送缓冲区的大小，或者大于一个mss就会造成半包(拆包)。</p>
-<h2 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h2>
-<p>（1）发送端给每个数据包添加包首部，首部长度应该至少包含数据包的长度 ；</p>
-<p>（2）固定每次发送的报文长度，不够用0补充；</p>
-<p>（3）约定好包的边界，添加首部尾部标识，如特许字符；</p>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>Socket</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>面向对象和设计模式</title>
     <url>/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<ul>
@@ -6568,5 +6547,81 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 <h3 id="210-复合模式-composite-pattern"><a class="markdownIt-Anchor" href="#210-复合模式-composite-pattern"></a> 2.10 复合模式 (Composite Pattern)</h3>
 <p>复合模式将对象组合成树形结构以表示&quot;部分-整体&quot;的层次结构。这种模式使得客户端对单个对象和组合对象的使用具有一致性。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>C# Socket编程</title>
+    <url>/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<p>C#中socket的API用法</p>
+<span id="more"></span>
+<h2 id="socket的send和receive"><a class="markdownIt-Anchor" href="#socket的send和receive"></a> Socket的send和receive</h2>
+<p>操作系统维护发送与接受缓冲区，对用户不可见。send函数返回只代表成功把数据写入发送缓冲区（默认8KB），对方可能还没收到数据，若发送缓冲区满了，send就会阻塞。同理receive。</p>
+<h2 id="异步和多路复用"><a class="markdownIt-Anchor" href="#异步和多路复用"></a> 异步和多路复用</h2>
+<p>socket的send和receive方法都是阻塞方法，这种方法写客户端和服务端也是同步模式。如果发生阻塞，主线程就会卡住不动，降低体验感。因此提出了异步和多路复用的方法。</p>
+<h3 id="异步"><a class="markdownIt-Anchor" href="#异步"></a> 异步</h3>
+<p>异步采用两个函数这两个函数与同步函数对应。例如同步是Send，异步是BeginSend,EndSend。</p>
+<p>异步是在主线程之外又开了一个线程，这两个线程不能直接通信，需要全局变量进行中转。</p>
+<p>具体构造函数查看微软官方文档，下同。</p>
+<h3 id="poll状态检测"><a class="markdownIt-Anchor" href="#poll状态检测"></a> Poll状态检测</h3>
+<p>异步方法容易造成线程问题。因此采用poll状态检测。</p>
+<p>在Send和Receive同步方法前进行一次if判断，如果可读则Receive，如果可写则Send，如果Error则处理连接失败。</p>
+<h2 id="多路复用"><a class="markdownIt-Anchor" href="#多路复用"></a> 多路复用</h2>
+<p>一直poll会对cpu造成很大压力，因为没有收到数据主线程也会一直循环。所以有了select多路复用技术。</p>
+<p>select对checklist的所有socket进行状态检测，返回可读或可写或错误（参数）的socket，当没有可读或可写或错误时程序会<strong>阻塞</strong>不占用CPU内存。</p>
+<h2 id="粘包与半包"><a class="markdownIt-Anchor" href="#粘包与半包"></a> 粘包与半包</h2>
+<p>何为粘包和半包（注意传输层的单位是报文段segment，只是大家都这么叫）</p>
+<p>原因：TCP是基于流式传输的</p>
+<h3 id="粘包"><a class="markdownIt-Anchor" href="#粘包"></a> 粘包</h3>
+<p>TCP连接会维护发送缓冲区和接受缓冲区，如果发送方send的数据小于接收方的接受缓冲区的大小，同时接收方不及时的receive数据或者发送发send太快，就会造成粘包。</p>
+<h3 id="半包"><a class="markdownIt-Anchor" href="#半包"></a> 半包</h3>
+<p>发送方send数据的大小大于发送缓冲区的大小，或者大于一个mss就会造成半包(拆包)。</p>
+<h3 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h3>
+<ol>
+<li>
+<p>发送端给每个数据包添加包首部，首部长度应该至少包含数据包的长度，一般是2字节或4字节</p>
+</li>
+<li>
+<p>固定每次发送的报文长度，不够用0补充</p>
+</li>
+<li>
+<p>约定好包的边界，添加首部尾部标识，如特殊字符</p>
+</li>
+</ol>
+<h2 id="大小端问题"><a class="markdownIt-Anchor" href="#大小端问题"></a> 大小端问题</h2>
+<p>计算机不同数据的存储方式也不同，有的是大端存储有的是小端存储。所以从缓冲区取出的数据有可能是错的。</p>
+<h3 id="解决办法"><a class="markdownIt-Anchor" href="#解决办法"></a> 解决办法</h3>
+<ol>
+<li>使用Reverse()兼容大小端编码</li>
+<li>手动还原数值</li>
+</ol>
+<h2 id="tcp的参数"><a class="markdownIt-Anchor" href="#tcp的参数"></a> TCP的参数</h2>
+<h3 id="sendbuffersize和receivebuffersize"><a class="markdownIt-Anchor" href="#sendbuffersize和receivebuffersize"></a> SendBufferSize和ReceiveBufferSize</h3>
+<p>系统发送和接受缓冲区</p>
+<h3 id="nodelay"><a class="markdownIt-Anchor" href="#nodelay"></a> NoDelay</h3>
+<p>TCP默认开启Nagle算法。发送方发送很小数据包时，并不会立马发送而是积攒到一定大小，再发送，提高网络传输效率。如果对网络的实时</p>
+<p>性有要求，一定要关闭Nagle算法<code>socket.NoDelay = true</code></p>
+<h3 id="ttl"><a class="markdownIt-Anchor" href="#ttl"></a> TTL</h3>
+<p>网络层将数据包发给目标，是经过路由器存储转发的。ttl是设置的最大跳数默认为64，防止数据在网络中形成环路，无线循环。但是偏远地区的用户<strong>接受不到数据时</strong>可以将ttl设置的大一些。</p>
+<h3 id="reuseaddress"><a class="markdownIt-Anchor" href="#reuseaddress"></a> ReuseAddress</h3>
+<p>端口复用。当进程关闭时TCP并不是同时关闭的，因为TCP的关闭需要经历四次挥手。因此再次打开程序时会产生端口正在使用，这种情况必须等待一段时间才能再起成功启动。而一些对时间要求严格的服务器（服务器崩溃后应该立刻再次重启）不允许发生这种情况，因此会设置端口复用。<code>socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true)</code><br>
+但是也存在隐患，当再次重启后可能收到上一次连接的数据包，可能发生意想不到的后果。</p>
+<h3 id="lingerstate"><a class="markdownIt-Anchor" href="#lingerstate"></a> LingerState</h3>
+<p>当socket调用close()关闭连接时，会立马清空缓冲区的数据，这对于服务器而言收到客户端发来的fin包并不立马close()而是等待发送完数据再close()</p>
+<p><code>socket.LingerState = new LingerOption(true, 10)</code></p>
+<p>第二个参数是超时时间，若这个时间服务器还没将缓冲区数据发完，依然会进入close()</p>
+<h2 id="值得注意的异常"><a class="markdownIt-Anchor" href="#值得注意的异常"></a> 值得注意的异常</h2>
+<p>ObjectDisposedException socket已经关闭引发的异常。</p>
+<h2 id="心跳机制"><a class="markdownIt-Anchor" href="#心跳机制"></a> 心跳机制</h2>
+<p>TCP有自己的心跳机制。如果客户端在某些条件下不能发送fin包，例如网线断了，没信号等情况，这时服务器会一直认为客户端在连接，占用系统资源。因此需要心跳机制KeepAlive来确定。</p>
+<p><code>Socket.SetSocketOption(SocketOptionLevel.SocketOptionName.KeepAlive)</code></p>
+<p>但是由于TCP默认的心跳机制很鸡肋，时间太长，一般是2个小时。因此一般都自己实现心跳机制，客户端每隔指定时间向服务器发送PING消息，服务器接受后发送PONG回应，同时服务器记录客户端最后一次发送PING的时间，若很久没收到下一次PING则会认为客户端断开连接，并释放资源。</p>
+<p>当然也是有优缺点的，可以及时发现断开客户端并释放资源，但是当连接正常时又会占用不必要的带宽。</p>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>Socket</tag>
+        <tag>C#</tag>
+      </tags>
   </entry>
 </search>
