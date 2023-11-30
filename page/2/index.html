@@ -203,6 +203,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">738. 单调递增的数字</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-29 00:48:24" itemprop="dateCreated datePublished" datetime="2023-07-29T00:48:24+08:00">2023-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-meta-item leancloud_visitors" data-flag-title="738. 单调递增的数字" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/738-%E5%8D%95%E8%B0%83%E9%80%92%E5%A2%9E%E7%9A%84%E6%95%B0%E5%AD%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>766</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/monotone-increasing-digits/">738. 单调递增的数字 - 力扣（LeetCode）</a></p>
+<p>当且仅当每个相邻位数上的数字 <code>x</code> 和 <code>y</code> 满足 <code>x &lt;= y</code> 时，我们称这个整数是<strong>单调递增</strong>的。</p>
+<p>给定一个整数 <code>n</code> ，返回 <em>小于或等于 <code>n</code> 的最大数字，且数字呈 <strong>单调递增</strong></em> 。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 10</span><br><span class="line">输出: 9</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 1234</span><br><span class="line">输出: 1234</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 332</span><br><span class="line">输出: 299</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>0 &lt;= n &lt;= 10&lt;sup&gt;9&lt;/sup&gt;</code></li>
+</ul>
+<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">monotoneIncreasingDigits</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        string num = <span class="built_in">to_string</span>(n);</span><br><span class="line">        string result;</span><br><span class="line">        <span class="type">char</span> beforeNum = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; num.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="string">&#x27;9&#x27;</span>; j &gt;= beforeNum; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                string generateLast = <span class="built_in">string</span>(<span class="built_in">int</span>(num.<span class="built_in">size</span>())-i,j);</span><br><span class="line">                <span class="keyword">if</span>(num &gt;= result + generateLast)</span><br><span class="line">                &#123;</span><br><span class="line">                    result.<span class="built_in">push_back</span>(j);</span><br><span class="line">                    beforeNum = j;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> resultNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; result.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            resultNum += (result[i]-<span class="string">&#x27;0&#x27;</span>)*<span class="built_in">pow</span>(<span class="number">10</span>,<span class="built_in">int</span>(result.<span class="built_in">size</span>())-i<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1306,132 +1427,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/45-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-II/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/29/45-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-II/" class="post-title-link" itemprop="url">45. 跳跃游戏 II</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-29 00:42:15" itemprop="dateCreated datePublished" datetime="2023-07-29T00:42:15+08:00">2023-07-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/29/45-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-II/" class="post-meta-item leancloud_visitors" data-flag-title="45. 跳跃游戏 II" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/29/45-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-II/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/45-%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F-II/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>892</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jump-game-ii/">45. 跳跃游戏 II - 力扣（LeetCode）</a></p>
-<p>给定一个长度为 <code>n</code> 的 <strong>0 索引</strong>整数数组 <code>nums</code>。初始位置为 <code>nums[0]</code>。</p>
-<p>每个元素 <code>nums[i]</code> 表示从索引 <code>i</code> 向前跳转的最大长度。换句话说，如果你在 <code>nums[i]</code> 处，你可以跳转到任意 <code>nums[i + j]</code> 处:</p>
-<ul>
-<li><code>0 &lt;= j &lt;= nums[i]</code></li>
-<li><code>i + j &lt; n</code></li>
-</ul>
-<p>返回到达 <code>nums[n - 1]</code> 的最小跳跃次数。生成的测试用例可以到达 <code>nums[n - 1]</code>。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [2,3,1,1,4]</span><br><span class="line">输出: 2</span><br><span class="line">解释: 跳到最后一个位置的最小跳跃数是 2。</span><br><span class="line">     从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [2,3,0,1,4]</span><br><span class="line">输出: 2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
-<li>题目保证可以到达 <code>nums[n-1]</code></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">jump</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> numSize = nums.<span class="built_in">size</span>();</span><br><span class="line">    </span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> minStep = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(index &lt; numSize<span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[index] + index &gt;= numSize<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                minStep++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 找到最远覆盖范围</span></span><br><span class="line">            <span class="type">int</span> cover = <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> coverIndex = index;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = index+<span class="number">1</span>; i &lt;= nums[index]+index; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+i &gt;= cover)</span><br><span class="line">                &#123;</span><br><span class="line">                    cover = nums[i] + i;</span><br><span class="line">                    coverIndex = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            index = coverIndex;</span><br><span class="line">            minStep++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minStep;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1503,20 +1498,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1570,12 +1565,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">192k</span>
+    <span title="站点总字数">196k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">2:58</span>
 </div>
 
         

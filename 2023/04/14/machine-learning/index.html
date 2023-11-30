@@ -276,14 +276,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -350,6 +350,43 @@ numbers</p>
 <p>注意w，b要<em><strong>同时</strong></em>计算，更新后的新值要先存入temp里</p>
 </blockquote>
 <p>其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>称为学习率，决定迈出步伐的大小</p>
+<h2 id="underfitting欠拟合-overfitting过拟合"><a class="markdownIt-Anchor" href="#underfitting欠拟合-overfitting过拟合"></a> underfitting（欠拟合） overfitting（过拟合）</h2>
+<p>过拟合（overfitting）和欠拟合（underfitting）是机器学习中常见的两种模型训练问题，它们与模型的泛化能力有关。</p>
+<ol>
+<li>
+<p><strong>过拟合（Overfitting）</strong>：<br>
+过拟合指的是模型在训练数据上表现得很好，但在未见过的新数据上表现较差的现象。过拟合通常是因为模型过于复杂<strong>模型容量大</strong>，过度拟合了训练数据的噪声和细节，导致了对新数据的泛化能力不足。过拟合的模型在训练数据上表现良好，但在实际应用中可能无法正确预测新的、未见过的数据。</p>
+</li>
+<li>
+<p><strong>欠拟合（Underfitting）</strong>：<br>
+欠拟合则是指模型在训练数据上表现较差，无法捕捉到数据的基本模式和关系。通常是因为模型过于简单，无法很好地拟合训练数据的复杂性。欠拟合的模型可能在训练数据和新数据上都表现不佳。</p>
+</li>
+</ol>
+<p>模型容量小，数据简单， 正常<br>
+模型容量小，数据复杂， 欠拟合<br>
+模型容量大，数据简单， 过拟合<br>
+模型容量大，数据复杂， 正常</p>
+<p>解决过拟合和欠拟合的方法包括：</p>
+<ul>
+<li>
+<p><strong>过拟合的解决方法</strong>：</p>
+<ul>
+<li>增加训练数据，以减少模型对噪声的过度拟合。</li>
+<li>使用正则化技术，如L1正则化和L2正则化，以降低模型复杂度。</li>
+<li>使用更简单的模型结构。</li>
+<li>采用集成学习方法，如随机森林或梯度提升树。</li>
+</ul>
+</li>
+<li>
+<p><strong>欠拟合的解决方法</strong>：</p>
+<ul>
+<li>增加模型复杂度，可以尝试使用更多的特征、更深的网络结构等。</li>
+<li>确保输入特征的正确性和有效性。</li>
+<li>增加训练迭代次数，以允许模型更好地学习训练数据的模式。</li>
+<li>考虑使用更复杂的算法或模型。</li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p><strong>updating…</strong></p>
 </blockquote>
@@ -482,7 +519,7 @@ numbers</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#whats-macine-learning"><span class="nav-number">1.</span> <span class="nav-text"> What’s macine learning?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#machine-learning-algorithms"><span class="nav-number">2.</span> <span class="nav-text"> machine learning algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#supervised-learning"><span class="nav-number">2.1.</span> <span class="nav-text"> supervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#algorithms"><span class="nav-number">2.1.1.</span> <span class="nav-text"> algorithms</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unsupervised-learning"><span class="nav-number">2.2.</span> <span class="nav-text"> unsupervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#algorithms-2"><span class="nav-number">2.2.1.</span> <span class="nav-text"> algorithms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liner-regression"><span class="nav-number">3.</span> <span class="nav-text"> liner regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cost-function"><span class="nav-number">3.1.</span> <span class="nav-text"> cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">3.2.</span> <span class="nav-text"> gradient descent</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#whats-macine-learning"><span class="nav-number">1.</span> <span class="nav-text"> What’s macine learning?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#machine-learning-algorithms"><span class="nav-number">2.</span> <span class="nav-text"> machine learning algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#supervised-learning"><span class="nav-number">2.1.</span> <span class="nav-text"> supervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#algorithms"><span class="nav-number">2.1.1.</span> <span class="nav-text"> algorithms</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unsupervised-learning"><span class="nav-number">2.2.</span> <span class="nav-text"> unsupervised learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#algorithms-2"><span class="nav-number">2.2.1.</span> <span class="nav-text"> algorithms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liner-regression"><span class="nav-number">3.</span> <span class="nav-text"> liner regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cost-function"><span class="nav-number">3.1.</span> <span class="nav-text"> cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-descent"><span class="nav-number">3.2.</span> <span class="nav-text"> gradient descent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#underfitting%E6%AC%A0%E6%8B%9F%E5%90%88-overfitting%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text"> underfitting（欠拟合） overfitting（过拟合）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -498,20 +535,20 @@ numbers</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -565,12 +602,12 @@ numbers</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">192k</span>
+    <span title="站点总字数">196k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">2:58</span>
 </div>
 
         
