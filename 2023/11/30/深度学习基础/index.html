@@ -23,18 +23,23 @@
 
   <meta name="description" content="损失函数 深度学习中有许多损失函数，它们用于衡量模型的预测与实际目标之间的差异。以下是一些常见的损失函数及其主要用途：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习">
-<meta property="og:url" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="深度学习基础">
+<meta property="og:url" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="小马のblog">
 <meta property="og:description" content="损失函数 深度学习中有许多损失函数，它们用于衡量模型的预测与实际目标之间的差异。以下是一些常见的损失函数及其主要用途：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%BC%A9%E6%94%BE%E6%95%B0%E6%8D%AE%E9%9B%86.png">
+<meta property="og:image" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.1lr.png">
+<meta property="og:image" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.01lr.png">
+<meta property="og:image" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.001lr.png">
 <meta property="article:published_time" content="2023-11-30T12:51:02.000Z">
 <meta property="article:modified_time" content="2023-11-30T12:51:02.000Z">
 <meta property="article:author" content="02">
 <meta property="article:tag" content="DeepLearning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%BC%A9%E6%94%BE%E6%95%B0%E6%8D%AE%E9%9B%86.png">
 
-<link rel="canonical" href="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
 
 
 <script id="page-configurations">
@@ -47,7 +52,7 @@
   };
 </script>
 
-  <title>深度学习 | 小马のblog</title>
+  <title>深度学习基础 | 小马のblog</title>
   
 
 
@@ -207,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -220,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          深度学习
+          深度学习基础
         </h1>
 
         <div class="post-meta">
@@ -243,7 +248,7 @@
             </span>
 
           
-            <span id="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="深度学习" title="阅读次数">
+            <span id="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="深度学习基础" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -265,8 +270,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,7 +281,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -424,6 +429,26 @@
 </tbody>
 </table>
 <p>注意sigmoid函数存在梯度消失的情况，原因：sigmoid有斜率为0的点，梯度为0，反向传播时，前面的梯度也是0，更新不了模型。</p>
+<h2 id="影响训练的一些参数"><a class="markdownIt-Anchor" href="#影响训练的一些参数"></a> 影响训练的一些参数</h2>
+<h3 id="数据集的缩放"><a class="markdownIt-Anchor" href="#数据集的缩放"></a> 数据集的缩放</h3>
+<p><strong>缩放数据集有利于获取更好的模型准确度</strong></p>
+<p>例如图像的颜色值0~255，进行sigmoid函数计算</p>
+<p><img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%BC%A9%E6%94%BE%E6%95%B0%E6%8D%AE%E9%9B%86.png" alt></p>
+<p>如果都为255，随着权重的变化，Sigmoid(input*weight)的值变化不大，相反如果缩放后(image/255)后随着权重的变化，数据变化较大。</p>
+<h3 id="批大小"><a class="markdownIt-Anchor" href="#批大小"></a> 批大小</h3>
+<p><strong>轮数较少的情况下，较小的批大小有利于提高准确度</strong></p>
+<p>例如数据集大小为60000个</p>
+<ul>
+<li>批为10000时，总共训练6次，更新6次权重参数</li>
+<li>批为32时，总共训练1875次，更新1875次权重参数</li>
+</ul>
+<h3 id="优化器"><a class="markdownIt-Anchor" href="#优化器"></a> 优化器</h3>
+<p>看情况使用，例如Adam就比SGD更快达到最佳准确度</p>
+<h3 id="学习率"><a class="markdownIt-Anchor" href="#学习率"></a> 学习率</h3>
+<p>学习率过小需要过长时间训练，学习率过大导致模型不稳定。<br>
+<img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.1lr.png" alt><img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.01lr.png" alt><img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.001lr.png" alt>|</p>
+<h3 id="批归一化"><a class="markdownIt-Anchor" href="#批归一化"></a> 批归一化</h3>
+<p>BN的作用就是把逐渐向非线性函数映射后向取值区间极限饱和区靠拢的输入分布强制拉回到均值为0方差为1的比较标准的正态分布，使得非线性变换函数的输入值落入对输入比较敏感的区域，以此避免梯度消失问题。因为梯度一直都能保持比较大的状态，所以很明显对神经网络的参数调整效率比较高，就是变动大，就是说向损失函数最优值迈动的步子大，也就是说收敛地快。</p>
 
     </div>
 
@@ -459,7 +484,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">http://02xx.github.io/2023/11/30/深度学习/</a>
+    <a href="http://02xx.github.io/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" title="深度学习基础">http://02xx.github.io/2023/11/30/深度学习基础/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -490,7 +515,10 @@
     <a href="/2023/10/28/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/" rel="prev" title="高等代数个人理解">
       <i class="fa fa-chevron-left"></i> 高等代数个人理解
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="next" title="深度学习图像处理">
+      深度学习图像处理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -550,7 +578,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text"> 损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text"> 激活函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text"> 损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text"> 激活函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E8%AE%AD%E7%BB%83%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text"> 影响训练的一些参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%BC%A9%E6%94%BE"><span class="nav-number">3.1.</span> <span class="nav-text"> 数据集的缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.2.</span> <span class="nav-text"> 批大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text"> 优化器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87"><span class="nav-number">3.4.</span> <span class="nav-text"> 学习率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">3.5.</span> <span class="nav-text"> 批归一化</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -566,7 +594,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -633,12 +661,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">196k</span>
+    <span title="站点总字数">197k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:58</span>
+    <span title="站点阅读时长">2:59</span>
 </div>
 
         

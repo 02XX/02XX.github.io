@@ -277,7 +277,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -325,11 +325,12 @@
 <p>发送端给每个数据包添加包首部，首部长度应该至少包含数据包的长度，一般是2字节或4字节</p>
 </li>
 <li>
-<p>固定每次发送的报文长度，不够用0补充</p>
+<p>固定每次发送的报文长度：可以用<code>System.IO</code>命名空间下的<code>BinaryReader</code>和<code>BinaryWriter</code>，例如</p>
 </li>
-<li>
-<p>约定好包的边界，添加首部尾部标识，如特殊字符</p>
-</li>
+</ol>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TcpClient client = <span class="keyword">new</span> TcpClient(ip,port);</span><br><span class="line">NetworkStream networkStream = client.GetStream();</span><br><span class="line">BinaryWriter bw = <span class="keyword">new</span> BinaryWriter(networkStream, Encoding.UTF8);</span><br><span class="line">bw.Write(<span class="number">35</span>);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>约定好包的边界，添加首部尾部标识，如特殊字符</li>
 </ol>
 <h2 id="大小端问题"><a class="markdownIt-Anchor" href="#大小端问题"></a> 大小端问题</h2>
 <p>计算机不同数据的存储方式也不同，有的是大端存储有的是小端存储。所以从缓冲区取出的数据有可能是错的。</p>
@@ -506,7 +507,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -573,12 +574,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">196k</span>
+    <span title="站点总字数">197k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:58</span>
+    <span title="站点阅读时长">2:59</span>
 </div>
 
         

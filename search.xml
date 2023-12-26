@@ -6617,11 +6617,12 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 <p>发送端给每个数据包添加包首部，首部长度应该至少包含数据包的长度，一般是2字节或4字节</p>
 </li>
 <li>
-<p>固定每次发送的报文长度，不够用0补充</p>
+<p>固定每次发送的报文长度：可以用<code>System.IO</code>命名空间下的<code>BinaryReader</code>和<code>BinaryWriter</code>，例如</p>
 </li>
-<li>
-<p>约定好包的边界，添加首部尾部标识，如特殊字符</p>
-</li>
+</ol>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">TcpClient client = <span class="keyword">new</span> TcpClient(ip,port);</span><br><span class="line">NetworkStream networkStream = client.GetStream();</span><br><span class="line">BinaryWriter bw = <span class="keyword">new</span> BinaryWriter(networkStream, Encoding.UTF8);</span><br><span class="line">bw.Write(<span class="number">35</span>);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>约定好包的边界，添加首部尾部标识，如特殊字符</li>
 </ol>
 <h2 id="大小端问题"><a class="markdownIt-Anchor" href="#大小端问题"></a> 大小端问题</h2>
 <p>计算机不同数据的存储方式也不同，有的是大端存储有的是小端存储。所以从缓冲区取出的数据有可能是错的。</p>
@@ -6802,8 +6803,32 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
       </tags>
   </entry>
   <entry>
-    <title>深度学习</title>
-    <url>/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</url>
+    <title>深度学习图像处理</title>
+    <url>/2023/12/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h2 id="1关于permute201"><a class="markdownIt-Anchor" href="#1关于permute201"></a> 1关于permute(2,0,1)</h2>
+<p>一图胜前言</p>
+<p><img src="/2023/12/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/Permute.png" alt></p>
+<p>opencv是读取图片按照<code>height*width*channels</code></p>
+<p>pytorch处理图片是按照<code>channels*height*width</code></p>
+<p><code>height*width*channels</code>转换为<code>channels*height*width</code></p>
+<p><code>image.permute(2,0,1) #image为tensor</code></p>
+<p><code>matplotlib.pyplot.imshow(image)</code>是按照<code>height*width*channels</code>顺序绘制的</p>
+<h2 id="2关于bgr与rgb"><a class="markdownIt-Anchor" href="#2关于bgr与rgb"></a> 2关于BGR与RGB</h2>
+<p>opencv默认读取图片是按照BGR顺序，而pytorch是按照RGB处理照片的。</p>
+<p>转换方式</p>
+<p><code>image[:,:,::-1]</code></p>
+<p><code>cv2.cvtColor(image, cv2.COLOR_BGR2RGB) #image为ndarray</code></p>
+]]></content>
+      <categories>
+        <category>DeepLearning</category>
+      </categories>
+      <tags>
+        <tag>DeepLearning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深度学习基础</title>
+    <url>/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="损失函数"><a class="markdownIt-Anchor" href="#损失函数"></a> 损失函数</h2>
 <p>深度学习中有许多损失函数，它们用于衡量模型的预测与实际目标之间的差异。以下是一些常见的损失函数及其主要用途：</p>
 <table>
@@ -6933,6 +6958,26 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
 </tbody>
 </table>
 <p>注意sigmoid函数存在梯度消失的情况，原因：sigmoid有斜率为0的点，梯度为0，反向传播时，前面的梯度也是0，更新不了模型。</p>
+<h2 id="影响训练的一些参数"><a class="markdownIt-Anchor" href="#影响训练的一些参数"></a> 影响训练的一些参数</h2>
+<h3 id="数据集的缩放"><a class="markdownIt-Anchor" href="#数据集的缩放"></a> 数据集的缩放</h3>
+<p><strong>缩放数据集有利于获取更好的模型准确度</strong></p>
+<p>例如图像的颜色值0~255，进行sigmoid函数计算</p>
+<p><img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/%E7%BC%A9%E6%94%BE%E6%95%B0%E6%8D%AE%E9%9B%86.png" alt></p>
+<p>如果都为255，随着权重的变化，Sigmoid(input*weight)的值变化不大，相反如果缩放后(image/255)后随着权重的变化，数据变化较大。</p>
+<h3 id="批大小"><a class="markdownIt-Anchor" href="#批大小"></a> 批大小</h3>
+<p><strong>轮数较少的情况下，较小的批大小有利于提高准确度</strong></p>
+<p>例如数据集大小为60000个</p>
+<ul>
+<li>批为10000时，总共训练6次，更新6次权重参数</li>
+<li>批为32时，总共训练1875次，更新1875次权重参数</li>
+</ul>
+<h3 id="优化器"><a class="markdownIt-Anchor" href="#优化器"></a> 优化器</h3>
+<p>看情况使用，例如Adam就比SGD更快达到最佳准确度</p>
+<h3 id="学习率"><a class="markdownIt-Anchor" href="#学习率"></a> 学习率</h3>
+<p>学习率过小需要过长时间训练，学习率过大导致模型不稳定。<br>
+<img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.1lr.png" alt><img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.01lr.png" alt><img src="/2023/11/30/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/0.001lr.png" alt>|</p>
+<h3 id="批归一化"><a class="markdownIt-Anchor" href="#批归一化"></a> 批归一化</h3>
+<p>BN的作用就是把逐渐向非线性函数映射后向取值区间极限饱和区靠拢的输入分布强制拉回到均值为0方差为1的比较标准的正态分布，使得非线性变换函数的输入值落入对输入比较敏感的区域，以此避免梯度消失问题。因为梯度一直都能保持比较大的状态，所以很明显对神经网络的参数调整效率比较高，就是变动大，就是说向损失函数最优值迈动的步子大，也就是说收敛地快。</p>
 ]]></content>
       <categories>
         <category>DeepLearning</category>
