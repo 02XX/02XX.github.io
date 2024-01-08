@@ -266,14 +266,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -400,6 +400,34 @@
 <p>抽象工厂经常以工厂方法的方式实现</p>
 <h3 id="24-单例模式-singleton-pattern"><a class="markdownIt-Anchor" href="#24-单例模式-singleton-pattern"></a> 2.4 单例模式 (Singleton Pattern)</h3>
 <p>单例模式确保一个类只有一个实例，并提供一个全局访问点。这对于控制资源的共享或限制特定类型的实例数量非常有用。</p>
+<h4 id="241优点"><a class="markdownIt-Anchor" href="#241优点"></a> 2.4.1优点</h4>
+<ul>
+<li>全局控制：保证只有⼀个实例，这样就可以严格的控制客户怎样访问它以及何时访问它，简单的说就是对唯⼀</li>
+<li>实例的受控访问（引⽤⾃《⼤话设计模式》第21章）</li>
+<li>节省资源：也正是因为只有⼀个实例存在，就避免多次创建了相同的对象，从⽽节省了系统资源，⽽且多个模<br>
+块还可以通过单例实例共享数据。</li>
+<li>懒加载：单例模式可以实现懒加载，只有在需要时才进⾏实例化（懒汉式），这⽆疑会提⾼程序的性能</li>
+</ul>
+<h4 id="242要求"><a class="markdownIt-Anchor" href="#242要求"></a> 2.4.2要求</h4>
+<ul>
+<li>私有的构造函数：防⽌外部代码直接创建类的实例</li>
+<li>私有的静态实例变量：保存该类的唯⼀实例</li>
+<li>公有的静态⽅法：通过公有的静态⽅法来获取类的实例</li>
+</ul>
+<h4 id="243应用场景"><a class="markdownIt-Anchor" href="#243应用场景"></a> 2.4.3应用场景</h4>
+<ol>
+<li>资源共享<br>
+多个模块共享某个资源的时候，可以使⽤单例模式，⽐如说应⽤程序需要⼀个全局的配置管理器来存储和管理配置<br>
+信息、亦或是使⽤单例模式管理数据库连接池。</li>
+<li>只有⼀个实例<br>
+当系统中某个类只需要⼀个实例来协调⾏为的时候，可以考虑使⽤单例模式， ⽐如说管理应⽤程序中的缓存，确保<br>
+只有⼀个缓存实例，避免重复的缓存创建和管理，或者使⽤单例模式来创建和管理线程池。</li>
+<li>懒加载<br>
+如果对象创建本身就⽐较消耗资源，⽽且可能在整个程序中都不⼀定会使⽤，可以使⽤单例模式实现懒加载。<br>
+在许多流⾏的⼯具和库中，也都使⽤到了单例设计模式，⽐如Java中的Runtime 类就是⼀个经典的单例，表示程序<br>
+的运⾏时环境。此外 Spring 框架中的应⽤上下⽂ ( ApplicationContext ) 也被设计为单例，以提供对应⽤程序中<br>
+所有 bean 的集中式访问点。</li>
+</ol>
 <h3 id="25-命令模式-command-pattern"><a class="markdownIt-Anchor" href="#25-命令模式-command-pattern"></a> 2.5 命令模式 (Command Pattern)</h3>
 <p>命令模式将请求封装为一个对象，从而使用户能够用不同的请求对客户进行参数化，队列请求和日志请求，并支持可撤销的操作。</p>
 <h3 id="26-适配器模式与外观模式-adapter-pattern-and-facade-pattern"><a class="markdownIt-Anchor" href="#26-适配器模式与外观模式-adapter-pattern-and-facade-pattern"></a> 2.6 适配器模式与外观模式 (Adapter Pattern and Facade Pattern)</h3>
@@ -540,7 +568,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text"> 1. 面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%847%E4%B8%AA%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 面向对象的7个设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E4%B8%83%E4%B8%AA%E5%8E%9F%E5%88%99%E7%9A%84%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 七个原则的补充说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99%E5%92%8C%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 接口隔离原则和单一职责原则的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text"> 2. 设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-strategy-pattern"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 策略模式 (Strategy Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-observer-pattern"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 观察者模式 (Observer Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-factory-pattern"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 工厂模式 (Factory Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#231-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-simple-factory-pattern"><span class="nav-number">2.3.1.</span> <span class="nav-text"> 2.3.1 简单工厂模式 (Simple Factory Pattern)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#232-%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F-factory-method-pattern"><span class="nav-number">2.3.2.</span> <span class="nav-text"> 2.3.2 工厂方法模式 (Factory Method Pattern)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#233-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-abstract-factory-pattern"><span class="nav-number">2.3.3.</span> <span class="nav-text"> 2.3.3 抽象工厂模式 (Abstract Factory Pattern)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-singleton-pattern"><span class="nav-number">2.4.</span> <span class="nav-text"> 2.4 单例模式 (Singleton Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-command-pattern"><span class="nav-number">2.5.</span> <span class="nav-text"> 2.5 命令模式 (Command Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-adapter-pattern-and-facade-pattern"><span class="nav-number">2.6.</span> <span class="nav-text"> 2.6 适配器模式与外观模式 (Adapter Pattern and Facade Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-iterator-pattern-and-composite-pattern"><span class="nav-number">2.7.</span> <span class="nav-text"> 2.7 迭代器与组合模式 (Iterator Pattern and Composite Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F-state-pattern"><span class="nav-number">2.8.</span> <span class="nav-text"> 2.8 状态模式 (State Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F-proxy-pattern"><span class="nav-number">2.9.</span> <span class="nav-text"> 2.9 代理模式 (Proxy Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#210-%E5%A4%8D%E5%90%88%E6%A8%A1%E5%BC%8F-composite-pattern"><span class="nav-number">2.10.</span> <span class="nav-text"> 2.10 复合模式 (Composite Pattern)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text"> 1. 面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%847%E4%B8%AA%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 面向对象的7个设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E4%B8%83%E4%B8%AA%E5%8E%9F%E5%88%99%E7%9A%84%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 七个原则的补充说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99%E5%92%8C%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 接口隔离原则和单一职责原则的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text"> 2. 设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-strategy-pattern"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 策略模式 (Strategy Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-observer-pattern"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 观察者模式 (Observer Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-factory-pattern"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 工厂模式 (Factory Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#231-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-simple-factory-pattern"><span class="nav-number">2.3.1.</span> <span class="nav-text"> 2.3.1 简单工厂模式 (Simple Factory Pattern)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#232-%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F-factory-method-pattern"><span class="nav-number">2.3.2.</span> <span class="nav-text"> 2.3.2 工厂方法模式 (Factory Method Pattern)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#233-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-abstract-factory-pattern"><span class="nav-number">2.3.3.</span> <span class="nav-text"> 2.3.3 抽象工厂模式 (Abstract Factory Pattern)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-singleton-pattern"><span class="nav-number">2.4.</span> <span class="nav-text"> 2.4 单例模式 (Singleton Pattern)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#241%E4%BC%98%E7%82%B9"><span class="nav-number">2.4.1.</span> <span class="nav-text"> 2.4.1优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#242%E8%A6%81%E6%B1%82"><span class="nav-number">2.4.2.</span> <span class="nav-text"> 2.4.2要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#243%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.4.3.</span> <span class="nav-text"> 2.4.3应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-command-pattern"><span class="nav-number">2.5.</span> <span class="nav-text"> 2.5 命令模式 (Command Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-adapter-pattern-and-facade-pattern"><span class="nav-number">2.6.</span> <span class="nav-text"> 2.6 适配器模式与外观模式 (Adapter Pattern and Facade Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-iterator-pattern-and-composite-pattern"><span class="nav-number">2.7.</span> <span class="nav-text"> 2.7 迭代器与组合模式 (Iterator Pattern and Composite Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F-state-pattern"><span class="nav-number">2.8.</span> <span class="nav-text"> 2.8 状态模式 (State Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F-proxy-pattern"><span class="nav-number">2.9.</span> <span class="nav-text"> 2.9 代理模式 (Proxy Pattern)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#210-%E5%A4%8D%E5%90%88%E6%A8%A1%E5%BC%8F-composite-pattern"><span class="nav-number">2.10.</span> <span class="nav-text"> 2.10 复合模式 (Composite Pattern)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -614,7 +642,7 @@
 <div class="copyright">
   
   &copy; 2021.5.11 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -623,12 +651,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">198k</span>
+    <span title="站点总字数">202k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:01</span>
+    <span title="站点阅读时长">3:04</span>
 </div>
 
         
