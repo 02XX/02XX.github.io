@@ -7190,7 +7190,8 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
   <entry>
     <title>Cmake</title>
     <url>/2024/01/08/Cmake/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>介绍c++编译过程和CMake</p>
+<span id="more"></span>
 <h2 id="c文件到可执行程序的过程"><a class="markdownIt-Anchor" href="#c文件到可执行程序的过程"></a> C++文件到可执行程序的过程</h2>
 <ol>
 <li>预编译Preprocessing</li>
