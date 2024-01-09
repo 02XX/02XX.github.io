@@ -7187,4 +7187,171 @@ deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.t
         <tag>计算机图形学</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Cmake</title>
+    <url>/2024/01/08/Cmake/</url>
+    <content><![CDATA[<span id="more"></span>
+<h2 id="c文件到可执行程序的过程"><a class="markdownIt-Anchor" href="#c文件到可执行程序的过程"></a> C++文件到可执行程序的过程</h2>
+<ol>
+<li>预编译Preprocessing</li>
+</ol>
+<p>展开宏定义（#define），处理条件预编译命令#if #ifndef，处理#include，过滤注释，添加行号和文件名标识。生成<code>.i</code>或.<code>ii</code>文件</p>
+<p>例如</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PI 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> radius = <span class="number">5</span>;</span><br><span class="line">    <span class="type">double</span> area = PI * radius * radius;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Area of the circle: &quot;</span> &lt;&lt; area &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>g++ -E example.cpp -o example.i</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;.\\example.cpp&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;&lt;built-in&gt;&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;&lt;command-line&gt;&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;.\\example.cpp&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;E:/CodeEnvironment/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/iostream&quot;</span> <span class="number">1</span> <span class="number">3</span></span><br><span class="line"># <span class="number">36</span> <span class="string">&quot;E:/CodeEnvironment/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/iostream&quot;</span> <span class="number">3</span></span><br><span class="line">       </span><br><span class="line"># <span class="number">37</span> <span class="string">&quot;E:/CodeEnvironment/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/iostream&quot;</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;E:/CodeEnvironment/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32/bits/c++config.h&quot;</span> <span class="number">1</span> <span class="number">3</span></span><br><span class="line"># <span class="number">262</span> <span class="string">&quot;E:/CodeEnvironment/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32/bits/c++config.h&quot;</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"># <span class="number">262</span> <span class="string">&quot;E:/CodeEnvironment/TDM-GCC/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32/bits/c++config.h&quot;</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//省略以上是iostream头文件的内容</span></span><br><span class="line"></span><br><span class="line"># <span class="number">4</span> <span class="string">&quot;.\\example.cpp&quot;</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> radius = <span class="number">5</span>;</span><br><span class="line">    <span class="type">double</span> area = <span class="number">3.14</span> * radius * radius;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Area of the circle: &quot;</span> &lt;&lt; area &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编译Compilation</li>
+</ol>
+<p>预处理后，编译器将源代码翻译成汇编代码，并生成目标代码文件，通常以<code>.obj</code> <code>.o</code>或<code>.co</code>为扩展名</p>
+<ul>
+<li>
+<p>词法分析（Lexical Analysis）： 编译器首先对源代码进行词法分析，将代码分解为词法单元（tokens）。这些词法单元是源代码的基本构建块，如变量名、关键字、运算符等。</p>
+</li>
+<li>
+<p>语法分析（Syntax Analysis）： 编译器进行语法分析，根据语法规则构建语法树。语法树表示了源代码的结构和层次关系。</p>
+</li>
+<li>
+<p>语义分析（Semantic Analysis）： 编译器进行语义分析，检查语法树上的语义是否符合语言规范。这包括类型检查、作用域检查等。</p>
+</li>
+<li>
+<p>优化（Optimization）： 编译器执行优化步骤，尝试提高程序性能。这可能包括常量折叠、循环展开、内联函数等优化技术。</p>
+</li>
+<li>
+<p>中间代码生成（Intermediate Code Generation）： 编译器生成中间代码，这是一种抽象的、与机器无关的代码表示形式。中间代码提供了一个在不同硬件平台上进行优化和转换的基础。</p>
+</li>
+<li>
+<p>代码优化（Code Optimization）： 编译器对生成的中间代码进行进一步优化，以提高程序性能和效率。这可以包括局部优化（如循环展开、死代码消除）和全局优化（如函数内联、常量传播）等。</p>
+</li>
+<li>
+<p>目标代码生成（Code Generation）： 编译器将中间代码转换为特定硬件平台的机器代码或汇编代码。这个阶段的输出是目标代码。</p>
+</li>
+<li>
+<p>符号解析（Symbol Resolution）： 编译器解析程序中使用的符号，确定它们的地址或存储位置</p>
+</li>
+</ul>
+<p><code>g++ -S example.i -o example.s</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> .file &quot;example.cpp&quot;</span><br><span class="line"> .text</span><br><span class="line"> .section .rdata,&quot;dr&quot;</span><br><span class="line">_ZStL19piecewise_construct:</span><br><span class="line"> .space 1</span><br><span class="line">.lcomm _ZStL8__ioinit,1,1</span><br><span class="line"> .def __main; .scl 2; .type 32; .endef</span><br><span class="line">.LC1:</span><br><span class="line"> .ascii &quot;Area of the circle: \0&quot;</span><br><span class="line"> .text</span><br><span class="line"> .globl mainexamp`le</span><br><span class="line"> .def main; .scl 2; .type 32; .endef</span><br><span class="line"> .seh_proc main</span><br><span class="line">main:</span><br><span class="line">.LFB1632:</span><br><span class="line"> pushq %rbp</span><br><span class="line"> .seh_pushreg %rbp</span><br><span class="line"> movq %rsp, %rbp</span><br><span class="line"></span><br><span class="line">//............省略..........</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>汇编Assembly</li>
+</ol>
+<p>将汇编代码翻译成目标机器的机器代码。生成目标文件,通常是以 <code>.o</code> 或 <code>.obj</code> 为扩展名。</p>
+<p><code>as example.s -o example.o</code></p>
+<p>生成二进制文件</p>
+<ol start="4">
+<li>链接Linking</li>
+</ol>
+<p>将多个目标文件以及可能的库链接在一起，生成最终的可执行文件。</p>
+<p><code>g++ example.o -o example</code></p>
+<p>或</p>
+<p><code>g++ --shared -fPIC example.o -o libExample.so</code> <code>g++ --shared -fPIC example.o -o libExample.dll</code>生成动态链接库。</p>
+<p>或</p>
+<p><code>ar rcs libexample.a example.o</code>生成静态链接库</p>
+<ol start="5">
+<li>总结和注意</li>
+</ol>
+<p>总体过程为：预编译-&gt;编译-&gt;汇编-&gt;链接-&gt;生成可执行文件或库文件</p>
+<p>g++可以通过<code>g++ -c example.i -o example.o</code>可以进行编译和汇编两个步骤。通过<code>g++ example.cpp -o example</code>进行全部步骤。</p>
+<h2 id="cmakeliststxt"><a class="markdownIt-Anchor" href="#cmakeliststxt"></a> CMakeLists.txt</h2>
+<h3 id="命令"><a class="markdownIt-Anchor" href="#命令"></a> 命令</h3>
+<p>列出常用命令</p>
+<h4 id="指定cmake最低版本"><a class="markdownIt-Anchor" href="#指定cmake最低版本"></a> 指定cmake最低版本</h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="设置项目名称"><a class="markdownIt-Anchor" href="#设置项目名称"></a> 设置项目名称</h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">project</span>(MyProject)</span><br></pre></td></tr></table></figure>
+<h4 id="设置可执行文件或库"><a class="markdownIt-Anchor" href="#设置可执行文件或库"></a> 设置可执行文件或库</h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>(MyExecutable main.cpp) //制作可执行文件</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="keyword">add_library</span>(MyLibrary SHARED my_source_files.cpp) //制作动态库</span><br><span class="line"><span class="keyword">add_library</span>(MyLibrary STATIC my_source_files.cpp) //制作静态库</span><br><span class="line"><span class="keyword">add_library</span>(MyLibrary my_source_files.cpp) //默认静态库</span><br></pre></td></tr></table></figure>
+<h4 id="设置编译选项"><a class="markdownIt-Anchor" href="#设置编译选项"></a> 设置编译选项</h4>
+<p>SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])</p>
+<ul>
+<li>VAR：变量名</li>
+<li>VALUE：变量值</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER /path to C++)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER /path to C)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>) //指定c++<span class="number">11</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD_REQUIRED <span class="keyword">ON</span>) //若不支持c++<span class="number">11</span>则报错</span><br></pre></td></tr></table></figure>
+<h4 id="头文件管理"><a class="markdownIt-Anchor" href="#头文件管理"></a> 头文件管理</h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">file</span>(GLOB/GLOB_RECURSE HEADERS</span><br><span class="line">    <span class="keyword">include</span>/*.h</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>GLOB: 将指定目录下搜索到的满足条件的所有文件名生成一个列表，并将其存储到变量中。</li>
+<li>GLOB_RECURSE：递归搜索指定目录，将搜索到的满足条件的文件名生成一个列表，并将其存储到变量中。</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_include_directories</span>(MyExecutable PRIVATE HEADERS 或者)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>include_directories</code>和<code>target_include_directories</code>区别<br>
+<code>include_directories</code>用于设置全局的头文件搜索路径，影响整个项目的所有目标。<br>
+<code>target_include_directories</code>用于为特定目标设置头文件搜索路径，只影响指定的目标。</p>
+</blockquote>
+<blockquote>
+<p><code>include_directories</code> 会设置全局的头文件搜索路径，而 <code>target_include_directories</code> 可以针对具体的目标设置头文件搜索路径。<br>
+include_directories 的变更会影响整个项目，而 <code>target_include_directories</code> 可以更精确地控制目标之间的头文件搜索路径。<br>
+<strong>推荐在现代 CMake 中使用 <code>target_include_directories</code>，因为它提供更好的控制权，特别是在大型项目中。</strong></p>
+</blockquote>
+<h4 id="源文件管理"><a class="markdownIt-Anchor" href="#源文件管理"></a> 源文件管理</h4>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(dir VARIABLE) //搜寻dir下的源文件加到VARIABLE</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_sources</span>(my_executable</span><br><span class="line">    PRIVATE</span><br><span class="line">        src/file1.cpp</span><br><span class="line">        src/file2.cpp</span><br><span class="line">        或者<span class="keyword">aux_source_directory</span>的VARIABLE</span><br><span class="line">        或者<span class="keyword">file</span>得到的源文件列表</span><br><span class="line">        <span class="comment"># 添加其他私有源文件</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="添加库链接"><a class="markdownIt-Anchor" href="#添加库链接"></a> 添加库链接</h4>
+<p>这个命令既可以链接动态库和静态库</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(&lt;<span class="keyword">target</span>&gt; &lt;PRIVATE|PUBLIC|INTERFACE&gt; MyLibrary ...)</span><br></pre></td></tr></table></figure>
+<p>&lt;target&gt;：指定要加载动态库的文件的名字</p>
+<ul>
+<li>该文件可能是一个源文件</li>
+<li>该文件可能是一个动态库文件</li>
+<li>该文件可能是一个可执行文件</li>
+</ul>
+<p>PRIVATE|PUBLIC|INTERFACE：动态库的访问权限，默认为PUBLIC</p>
+<p>如果各个动态库之间没有依赖关系，无需做任何设置，三者没有没有区别，一般无需指定，使用默认的 PUBLIC 即可。</p>
+<p>动态库的链接具有传递性，如果动态库 A 链接了动态库B、C，动态库D链接了动态库A，此时动态库D相当于也链接了动态库B、C，并可以使用动态库B、C中定义的方法。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(A B C)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(D A)</span><br></pre></td></tr></table></figure>
+<p>PUBLIC：在public后面的库会被Link到前面的target中，并且里面的符号也会被导出，提供给第三方使用。比如另一个程序链接了target，那他可以用target的东西，也能用target依赖的库的东西。<br>
+PRIVATE：在private后面的库仅被link到前面的target中，并且终结掉，第三方不能感知你调了啥库，比如另一个程序链接了target，那他只能用target的东西，不能用target依赖的库的东西。<br>
+INTERFACE：在interface后面引入的库不会被链接到前面的target中，只会导出符号。</p>
+<blockquote>
+<p><code>link_directories</code> 和 <code>target_include_directories</code>区别</p>
+</blockquote>
+<blockquote>
+<p>link_directories 用于指定链接器在链接时查找库文件的路径。<br>
+这个命令告诉链接器在指定的路径查找库文件，以便在链接目标（例如可执行文件或共享库）时正确解析库的位置。然而，使用 link_directories 有时被认为是不推荐的，因为它可能导致与其他目标之间的链接问题。在现代 CMake 中，更推荐使用 target_link_libraries 和 find_library 来进行库的链接。</p>
+</blockquote>
+<blockquote>
+<p>target_include_directories 用于指定编译器在编译时查找头文件的路径。<br>
+这个命令告诉编译器在指定的路径查找头文件，以便在编译目标时正确解析头文件的位置。不同于 link_directories，target_include_directories 更关注的是编译时的头文件搜索路径。</p>
+</blockquote>
+<blockquote>
+<p><strong>在现代 CMake 中，通常推荐使用 target_link_libraries 来指定链接库，并使用 target_include_directories 来指定头文件搜索路径。此外，可以使用 find_library 来查找库文件而不是使用 link_directories</strong></p>
+</blockquote>
+<h4 id="查找包和库"><a class="markdownIt-Anchor" href="#查找包和库"></a> 查找包和库</h4>
+<h5 id="查找包"><a class="markdownIt-Anchor" href="#查找包"></a> 查找包</h5>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_package</span>(&lt;PackageName&gt; [version] [EXACT] [QUIET] [MODULE]</span><br><span class="line">             [REQUIRED] [[COMPONENTS] [components...]]</span><br><span class="line">             [OPTIONAL_COMPONENTS components...]</span><br><span class="line">             [REGISTRY_VIEW  (<span class="number">64</span>|<span class="number">32</span>|<span class="number">64</span>_32|<span class="number">32</span>_64|HOST|<span class="keyword">TARGET</span>|BOTH)]</span><br><span class="line">             [GLOBAL]</span><br><span class="line">             [NO_POLICY_SCOPE]</span><br><span class="line">             [BYPASS_PROVIDER])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>默认会找/usr/local/lib、/usr/lib和/lib等目录。以及CMake包注册表中的路径。</li>
+<li>需要包有.cmake结尾的文件，例如OpenCVConfig就可以find_package(OpenCV)(注意opencv需加入系统环境变量)</li>
+</ul>
+<blockquote>
+<p>find_package()函数可以自动查找并导入一个包，并设置一些变量，这些变量可以用来链接到包中的库。这使得查找和链接第三方库更加方便和可靠，而target_link_directories()函数只能手动指定链接库路径，这可能会导致一些问题。例如，如果你手动指定的链接库路径不正确，或者链接库的名称不正确，那么链接器就无法找到要链接的库，从而导致链接失败。</p>
+</blockquote>
+<h5 id="查找库"><a class="markdownIt-Anchor" href="#查找库"></a> 查找库</h5>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_library</span>(&lt;VAR&gt; name [path1 path2 ...])</span><br></pre></td></tr></table></figure>
+<h4 id="注意"><a class="markdownIt-Anchor" href="#注意"></a> 注意</h4>
+<p>请注意源文件#include的路径，不在同一目录的要加路径</p>
+<h2 id="总结和推荐写法"><a class="markdownIt-Anchor" href="#总结和推荐写法"></a> 总结和推荐写法</h2>
+<p>以下是现代cmake所推荐的写法。用以下命令便以足够大多数情况。</p>
+<h3 id="添加子目录"><a class="markdownIt-Anchor" href="#添加子目录"></a> 添加子目录</h3>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_subdirectory</span>(source_dir [binary_dir] [EXCLUDE_FROM_ALL] [SYSTEM])</span><br></pre></td></tr></table></figure>
+<h3 id="包含头文件路径"><a class="markdownIt-Anchor" href="#包含头文件路径"></a> 包含头文件路径</h3>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_include_directories</span>(&lt;<span class="keyword">target</span>&gt; [SYSTEM] [AFTER|BEFORE]</span><br><span class="line">  &lt;INTERFACE|PUBLIC|PRIVATE&gt; [items1...]</span><br><span class="line">  [&lt;INTERFACE|PUBLIC|PRIVATE&gt; [items2...] ...])</span><br></pre></td></tr></table></figure>
+<h3 id="查找库-2"><a class="markdownIt-Anchor" href="#查找库-2"></a> 查找库</h3>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">find_library</span>(&lt;VAR&gt; name [path1 path2 ...])</span><br></pre></td></tr></table></figure>
+<h3 id="链接库"><a class="markdownIt-Anchor" href="#链接库"></a> 链接库</h3>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(&lt;<span class="keyword">target</span>&gt;</span><br><span class="line">                      &lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;item&gt;...</span><br><span class="line">                     [&lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;item&gt;...]...)</span><br></pre></td></tr></table></figure>
+<p>找不到是试一下绝对路径</p>
+<h3 id="private-public-interface"><a class="markdownIt-Anchor" href="#private-public-interface"></a> PRIVATE PUBLIC INTERFACE</h3>
+<p>在现代 CMake 中，private、public 和 interface 是用于定义目标属性（target properties）的关键字，用于指定目标的可见性和属性。这些关键字通常用于目标的链接（linking）和包含（including）过程中。</p>
+<p><img src="/2024/01/08/Cmake/PPI.jpg" alt></p>
+]]></content>
+      <categories>
+        <category>Cmake</category>
+      </categories>
+      <tags>
+        <tag>Cmake</tag>
+      </tags>
+  </entry>
 </search>
