@@ -203,6 +203,505 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">游戏服务器通用框架</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-11 20:36:37" itemprop="dateCreated datePublished" datetime="2023-10-11T20:36:37+08:00">2023-10-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/" class="post-meta-item leancloud_visitors" data-flag-title="游戏服务器通用框架" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+<h2 id="总体架构"><a class="markdownIt-Anchor" href="#总体架构"></a> 总体架构</h2>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="单进程服务器"></p>
+<h2 id="模块划分"><a class="markdownIt-Anchor" href="#模块划分"></a> 模块划分</h2>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84.png" alt></p>
+<h2 id="游戏流程"><a class="markdownIt-Anchor" href="#游戏流程"></a> 游戏流程</h2>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/%E6%B8%B8%E6%88%8F%E6%B5%81%E7%A8%8B.jpg" alt></p>
+<h2 id="玩家数据结构"><a class="markdownIt-Anchor" href="#玩家数据结构"></a> 玩家数据结构</h2>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/%E7%8E%A9%E5%AE%B6%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg" alt></p>
+<h2 id="sql注入"><a class="markdownIt-Anchor" href="#sql注入"></a> SQL注入</h2>
+<p>如果客户端恶意输入请求，将sql命令插入到sql语句中，欺骗服务器，将会造成严重后果。</p>
+<p>例如</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> sql = <span class="string">&quot;Select * from player where id=&quot;</span> + id;</span><br></pre></td></tr></table></figure>
+<p>恶意玩家将id改为<code>&quot;xiaoming;Delete * FROM player;</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="operator">*</span> <span class="keyword">from</span> player <span class="keyword">where</span> id<span class="operator">=</span>xiaoming;<span class="keyword">Delete</span> <span class="operator">*</span> <span class="keyword">FROM</span> player;</span><br></pre></td></tr></table></figure>
+<h3 id="防范"><a class="markdownIt-Anchor" href="#防范"></a> 防范</h3>
+<ol>
+<li>
+<p><strong>使用参数化查询：</strong> 使用参数化的查询语句（预编译语句）是最有效的防止SQL注入的方法。通过使用参数化查询，输入的数据会被视为数据而不是SQL代码，从而防止恶意注入。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">csharpCopy code// 使用参数化查询</span><br><span class="line">string sql = &quot;SELECT * FROM Users WHERE Username = @Username AND Password = @Password&quot;;</span><br><span class="line">SqlCommand cmd = new SqlCommand(sql, connection);</span><br><span class="line">cmd.Parameters.AddWithValue(&quot;@Username&quot;, userInputUsername);</span><br><span class="line">cmd.Parameters.AddWithValue(&quot;@Password&quot;, userInputPassword);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>输入验证和过滤：</strong> 对用户输入进行验证和过滤，确保只接受预期的数据。使用白名单（允许的字符集）或黑名单（禁止的字符集）来限制输入。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">csharpCopy code// 仅接受字母和数字</span><br><span class="line">string sanitizedInput = Regex.Replace(userInput, &quot;[^a-zA-Z0-9]&quot;, &quot;&quot;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>使用存储过程：</strong> 存储过程可以将SQL代码封装在数据库中，减少对外部输入的依赖。存储过程内部的参数也可以帮助防止SQL注入。</p>
+</li>
+<li>
+<p><strong>最小权限原则：</strong> 给予数据库用户最小的权限，仅允许其执行必要的操作。避免使用具有过高权限的账户连接数据库。</p>
+</li>
+<li>
+<p><strong>ORM框架使用：</strong> 对象关系映射（ORM）框架，如Entity Framework、Dapper等，通常会处理数据库交互，自动使用参数化查询，并提供一些层面上的安全性。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">csharpCopy code// 使用 Entity Framework 的 LINQ 查询</span><br><span class="line">var user = dbContext.Users.Where(u =&gt; u.Username == userInputUsername &amp;&amp; u.Password == userInputPassword).FirstOrDefault();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>错误消息处理：</strong> 在生产环境中，限制详细的错误信息输出，以防止攻击者获取有关数据库结构的敏感信息。</p>
+</li>
+<li>
+<p><strong>监控和日志：</strong> 设置数据库查询的监控和日志，以便及时发现潜在的攻击。日志记录可以帮助你追踪和分析可能的SQL注入尝试。</p>
+</li>
+</ol>
+<p>采取这些预防措施可以大大降低SQL注入的风险。记住，安全性是一个多层面的问题，不仅仅是防范SQL注入，还包括其他方面的安全性措施。</p>
+<h2 id="同步"><a class="markdownIt-Anchor" href="#同步"></a> 同步</h2>
+<p>由于网络延迟和抖动，很难做到精确的同步，这是一个无解的问<br>
+题，只能尽可能降低影响。</p>
+<p>主要分为：</p>
+<ul>
+<li>状态同步</li>
+<li>帧同步</li>
+</ul>
+<h3 id="状态同步"><a class="markdownIt-Anchor" href="#状态同步"></a> 状态同步</h3>
+<h4 id="直接状态同步"><a class="markdownIt-Anchor" href="#直接状态同步"></a> 直接状态同步</h4>
+<p>客户端A定时向服务器发送<strong>位置信息</strong>，客户端B收到后更新客户端A的位置。</p>
+<h5 id="特点"><a class="markdownIt-Anchor" href="#特点"></a> 特点</h5>
+<p>由于网络时延的存在，客户端A发送的同步信息，会经过一段时间<br>
+才能到客户端B，因此在延迟较大的情况下，可能会有瞬移的情况。因此一般游戏不会这么直接的同步位置。</p>
+<h4 id="跟随算法"><a class="markdownIt-Anchor" href="#跟随算法"></a> 跟随算法</h4>
+<p>为了解决瞬移的问题，可以采用跟随这种障眼法。客户端B收到同步协议后，不直接改变位置，而是让客户端A以一定的速度移动。</p>
+<h5 id="特点-2"><a class="markdownIt-Anchor" href="#特点-2"></a> 特点</h5>
+<p>客户端B收到客户端A的同步协议后，可能会落后客户端A一些。不过一般游戏不需要非常精确的同步，只要同步的频率高可以降低这种误差。跟随算法应用比较普遍。</p>
+<h4 id="预测算法"><a class="markdownIt-Anchor" href="#预测算法"></a> 预测算法</h4>
+<p>客户端B收到客户端A的同步协议后一段时间，会根据同步协议中客户端A的速度和当前流逝的时间算出，在下一次同步协议接受前客户端A的位置。从而让客户端A移动到相应位置。</p>
+<h5 id="特点-3"><a class="markdownIt-Anchor" href="#特点-3"></a> 特点</h5>
+<p>客户端A的速度不可能一直是匀速运动的，当客户端A减速后，客户端B依然按照之前的速度预测位置。因此可能造成接受到同步协议后产生后退的情况。</p>
+<h3 id="帧同步"><a class="markdownIt-Anchor" href="#帧同步"></a> 帧同步</h3>
+<p>帧同步即服务器定义的帧（同步帧）</p>
+<h4 id="指令同步"><a class="markdownIt-Anchor" href="#指令同步"></a> 指令同步</h4>
+<p>直接发送位置信息造成需要发送的信息太多。如果直接发送指令的话会降低一些延迟。比如直接传输向前移动，向后移动这样的指令。</p>
+<h5 id="特点-4"><a class="markdownIt-Anchor" href="#特点-4"></a> 特点</h5>
+<p>这种情况会造成误差的积累，由于不同电脑的运行速度不同，可能造成移动的距离不一样。</p>
+<h4 id="同步帧"><a class="markdownIt-Anchor" href="#同步帧"></a> 同步帧</h4>
+<p>理想状态，服务器每隔一定的时间就执行一次同步帧。保证所有客户端在同一个同步帧时，表现效果完全一样。</p>
+<p>实际状况由于系统的卡顿，可能造成某一帧的时间较长，因此就要适当缩短其他帧的时间，保证后续的帧在应该开始运行的时间运行。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> frame = <span class="number">0</span>; <span class="comment">//当前帧序号</span></span><br><span class="line"><span class="built_in">float</span> interval = <span class="number">0.1f</span>; <span class="comment">//周期，两帧的间隔</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>() <span class="comment">//Unity的update函数</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(Time.time &lt; frame*interval) <span class="comment">//保证帧在应该执行的时间执行</span></span><br><span class="line">    &#123;</span><br><span class="line">        FrameUpdate()<span class="comment">//定义的“同步帧”</span></span><br><span class="line">        frame++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/%E5%90%8C%E6%AD%A5%E5%B8%A7.jpg" alt></p>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/1.jpg" alt></p>
+<p><img src="/2023/10/11/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6/2.jpg" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">C# Socket编程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-08 20:04:15" itemprop="dateCreated datePublished" datetime="2023-10-08T20:04:15+08:00">2023-10-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="C# Socket编程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>C#中socket的API用法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/10/08/C-Socket%E7%BC%96%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">面向对象和设计模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-02 16:58:16" itemprop="dateCreated datePublished" datetime="2023-10-02T16:58:16+08:00">2023-10-02</time>
+            </span>
+
+          
+            <span id="/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="面向对象和设计模式" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>面向对象</li>
+<li>设计模式</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/10/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/03/29/html5%E6%A0%87%E7%AD%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/29/html5%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">html5标签</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-29 11:45:08" itemprop="dateCreated datePublished" datetime="2023-03-29T11:45:08+08:00">2023-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-02 22:11:34" itemprop="dateModified" datetime="2023-09-02T22:11:34+08:00">2023-09-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/03/29/html5%E6%A0%87%E7%AD%BE/" class="post-meta-item leancloud_visitors" data-flag-title="html5标签" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>html5全部的标签</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/29/html5%E6%A0%87%E7%AD%BE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/03/14/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E4%B8%8E%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -912,500 +1411,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/" class="post-title-link" itemprop="url">435. 无重叠区间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-29 00:46:45" itemprop="dateCreated datePublished" datetime="2023-07-29T00:46:45+08:00">2023-07-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="435. 无重叠区间" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/non-overlapping-intervals/">435. 无重叠区间 - 力扣（LeetCode）</a></p>
-<p>给定一个区间的集合 <code>intervals</code> ，其中 <code>intervals[i] = [start&lt;sub&gt;i&lt;/sub&gt;, end&lt;sub&gt;i&lt;/sub&gt;]</code> 。返回 <em>需要移除区间的最小数量，使剩余区间互不重叠</em> 。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: intervals = [[1,2],[2,3],[3,4],[1,3]]</span><br><span class="line">输出: 1</span><br><span class="line">解释: 移除 [1,3] 后，剩下的区间没有重叠。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: intervals = [ [1,2], [1,2], [1,2] ]</span><br><span class="line">输出: 2</span><br><span class="line">解释: 你需要移除两个 [1,2] 来使剩下的区间没有重叠。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: intervals = [ [1,2], [2,3] ]</span><br><span class="line">输出: 0</span><br><span class="line">解释: 你不需要移除任何区间，因为它们已经是无重叠的了。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示:</strong></p>
-<ul>
-<li><code>1 &lt;= intervals.length &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
-<li><code>intervals[i].length == 2</code></li>
-<li><code>-5 * 10&lt;sup&gt;4&lt;/sup&gt; &lt;= start&lt;sub&gt;i&lt;/sub&gt; &lt; end&lt;sub&gt;i&lt;/sub&gt; &lt;= 5 * 10&lt;sup&gt;4&lt;/sup&gt;</code></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">eraseOverlapIntervals</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;intervals)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(intervals.<span class="built_in">begin</span>(), intervals.<span class="built_in">end</span>(), [](vector&lt;<span class="type">int</span>&gt; &amp; a, vector&lt;<span class="type">int</span>&gt;b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">0</span>] &lt; b[<span class="number">0</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; pre = intervals[<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span> remove = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; intervals.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (intervals[i][<span class="number">0</span>] &lt; pre[<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (intervals[i][<span class="number">1</span>] &lt; pre[<span class="number">1</span>])</span><br><span class="line">                &#123;</span><br><span class="line">                    pre = intervals[i];</span><br><span class="line">                &#125;</span><br><span class="line">                remove++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                pre = intervals[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> remove;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/" class="post-title-link" itemprop="url">452. 用最少数量的箭引爆气球</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-29 00:46:04" itemprop="dateCreated datePublished" datetime="2023-07-29T00:46:04+08:00">2023-07-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/" class="post-meta-item leancloud_visitors" data-flag-title="452. 用最少数量的箭引爆气球" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/">452. 用最少数量的箭引爆气球 - 力扣（LeetCode）</a></p>
-<p>有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 <code>points</code> ，其中<code>points[i] = [x&lt;sub&gt;start&lt;/sub&gt;, x&lt;sub&gt;end&lt;/sub&gt;]</code> 表示水平直径在 <code>x&lt;sub&gt;start&lt;/sub&gt;</code> 和 <code>x&lt;sub&gt;end&lt;/sub&gt;</code>之间的气球。你不知道气球的确切 y 坐标。</p>
-<p>一支弓箭可以沿着 x 轴从不同点 <strong>完全垂直</strong> 地射出。在坐标 <code>x</code> 处射出一支箭，若有一个气球的直径的开始和结束坐标为 <code>x</code><sub><code>start</code>，</sub><code>x</code><sub><code>end</code>，</sub> 且满足  <code>x&lt;sub&gt;start&lt;/sub&gt; ≤ x ≤ x</code><sub><code>end</code>，</sub>则该气球会被 <strong>引爆</strong> <sub>。</sub>可以射出的弓箭的数量 <strong>没有限制</strong> 。 弓箭一旦被射出之后，可以无限地前进。</p>
-<p>给你一个数组 <code>points</code> ，<em>返回引爆所有气球所必须射出的 <strong>最小</strong> 弓箭数</em> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：points = [[10,16],[2,8],[1,6],[7,12]]</span><br><span class="line">输出：2</span><br><span class="line">解释：气球可以用2支箭来爆破:</span><br><span class="line">-在x = 6处射出箭，击破气球[2,8]和[1,6]。</span><br><span class="line">-在x = 11处发射箭，击破气球[10,16]和[7,12]。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：points = [[1,2],[3,4],[5,6],[7,8]]</span><br><span class="line">输出：4</span><br><span class="line">解释：每个气球需要射出一支箭，总共需要4支箭。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：points = [[1,2],[2,3],[3,4],[4,5]]</span><br><span class="line">输出：2</span><br><span class="line">解释：气球可以用2支箭来爆破:</span><br><span class="line">- 在x = 2处发射箭，击破气球[1,2]和[2,3]。</span><br><span class="line">- 在x = 4处射出箭，击破气球[3,4]和[4,5]。</span><br></pre></td></tr></table></figure>
-<p><strong>提示:</strong></p>
-<ul>
-<li><code>1 &lt;= points.length &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
-<li><code>points[i].length == 2</code></li>
-<li><code>-2&lt;sup&gt;31&lt;/sup&gt; &lt;= x&lt;sub&gt;start&lt;/sub&gt; &lt; x&lt;sub&gt;end&lt;/sub&gt; &lt;= 2&lt;sup&gt;31&lt;/sup&gt; - 1</code></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMinArrowShots</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> bow = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">sort</span>(points.<span class="built_in">begin</span>(), points.<span class="built_in">end</span>(), [](vector&lt;<span class="type">int</span>&gt; &amp; a, vector&lt;<span class="type">int</span>&gt;&amp; b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="type">int</span> left = points[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        bow++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp; point : points)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(point[<span class="number">0</span>] &gt; left)</span><br><span class="line">            &#123;</span><br><span class="line">                left = point[<span class="number">1</span>];</span><br><span class="line">                bow++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">406. 根据身高重建队列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-29 00:45:27" itemprop="dateCreated datePublished" datetime="2023-07-29T00:45:27+08:00">2023-07-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="406. 根据身高重建队列" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/queue-reconstruction-by-height/">406. 根据身高重建队列 - 力扣（LeetCode）</a></p>
-<p>假设有打乱顺序的一群人站成一个队列，数组 <code>people</code> 表示队列中一些人的属性（不一定按顺序）。每个 <code>people[i] = [h&lt;sub&gt;i&lt;/sub&gt;, k&lt;sub&gt;i&lt;/sub&gt;]</code> 表示第 <code>i</code> 个人的身高为 <code>h&lt;sub&gt;i&lt;/sub&gt;</code> ，前面 <strong>正好</strong> 有 <code>k&lt;sub&gt;i&lt;/sub&gt;</code> 个身高大于或等于 <code>h&lt;sub&gt;i&lt;/sub&gt;</code> 的人。</p>
-<p>请你重新构造并返回输入数组 <code>people</code> 所表示的队列。返回的队列应该格式化为数组 <code>queue</code> ，其中 <code>queue[j] = [h&lt;sub&gt;j&lt;/sub&gt;, k&lt;sub&gt;j&lt;/sub&gt;]</code> 是队列中第 <code>j</code> 个人的属性（<code>queue[0]</code> 是排在队列前面的人）。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]</span><br><span class="line">输出：[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]</span><br><span class="line">解释：</span><br><span class="line">编号为 0 的人身高为 5 ，没有身高更高或者相同的人排在他前面。</span><br><span class="line">编号为 1 的人身高为 7 ，没有身高更高或者相同的人排在他前面。</span><br><span class="line">编号为 2 的人身高为 5 ，有 2 个身高更高或者相同的人排在他前面，即编号为 0 和 1 的人。</span><br><span class="line">编号为 3 的人身高为 6 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。</span><br><span class="line">编号为 4 的人身高为 4 ，有 4 个身高更高或者相同的人排在他前面，即编号为 0、1、2、3 的人。</span><br><span class="line">编号为 5 的人身高为 7 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。</span><br><span class="line">因此 [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] 是重新构造后的队列。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：people = [[6,0],[5,0],[4,0],[3,2],[2,2],[1,4]]</span><br><span class="line">输出：[[4,0],[5,0],[2,2],[3,2],[1,4],[6,0]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= people.length &lt;= 2000</code></li>
-<li><code>0 &lt;= h&lt;sub&gt;i&lt;/sub&gt; &lt;= 10&lt;sup&gt;6&lt;/sup&gt;</code></li>
-<li><code>0 &lt;= k&lt;sub&gt;i&lt;/sub&gt; &lt; people.length</code></li>
-<li>题目数据确保队列可以被重建</li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">reconstructQueue</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;people)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">sort</span>(people.<span class="built_in">begin</span>(),people.<span class="built_in">end</span>(),[](vector&lt;<span class="type">int</span>&gt;&amp; a, vector&lt;<span class="type">int</span>&gt; b)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[<span class="number">0</span>] == b[<span class="number">0</span>]) <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">0</span>] &gt; b[<span class="number">0</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; people.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp.<span class="built_in">insert</span>(temp.<span class="built_in">begin</span>() + people[i][<span class="number">1</span>], people[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/" class="post-title-link" itemprop="url">860. 柠檬水找零</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-07-29 00:44:52" itemprop="dateCreated datePublished" datetime="2023-07-29T00:44:52+08:00">2023-07-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/" class="post-meta-item leancloud_visitors" data-flag-title="860. 柠檬水找零" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/07/29/860-%E6%9F%A0%E6%AA%AC%E6%B0%B4%E6%89%BE%E9%9B%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<h2 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lemonade-change/">860. 柠檬水找零 - 力扣（LeetCode）</a></p>
-<p>在柠檬水摊上，每一杯柠檬水的售价为 <code>5</code> 美元。顾客排队购买你的产品，（按账单 <code>bills</code> 支付的顺序）一次购买一杯。</p>
-<p>每位顾客只买一杯柠檬水，然后向你付 <code>5</code> 美元、<code>10</code> 美元或 <code>20</code> 美元。你必须给每个顾客正确找零，也就是说净交易是每位顾客向你支付 <code>5</code> 美元。</p>
-<p>注意，一开始你手头没有任何零钱。</p>
-<p>给你一个整数数组 <code>bills</code> ，其中 <code>bills[i]</code> 是第 <code>i</code> 位顾客付的账。如果你能给每位顾客正确找零，返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：bills = [5,5,5,10,20]</span><br><span class="line">输出：true</span><br><span class="line">解释：</span><br><span class="line">前 3 位顾客那里，我们按顺序收取 3 张 5 美元的钞票。</span><br><span class="line">第 4 位顾客那里，我们收取一张 10 美元的钞票，并返还 5 美元。</span><br><span class="line">第 5 位顾客那里，我们找还一张 10 美元的钞票和一张 5 美元的钞票。</span><br><span class="line">由于所有客户都得到了正确的找零，所以我们输出 true。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：bills = [5,5,10,10,20]</span><br><span class="line">输出：false</span><br><span class="line">解释：</span><br><span class="line">前 2 位顾客那里，我们按顺序收取 2 张 5 美元的钞票。</span><br><span class="line">对于接下来的 2 位顾客，我们收取一张 10 美元的钞票，然后返还 5 美元。</span><br><span class="line">对于最后一位顾客，我们无法退回 15 美元，因为我们现在只有两张 10 美元的钞票。</span><br><span class="line">由于不是每位顾客都得到了正确的找零，所以答案是 false。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= bills.length &lt;= 10&lt;sup&gt;5&lt;/sup&gt;</code></li>
-<li><code>bills[i]</code> 不是 <code>5</code> 就是 <code>10</code> 或是 <code>20</code></li>
-</ul>
-<h2 id="解答"><a class="markdownIt-Anchor" href="#解答"></a> 解答</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">lemonadeChange</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;bills)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> five = <span class="number">0</span>, ten = <span class="number">0</span>, twenty = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> needFive = <span class="number">0</span>, needTen = <span class="number">0</span>, needTwenty = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : bills)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">switch</span> (x)</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                five++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">                <span class="keyword">if</span>(five &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                ten++;</span><br><span class="line">                five--;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">20</span>:</span><br><span class="line">                <span class="keyword">if</span>(five &gt; <span class="number">0</span> &amp;&amp; ten &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    five--;</span><br><span class="line">                    ten--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(five &gt;= <span class="number">3</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    five -= <span class="number">3</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1473,20 +1482,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">138</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1540,12 +1549,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">209k</span>
+    <span title="站点总字数">216k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:10</span>
+    <span title="站点阅读时长">3:16</span>
 </div>
 
         
