@@ -280,7 +280,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -301,15 +301,15 @@
       
         <p>学习DirectX 12 3D 游戏开发实战(龙书)笔记。</p>
 <span id="more"></span>
-<h2 id="1-rendering-pipeline渲染管线"><a class="markdownIt-Anchor" href="#1-rendering-pipeline渲染管线"></a> 1. Rendering Pipeline(渲染管线)</h2>
+<h2 id="rendering-pipeline渲染管线"><a class="markdownIt-Anchor" href="#rendering-pipeline渲染管线"></a> Rendering Pipeline(渲染管线)</h2>
 <p>rendering pipeline就是给定<code>3D场景</code>和<code>虚拟摄像机的位置和角度</code>后，基于此摄像机的观察视角将3D场景渲染为<code>2D图片</code>过程的<code>一系列步骤</code>。</p>
-<h3 id="11-d3d12-rendering-pipeline过程"><a class="markdownIt-Anchor" href="#11-d3d12-rendering-pipeline过程"></a> 1.1 D3D12 rendering pipeline过程</h3>
+<h3 id="d3d12-rendering-pipeline过程"><a class="markdownIt-Anchor" href="#d3d12-rendering-pipeline过程"></a> D3D12 rendering pipeline过程</h3>
 <p><img src="/2024/03/12/DirectX12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Rendering%20Pipeline.png" alt="Renderling Pipeline"></p>
 <p>其中GS是一个可选渲染阶段</p>
-<h2 id="2-渲染管线各阶段的工作"><a class="markdownIt-Anchor" href="#2-渲染管线各阶段的工作"></a> 2 渲染管线各阶段的工作</h2>
-<h3 id="21-ia-stage"><a class="markdownIt-Anchor" href="#21-ia-stage"></a> 2.1 IA Stage</h3>
+<h2 id="渲染管线各阶段的工作"><a class="markdownIt-Anchor" href="#渲染管线各阶段的工作"></a> 渲染管线各阶段的工作</h2>
+<h3 id="ia-stage"><a class="markdownIt-Anchor" href="#ia-stage"></a> IA Stage</h3>
 <p>IA阶段会从显存中读取Vertex和Index，再进行Geometry Primitive(几何图元)装配。</p>
-<h4 id="211-primitive-topology图元拓扑"><a class="markdownIt-Anchor" href="#211-primitive-topology图元拓扑"></a> 2.1.1 Primitive Topology(图元拓扑)</h4>
+<h4 id="primitive-topology图元拓扑"><a class="markdownIt-Anchor" href="#primitive-topology图元拓扑"></a> Primitive Topology(图元拓扑)</h4>
 <p>有了顶点之后，需要对这些顶点进行解释，例如两两顶点解释成线段，还是三个一组解释成三角形。</p>
 <p>D3D12的图元拓扑下表所示：</p>
 <table>
@@ -494,12 +494,12 @@
 <blockquote>
 <p>控制点面片列表常用于曲面细分的阶段</p>
 </blockquote>
-<h4 id="212-index"><a class="markdownIt-Anchor" href="#212-index"></a> 2.1.2 Index</h4>
+<h4 id="index"><a class="markdownIt-Anchor" href="#index"></a> Index</h4>
 <p>在使用三角形列表的时候，若每个三角形都保存三个顶点，那么相邻三角形必然会有顶点重复，因此采用索引来降低存储大小以及避免GPU对同一顶点的重复处理。</p>
 <p>例如：如下三角形</p>
 <p><img src="/2024/03/12/DirectX12%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Index.png" alt="棱锥"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vertex vertices[<span class="number">5</span>] = &#123;</span><br><span class="line">    v0,v1,v2,v3,v4</span><br><span class="line">&#125;;<span class="comment">//顶点数组</span></span><br><span class="line"></span><br><span class="line">UINT indices[] = &#123;</span><br><span class="line">    <span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,</span><br><span class="line">    <span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,</span><br><span class="line">    <span class="number">1</span>,<span class="number">4</span>,<span class="number">0</span>,</span><br><span class="line">    <span class="number">0</span>,<span class="number">4</span>,<span class="number">2</span>,</span><br><span class="line">    <span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,</span><br><span class="line">    <span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span></span><br><span class="line">&#125;; <span class="comment">//索引</span></span><br></pre></td></tr></table></figure>
-<h3 id="22-vs-stage"><a class="markdownIt-Anchor" href="#22-vs-stage"></a> 2.2 VS Stage</h3>
+<h3 id="vs-stage"><a class="markdownIt-Anchor" href="#vs-stage"></a> VS Stage</h3>
 <p>待图元被装配完毕后，其顶点就会被送入顶点着色器阶段。这个阶段是处理单个顶点，对其进行变换、光照和位移贴图等操作。</p>
 <blockquote>
 <p>updating</p>
@@ -630,7 +630,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-rendering-pipeline%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-number">1.</span> <span class="nav-text"> 1. Rendering Pipeline(渲染管线)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-d3d12-rendering-pipeline%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 D3D12 rendering pipeline过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E5%90%84%E9%98%B6%E6%AE%B5%E7%9A%84%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text"> 2 渲染管线各阶段的工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-ia-stage"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 IA Stage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#211-primitive-topology%E5%9B%BE%E5%85%83%E6%8B%93%E6%89%91"><span class="nav-number">2.1.1.</span> <span class="nav-text"> 2.1.1 Primitive Topology(图元拓扑)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#212-index"><span class="nav-number">2.1.2.</span> <span class="nav-text"> 2.1.2 Index</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-vs-stage"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 VS Stage</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rendering-pipeline%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-number">1.</span> <span class="nav-text"> Rendering Pipeline(渲染管线)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#d3d12-rendering-pipeline%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text"> D3D12 rendering pipeline过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E5%90%84%E9%98%B6%E6%AE%B5%E7%9A%84%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text"> 渲染管线各阶段的工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ia-stage"><span class="nav-number">2.1.</span> <span class="nav-text"> IA Stage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#primitive-topology%E5%9B%BE%E5%85%83%E6%8B%93%E6%89%91"><span class="nav-number">2.1.1.</span> <span class="nav-text"> Primitive Topology(图元拓扑)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#index"><span class="nav-number">2.1.2.</span> <span class="nav-text"> Index</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vs-stage"><span class="nav-number">2.2.</span> <span class="nav-text"> VS Stage</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
