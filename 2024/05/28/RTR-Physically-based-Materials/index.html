@@ -24,19 +24,19 @@
   <meta name="description" content="PBR 和 PBR Materials PBR everything in rendering should be physically based.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RTR Physically-based Materials">
-<meta property="og:url" content="http://02xx.github.io/2024/05/28/RTR%20Physically-based%20Materials/index.html">
+<meta property="og:url" content="http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/index.html">
 <meta property="og:site_name" content="小马のblog">
 <meta property="og:description" content="PBR 和 PBR Materials PBR everything in rendering should be physically based.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://02xx.github.io/2024/05/28/RTR%20Physically-based%20Materials/GTR.png">
+<meta property="og:image" content="http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/GTR.png">
 <meta property="article:published_time" content="2024-05-28T11:26:24.000Z">
 <meta property="article:modified_time" content="2024-05-28T11:26:24.000Z">
 <meta property="article:author" content="02">
 <meta property="article:tag" content="计算机图形学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://02xx.github.io/2024/05/28/RTR%20Physically-based%20Materials/GTR.png">
+<meta name="twitter:image" content="http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/GTR.png">
 
-<link rel="canonical" href="http://02xx.github.io/2024/05/28/RTR%20Physically-based%20Materials/">
+<link rel="canonical" href="http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/">
 
 
 <script id="page-configurations">
@@ -209,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2024/05/28/RTR%20Physically-based%20Materials/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -245,7 +245,7 @@
             </span>
 
           
-            <span id="/2024/05/28/RTR%20Physically-based%20Materials/" class="post-meta-item leancloud_visitors" data-flag-title="RTR Physically-based Materials" title="阅读次数">
+            <span id="/2024/05/28/RTR-Physically-based-Materials/" class="post-meta-item leancloud_visitors" data-flag-title="RTR Physically-based Materials" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -267,8 +267,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2024/05/28/RTR%20Physically-based%20Materials/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/28/RTR%20Physically-based%20Materials/" itemprop="commentCount"></span>
+    <a title="valine" href="/2024/05/28/RTR-Physically-based-Materials/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/28/RTR-Physically-based-Materials/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -316,7 +316,7 @@
 <h3 id="gtrextending-ggx"><a class="markdownIt-Anchor" href="#gtrextending-ggx"></a> GTR（Extending GGX）</h3>
 <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">D</mi><mo stretchy="false">(</mo><mi>h</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>k</mi><mo stretchy="false">(</mo><mi>α</mi><mo separator="true">,</mo><mi>γ</mi><mo stretchy="false">)</mo></mrow><msup><mrow><mo fence="true">(</mo><mn>1</mn><mo>+</mo><mo stretchy="false">(</mo><mi>n</mi><mo>⋅</mo><mi>h</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mrow><mo fence="true">(</mo><msup><mi>α</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo fence="true">)</mo></mrow><mo fence="true">)</mo></mrow><mi>γ</mi></msup></mfrac></mrow><annotation encoding="application/x-tex">\mathbf{D}(h)=\frac{k(\alpha, \gamma)}{\left(1+(n \cdot h)^2\left(\alpha^2-1\right)\right)^\gamma}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf">D</span></span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.53em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="minner mtight"><span class="minner mtight"><span class="mopen mtight delimcenter" style="top:0em;"><span class="mtight">(</span></span><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">⋅</span><span class="mord mathnormal mtight">h</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="minner mtight"><span class="mopen mtight delimcenter" style="top:0em;"><span class="mtight">(</span></span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight delimcenter" style="top:0em;"><span class="mtight">)</span></span></span><span class="mclose mtight delimcenter" style="top:0em;"><span class="mtight">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7046857142857144em;"><span style="top:-2.8971428571428572em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05556em;">γ</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05556em;">γ</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 <p>even longer tails</p>
-<p><img src="/2024/05/28/RTR%20Physically-based%20Materials/GTR.png" alt="GTR"></p>
+<p><img src="/2024/05/28/RTR-Physically-based-Materials/GTR.png" alt="GTR"></p>
 <h2 id="shadowing-masking-term"><a class="markdownIt-Anchor" href="#shadowing-masking-term"></a> Shadowing-Masking Term</h2>
 <p>几何函数项G考虑微平面之间的相互遮挡现象。对于遮挡的情况要对其变暗。</p>
 <h2 id="disney-principle-brdf"><a class="markdownIt-Anchor" href="#disney-principle-brdf"></a> Disney Principle BRDF</h2>
@@ -365,7 +365,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://02xx.github.io/2024/05/28/RTR%20Physically-based%20Materials/" title="RTR Physically-based Materials">http://02xx.github.io/2024/05/28/RTR Physically-based Materials/</a>
+    <a href="http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/" title="RTR Physically-based Materials">http://02xx.github.io/2024/05/28/RTR-Physically-based-Materials/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -393,11 +393,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/05/28/RTR%20Shadow/" rel="prev" title="RTR Shadow">
+    <a href="/2024/05/28/RTR-Shadow/" rel="prev" title="RTR Shadow">
       <i class="fa fa-chevron-left"></i> RTR Shadow
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/05/28/RTR%20Global%20Illumination/" rel="next" title="RTR Global Illumination">
+    <a href="/2024/05/28/RTR-Global-Illumination/" rel="next" title="RTR Global Illumination">
       RTR Global Illumination <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>

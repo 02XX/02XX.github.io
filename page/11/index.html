@@ -203,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/string/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -217,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/string/" class="post-title-link" itemprop="url">string</a>
+            <a href="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/" class="post-title-link" itemprop="url">docker使用ipv6</a>
         </h2>
 
         <div class="post-meta">
@@ -238,7 +238,7 @@
               </span>
 
           
-            <span id="/2023/04/04/string/" class="post-meta-item leancloud_visitors" data-flag-title="string" title="阅读次数">
+            <span id="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/" class="post-meta-item leancloud_visitors" data-flag-title="docker使用ipv6" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -253,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/string/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/string/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,14 +264,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>302</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -283,164 +283,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="string"><a class="markdownIt-Anchor" href="#string"></a> string</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">构造函数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">string(const char *s)</td>
-<td style="text-align:left">将string 对象初始化为s 指向的NBTS</td>
-</tr>
-<tr>
-<td style="text-align:left">string (size_ type n , char c)</td>
-<td style="text-align:left">创建一个包含n个元素的string对象，其中每个元素都别初始化为字符c</td>
-</tr>
-<tr>
-<td style="text-align:left">string(const string &amp; str)</td>
-<td style="text-align:left">将一个string对象初始化为string对象str</td>
-</tr>
-<tr>
-<td style="text-align:left">string()</td>
-<td style="text-align:left">默认构造函数</td>
-</tr>
-<tr>
-<td style="text-align:left">string(const char* s,size_type n)</td>
-<td style="text-align:left">将string对象初始化为s指向的NBTS的前n个字符，即使超过了NBTS结尾</td>
-</tr>
-<tr>
-<td style="text-align:left">template<class iter> string(Iter begin, Iter end)</class></td>
-<td style="text-align:left">将string 对象初始化为区间[begin, end)内的字符， 其中begin 和end 的行为就像指 针， 用千指定位置， 范围包括begin 在内， 但不包括end</td>
-</tr>
-<tr>
-<td style="text-align:left">string(const string &amp; str, string size_type pos=0, size_type = npos)</td>
-<td style="text-align:left">将一个string对象初始化为对象str中从位置pos开始到结尾的字符，或从位置pos开始的n个字符</td>
-</tr>
-<tr>
-<td style="text-align:left">string(string &amp;&amp; str) noexcept</td>
-<td style="text-align:left">这是C++11 新增的， 它将一个string 对象初始化为string 对象str, 并可能修改str（移动构造函数）</td>
-</tr>
-<tr>
-<td style="text-align:left">string(initializer_list<char> il)</char></td>
-<td style="text-align:left">这是C++11 新增的， 它将一个string 对象初始化为初始化列表il 中的字符</td>
-</tr>
-</tbody>
-</table>
+          <h1 id="docker使用ipv6"><a class="markdownIt-Anchor" href="#docker使用ipv6"></a> docker使用ipv6</h1>
+<p>开启ipv6首先按照官方文档修改/etc/docker/daemon.json</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/string/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/this%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/04/this%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">this指针</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
-              </span>
-
-          
-            <span id="/2023/04/04/this%E6%8C%87%E9%92%88/" class="post-meta-item leancloud_visitors" data-flag-title="this指针" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/04/04/this%E6%8C%87%E9%92%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/this%E6%8C%87%E9%92%88/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="this指针"><a class="markdownIt-Anchor" href="#this指针"></a> this指针</h1>
-<p>在类中每一个成员函数都有一个this指针指向它调用对象的地址。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/04/04/this%E6%8C%87%E9%92%88/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/docker%E4%BD%BF%E7%94%A8ipv6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -680,7 +527,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -694,7 +541,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">typename和class的区别</a>
+            <a href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">vscode快捷键</a>
         </h2>
 
         <div class="post-meta">
@@ -715,7 +562,7 @@
               </span>
 
           
-            <span id="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="typename和class的区别" title="阅读次数">
+            <span id="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="vscode快捷键" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -730,8 +577,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -741,7 +588,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>355</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -760,11 +607,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="typename和class的区别"><a class="markdownIt-Anchor" href="#typename和class的区别"></a> typename和class的区别</h1>
-<h2 id="作为定义模板时功能是一样的"><a class="markdownIt-Anchor" href="#作为定义模板时功能是一样的"></a> 作为定义模板时功能是一样的</h2>
+          <h1 id="vscode快捷键"><a class="markdownIt-Anchor" href="#vscode快捷键"></a> vscode快捷键</h1>
+<p>所有快捷键设置：文件→首选项→键盘快捷方式</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -896,7 +743,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/this%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/02.jpg">
@@ -910,7 +757,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">vscode快捷键</a>
+            <a href="/2023/04/04/this%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">this指针</a>
         </h2>
 
         <div class="post-meta">
@@ -931,7 +778,7 @@
               </span>
 
           
-            <span id="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="vscode快捷键" title="阅读次数">
+            <span id="/2023/04/04/this%E6%8C%87%E9%92%88/" class="post-meta-item leancloud_visitors" data-flag-title="this指针" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -946,8 +793,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2023/04/04/this%E6%8C%87%E9%92%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/this%E6%8C%87%E9%92%88/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -957,7 +804,115 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="this指针"><a class="markdownIt-Anchor" href="#this指针"></a> this指针</h1>
+<p>在类中每一个成员函数都有一个this指针指向它调用对象的地址。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/04/this%E6%8C%87%E9%92%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">typename和class的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
+              </span>
+
+          
+            <span id="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="typename和class的区别" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>355</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -976,11 +931,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="vscode快捷键"><a class="markdownIt-Anchor" href="#vscode快捷键"></a> vscode快捷键</h1>
-<p>所有快捷键设置：文件→首选项→键盘快捷方式</p>
+          <h1 id="typename和class的区别"><a class="markdownIt-Anchor" href="#typename和class的区别"></a> typename和class的区别</h1>
+<h2 id="作为定义模板时功能是一样的"><a class="markdownIt-Anchor" href="#作为定义模板时功能是一样的"></a> 作为定义模板时功能是一样的</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/04/04/vscode%E5%BF%AB%E6%8D%B7%E9%94%AE/#more" rel="contents">
+              <a class="btn" href="/2023/04/04/typename%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1112,6 +1067,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/04/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/" class="post-title-link" itemprop="url">关于返回值</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
+              </span>
+
+          
+            <span id="/2023/04/04/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/" class="post-meta-item leancloud_visitors" data-flag-title="关于返回值" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/04/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>191</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于返回值"><a class="markdownIt-Anchor" href="#关于返回值"></a> 关于返回值</h1>
+<h1 id="1-返回类型对象"><a class="markdownIt-Anchor" href="#1-返回类型对象"></a> 1 返回类型对象</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/04/%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%85%B3%E4%BA%8Enew/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1197,114 +1260,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/04/04/%E5%85%B3%E4%BA%8Enew/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/02.jpg">
-      <meta itemprop="name" content="02">
-      <meta itemprop="description" content="记录一切">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小马のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">函数对象</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
-              </span>
-
-          
-            <span id="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" class="post-meta-item leancloud_visitors" data-flag-title="函数对象" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>14</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="functional的函数符"><a class="markdownIt-Anchor" href="#functional的函数符"></a> <code> functional</code>的函数符</h1>
-<p><img src="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C%E9%A2%84%E5%AE%9A%E7%9A%84%E5%87%BD%E6%95%B0%E7%AC%A6.png" alt="预定的函数符"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/04/04/%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
