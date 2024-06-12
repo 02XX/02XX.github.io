@@ -1,0 +1,2 @@
+E:\CodeEnvironment\TDM-GCC\bin\ar.exe qc libmuti.a CMakeFiles/muti.dir/muti.cpp.obj
+E:\CodeEnvironment\TDM-GCC\bin\ranlib.exe libmuti.a

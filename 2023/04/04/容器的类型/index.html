@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/02.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/02.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="DBU0v7-2Sg84ilgMInOJ3DBLAvVKz_CRT2TSCNoaxcA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"02xx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="容器的类型  一般容器的特征">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容器的类型">
+<meta property="og:url" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="小马のblog">
+<meta property="og:description" content="容器的类型  一般容器的特征">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_210444.png">
+<meta property="og:image" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_210454.png">
+<meta property="og:image" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_212535.png">
+<meta property="og:image" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Cqueue%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Cstack%E7%9A%84%E6%93%8D%E4%BD%9C.png">
+<meta property="article:published_time" content="2023-04-03T16:49:29.983Z">
+<meta property="article:modified_time" content="2021-06-15T14:24:43.000Z">
+<meta property="article:author" content="02">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_210444.png">
+
+<link rel="canonical" href="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>容器的类型 | 小马のblog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16ba83018302e73fb3820eacba1e8d72";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小马のblog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">小马的个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          容器的类型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-15 22:24:43" itemprop="dateModified" datetime="2021-06-15T22:24:43+08:00">2021-06-15</time>
+              </span>
+
+          
+            <span id="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="容器的类型" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="容器的类型"><a class="markdownIt-Anchor" href="#容器的类型"></a> 容器的类型</h1>
+<h2 id="一般容器的特征"><a class="markdownIt-Anchor" href="#一般容器的特征"></a> 一般容器的特征</h2>
+<p>X 表示容器类型，如vector<int>; T 表示存储在容器中的对象类型； a 和b 表示类型为X 的值； r 表示类型为X＆的值； u 表示类型为X的标识符</int></p>
+<p>（即如果X 表示vector<int>， 则u 是一个vector<int>对象）。</int></int></p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>返回类型</th>
+<th>说明</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X::iterator</td>
+<td>指向T的选代器类型</td>
+<td>满足正向选代器要求的任何达代器</td>
+<td>编译时间</td>
+</tr>
+<tr>
+<td>X::value_type</td>
+<td>T</td>
+<td>T的类型</td>
+<td>编译时间</td>
+</tr>
+<tr>
+<td>X u;</td>
+<td></td>
+<td>创建一个名为u的空容器</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>X();</td>
+<td></td>
+<td>创建一个匿名的空容器</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>X u(a);</td>
+<td></td>
+<td>调用复制构造函数后u == a</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>X u=a;</td>
+<td></td>
+<td>作用同X u(a)</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>r=a;</td>
+<td>X&amp;</td>
+<td>调用赋值运算符后r == a</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>(&amp;a) -&gt; ~X()</td>
+<td>void</td>
+<td>对容器中每个元素应用析构函数</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>a.begin()</td>
+<td>选代器</td>
+<td>返回指向容器第一个元素的选代器</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>a.end()</td>
+<td>选代器</td>
+<td>返回超尾值达代器</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>a.size()</td>
+<td>无符号整型</td>
+<td>返回元素个数,等价于a.end()-a.begin()</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>a.swap(b)</td>
+<td>void</td>
+<td>交换a和b的内容</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>a==b;</td>
+<td>可转换为bool</td>
+<td>如果a和b的长度相同且a中每个元素都等于(==为真)b中相应的元素,则为真</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>a!=b;</td>
+<td>可转换为bool</td>
+<td>返回!(a==b)</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>X u(rv);</td>
+<td></td>
+<td>调用移动构造函数后，u与rv的原始值相同</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>X u = rv;</td>
+<td></td>
+<td>作用同X u(rv)</td>
+<td></td>
+</tr>
+<tr>
+<td>a = rv;</td>
+<td>X&amp;</td>
+<td>调用移动赋值运算符后， u的值与rv的原始值相同</td>
+<td>线性</td>
+</tr>
+<tr>
+<td>a.cbegin()</td>
+<td>const_iterator</td>
+<td>返回指向容器第一个元素的const迭代器</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>a.cend()</td>
+<td>const_iterator</td>
+<td>返回超尾值const迭代器</td>
+<td>固定</td>
+</tr>
+</tbody>
+</table>
+<h1 id="序列"><a class="markdownIt-Anchor" href="#序列"></a> 序列</h1>
+<p>序列的要求</p>
+<p><img src="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_210444.png" alt="2020-09-10_210444"></p>
+<p>序列的可选要求</p>
+<p><img src="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_210454.png" alt="2020-09-10_210454"></p>
+<h1 id="容器"><a class="markdownIt-Anchor" href="#容器"></a> 容器</h1>
+<h2 id="vector"><a class="markdownIt-Anchor" href="#vector"></a> vector</h2>
+<p>前面介绍了多个使用vector 模板的例子，该模板是在vector头文件中声明的。简单地说，vector 是数组的一种类表示， 它提供了自动内</p>
+<p>存管理功能，可以动态地改变vector 对象的长度，并随着元素的添加和删除而增大和缩小。它提供了对元素的随机访问。在尾部添加和删</p>
+<p>除元素的时间是固定的， 但在头部或中间插入和删除元素的复杂度为线性时间。除序列外，vector 还是可反转容器(reversiblecontainer)</p>
+<p>概念的模型。这增加了两个类方法： rbegin( ）和rend( ）， 前者返回一个指向反转序列的第一个元素的迭代器， 后者返回反转序列的超</p>
+<p>尾迭代器。因此，如果dice 是一个vector<int>容器，而Show(int)是显示一个整数的函数， 则下面的代码将首先正向显示dice 的内容然</int></p>
+<p>后反向显示</p>
+<h2 id="deque"><a class="markdownIt-Anchor" href="#deque"></a> deque</h2>
+<p>deque 模板类（在deque 头文件中声明）表示双端队列(double-ended queue)， 通常被简称为deque。在STL 中，其实现类似千vector</p>
+<p>容器，支持随机访问。主要区别在于，从deque 对象的开始位置插入和删除元素的时间是固定的， 而不像vector 中那样是线性时间的。</p>
+<p>所以，如果多数操作发生在序列的起始和结尾处， 则应考虑使用deque 数据结构。为实现在deque 两端执行插入和删除操作的时间为固</p>
+<p>定的这一目的， deque 对象的设计比vector 对象更为复杂。因此， 尽管二者都提供对元素的随机访问和在序列中部执行线性时间的插入</p>
+<p>和删除操作， 但vector 容器执行这些操作时速度要快些。</p>
+<h2 id="list"><a class="markdownIt-Anchor" href="#list"></a> list</h2>
+<p>list 模板类（在list 头文件中声明）表示双向链表。除了第一个和最后一个元素外，每个元素都与前后的元素相链接， 这意味着可以双向</p>
+<p>遍历链表。list 和vector 之间关键的区别在千，list 在链表中任一位置进行插入和删除的时间都是固定的(vector 模板提供了除结尾处外的</p>
+<p>线性时间的插入和删除，在结尾处，它提供了固定时间的插入和删除）。因此， vector 强调的是通过随机访问进行快速访问， 而list 强</p>
+<p>调的是元素的快速插入和删除。与vector 相似，list 也是可反转容器。与vector 不同的是，list 不支持数组表示法和随机访问。与矢量迭</p>
+<p>代器不同，从容器中插入或删除元素之后，链表迭代器指向元素将不变。我们来解释一下这句话。例如，假设有一个指向vector 容器第5</p>
+<p>个元素的迭代器，并在容器的起始处插入一个元素。此时， 必须移动其他所有元素， 以便腾出位置， 因此插入后， 第5 个元素包含的值</p>
+<p>将是以前第4 个元素的值。因此，迭代器指向的位置不变， 但数据不同。然后， 在链表中插入新元素并不会移动已有的元素， 而只是修</p>
+<p>改链接信息。指向某个元素的迭代器仍然指向该元素， 但它链接的元素可能与以前不同。</p>
+<p><img src="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5C2020-09-10_212535.png" alt="2020-09-10_212535"></p>
+<h2 id="list工具箱"><a class="markdownIt-Anchor" href="#list工具箱"></a> list工具箱</h2>
+<p>list方法组成了一个方便的工具箱。例如， 假设有两个邮件列表要整理，则可以对每个列表进行排序，合并它们， 然后使用unique(）来</p>
+<p>删除重复的元素。sort( ）、merge( ）和unique( ） 方法还各自拥有接受另一个参数的版本， 该参数用千指定用来比较元素的函数。同</p>
+<p>样， remove(）方法也有一个接受另一个参数的版本， 该参数用于指定用来确定是否删除元素的函数。这些参数都是谓词函数，将稍后</p>
+<p>介绍。</p>
+<h2 id="forward_-list-c11"><a class="markdownIt-Anchor" href="#forward_-list-c11"></a> forward_ list (C++11)</h2>
+<p>C++ll新增了容器类forward_list,它实现了单链表。在这种链表中，每个节点都只链接到下一个节点，而没有链接到前一个节点。因此</p>
+<p>forward—list 只需要正向迭代器， 而不需要双向迭代器。因此，不同千vector和list, forward <em>list是不可反转的容器。相比千list, forward</em></p>
+<p>list 更简单、更紧凑， 但功能也更少。</p>
+<h2 id="queue"><a class="markdownIt-Anchor" href="#queue"></a> queue</h2>
+<p>queue模板类（在头文件queue（以前为queue.h) 中声明） 是一个适配器类。由前所述，ostream _iterator模板就是一个适配器，让输</p>
+<p>出流能够使用迭代器接口。同样， queue模板让底层类（默认为deque)展示典型的队列接口。queue 模板的限制比deque 更多。它不仅</p>
+<p>不允许随机访问队列元素， 甚至不允许遍历队列。它把使用限制在定义队列的基本操作上，可以将元素添加到队尾、从队首删除元素、</p>
+<p>查看队首和队尾的值、检查元素数目和测试队列是否为空。表16.10列出了这些操作。注意， pop( ）是一个删除数据的方法， 而不是检</p>
+<p>索数据的方法。如果要使用队列中的值， 应首先使用front(）来检索这个值， 然后使用pop(）将它从队列中删除。</p>
+<p><img src="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Cqueue%E6%93%8D%E4%BD%9C.png" alt="queue操作"></p>
+<h2 id="priority_-queue"><a class="markdownIt-Anchor" href="#priority_-queue"></a> priority_ queue</h2>
+<p>priority_ queue模板类（在queue 头文件中声明） 是另一个适配器类，它支持的操作与queue相同。两者之间的主要区别在于，在priority_queue中，最大的元素被移到队首（生活不总是公平的， 队列也一样）。内部区别在于，默认的底层类是vector。可以修改用于确定哪个元素放到队首的比较方式，方法是提供一个可选的构造函数参数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>&gt; pql; <span class="comment">// default version</span></span><br><span class="line"><span class="function">priority_queue&lt;<span class="type">int</span>&gt; <span class="title">pq2</span><span class="params">(greater&lt;<span class="type">int</span>&gt;&#125;; <span class="comment">// use greater&lt;in巨to order</span></span></span></span><br></pre></td></tr></table></figure>
+<p>greater&lt;＞(）函数是一个预定义的函数对象， 本章稍后将讨论它。</p>
+<h2 id="stack"><a class="markdownIt-Anchor" href="#stack"></a> stack</h2>
+<p>与queue相似， stack（在头文件stack 以前为stack.h——中声明）也是一个适配器类，它给底层类（默认情况下为vector)提供了典型的</p>
+<p>栈接口。stack 模板的限制比vector更多。它不仅不允许随机访问栈元素，甚至不允许遍历栈。它把使用限制在定义栈的基本操作上， 即</p>
+<p>可以将压入推到栈顶、从栈顶弹出元素、查看栈顶的值、检查元素数目和测试栈是否为空。表16.11列出了这些操作。</p>
+<p><img src="/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/E:%5Cmarkdown%5C%E5%9B%BE%E5%BA%8A%5Cstack%E7%9A%84%E6%93%8D%E4%BD%9C.png" alt="stack的操作"></p>
+<p>与queue相似， 如果要使用栈中的值， 必须首先使用top(）来检索这个值， 然后使用pop(）将它从栈中删除。</p>
+<h2 id="array"><a class="markdownIt-Anchor" href="#array"></a> array</h2>
+<p>第4章介绍过，模板类array是否头文件array中定义的，它并非STL容器， 因为其长度是固定的。因此，array没有定义调整容器大小的操</p>
+<p>作，如push_back(）和insert(），但定义了对它来说有意义的成员函数，如operator D(）和at(）。可将很多标准STL算法用千array对</p>
+<p>象， 如copy(）和for_each(）。</p>
+<h1 id="关联容器"><a class="markdownIt-Anchor" href="#关联容器"></a> 关联容器</h1>
+<p>关联容器是将值和键关联</p>
+<p><code>set  multiset  map multimap</code></p>
+<p>前两种在set头文件，后两种在map</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢你的阔乐</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat-pay.png" alt="02 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali-pay.png" alt="02 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://02xx.github.io/2023/04/04/%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B/" title="容器的类型">http://02xx.github.io/2023/04/04/容器的类型/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+        
+      </div>
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/04/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="prev" title="日志管理">
+      <i class="fa fa-chevron-left"></i> 日志管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/04/04/%E5%AE%9E%E5%8F%82%E6%98%AF%E6%95%B0%E7%BB%84%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" rel="next" title="实参是数组时的注意事项">
+      实参是数组时的注意事项 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text"> 容器的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E5%AE%B9%E5%99%A8%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-number">1.1.</span> <span class="nav-text"> 一般容器的特征</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%8F%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text"> 序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text"> 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector"><span class="nav-number">3.1.</span> <span class="nav-text"> vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque"><span class="nav-number">3.2.</span> <span class="nav-text"> deque</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list"><span class="nav-number">3.3.</span> <span class="nav-text"> list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="nav-number">3.4.</span> <span class="nav-text"> list工具箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forward_-list-c11"><span class="nav-number">3.5.</span> <span class="nav-text"> forward_ list (C++11)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue"><span class="nav-number">3.6.</span> <span class="nav-text"> queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority_-queue"><span class="nav-number">3.7.</span> <span class="nav-text"> priority_ queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack"><span class="nav-number">3.8.</span> <span class="nav-text"> stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array"><span class="nav-number">3.9.</span> <span class="nav-text"> array</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text"> 关联容器</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="02"
+      src="/images/02.jpg">
+  <p class="site-author-name" itemprop="name">02</p>
+  <div class="site-description" itemprop="description">记录一切</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/02XX" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;02XX" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1101533765@qq.com" title="E-Mail → mailto:1101533765@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://02xx.github.io/" title="首页 → https:&#x2F;&#x2F;02xx.github.io&#x2F;"><i class="fa fa-user fa-fw"></i>首页</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/32869824" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;32869824" rel="noopener" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021.5.11 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">02</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">244k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:42</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '7VQh5nB9f1Mj4WkUDz52bNqd-MdYXbMMI',
+      appKey     : '4KFubW0i5tnaz2YnBw642bG8',
+      placeholder: "啊ヾ(≧▽≦*)o快活呀！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

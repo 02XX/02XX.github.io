@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/02.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/02.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="DBU0v7-2Sg84ilgMInOJ3DBLAvVKz_CRT2TSCNoaxcA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"02xx.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="指针  指针的声明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针">
+<meta property="og:url" content="http://02xx.github.io/2023/04/04/%E6%8C%87%E9%92%88/index.html">
+<meta property="og:site_name" content="小马のblog">
+<meta property="og:description" content="指针  指针的声明">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-03T16:49:29.913Z">
+<meta property="article:modified_time" content="2024-04-19T17:01:43.027Z">
+<meta property="article:author" content="02">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://02xx.github.io/2023/04/04/%E6%8C%87%E9%92%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>指针 | 小马のblog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16ba83018302e73fb3820eacba1e8d72";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小马のblog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">小马的个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://02xx.github.io/2023/04/04/%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/02.jpg">
+      <meta itemprop="name" content="02">
+      <meta itemprop="description" content="记录一切">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小马のblog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          指针
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-04 00:49:29" itemprop="dateCreated datePublished" datetime="2023-04-04T00:49:29+08:00">2023-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-20 01:01:43" itemprop="dateModified" datetime="2024-04-20T01:01:43+08:00">2024-04-20</time>
+              </span>
+
+          
+            <span id="/2023/04/04/%E6%8C%87%E9%92%88/" class="post-meta-item leancloud_visitors" data-flag-title="指针" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/04/04/%E6%8C%87%E9%92%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/04/04/%E6%8C%87%E9%92%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="指针"><a class="markdownIt-Anchor" href="#指针"></a> 指针</h1>
+<h2 id="指针的声明"><a class="markdownIt-Anchor" href="#指针的声明"></a> 指针的声明</h2>
+<p><strong>格式：<code>typename * pointerName</code></strong></p>
+<p>指针可以理解为一个复合类型，<code>pointName</code>是一个指向<code>typeName</code>类型的指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* p;<span class="comment">//指向int类型的指针</span></span><br><span class="line"><span class="type">double</span>* p;<span class="comment">//指向double类型的指针</span></span><br><span class="line"><span class="type">char</span>* p[<span class="number">20</span>];<span class="comment">//指向char类型的指针数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="指针的用法"><a class="markdownIt-Anchor" href="#指针的用法"></a> 指针的用法</h3>
+<h4 id="1给指针赋值"><a class="markdownIt-Anchor" href="#1给指针赋值"></a> 1.给指针赋值</h4>
+<p>指针也是有值的，值是一个十六进制的内存地址。给指针赋值等号的右边必须也是一个返回地址的对象。</p>
+<h5 id="用取内存"><a class="markdownIt-Anchor" href="#用取内存"></a> 用&amp;取内存</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">int</span>* p;</span><br><span class="line">p = &amp;a;</span><br></pre></td></tr></table></figure>
+<h5 id="把指针赋给指针"><a class="markdownIt-Anchor" href="#把指针赋给指针"></a> 把指针赋给指针</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a;</span><br><span class="line"><span class="type">int</span>* p1;</span><br><span class="line"><span class="type">int</span>* p2;</span><br><span class="line">p1 = &amp;a;</span><br><span class="line">p2 = p1;</span><br></pre></td></tr></table></figure>
+<h5 id="把数组名字赋给指针"><a class="markdownIt-Anchor" href="#把数组名字赋给指针"></a> 把数组名字赋给指针</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">20</span>];</span><br><span class="line"><span class="type">int</span>* p</span><br><span class="line">p = a;<span class="comment">//seizeof)(*p) = 4（一个int的大小） sizeof(a) = 80(int的字节x20)。ps：不同位数的操作系统字节数不一样</span></span><br></pre></td></tr></table></figure>
+<p>其实数组名在做右值时是一个常量指针，它指向数组第一个元素。但它与普通指针有所不同，<strong>实际是</strong><code>int* const a;</code>因此，<strong>数组名在做左值时是不可以被修改的</strong>。还有一点特殊的是用<code>sizeof(a)</code>来判断长度时返回的不是第一个元素的字节数，而是<strong>整个</strong>数组的字节数，但是<code>sizeog(*p)</code>返回的却只是这个指针本身的大小 ，<code>sizeof(p)</code>是一个字节的大小(32位是4，64位是8）。</p>
+<p>    1. 以下是可行的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">20</span>] &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">a + <span class="number">1</span>;<span class="comment">//表达式，右值可以选择赋给一个变量例如：b = a + 1</span></span><br><span class="line"><span class="comment">//其中a + 1：数组名+1表示内存+4（一个int的长度），它指向数组的第二个元素，因此对它解引用(a+1)[0] = 2</span></span><br></pre></td></tr></table></figure>
+<p>    2. 以下是不可行的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a++;  </span><br><span class="line">a = a + <span class="number">3</span>;<span class="comment">//不可行，应为a是const不可被修改</span></span><br></pre></td></tr></table></figure>
+<h5 id="用new给指针分配地址n"><a class="markdownIt-Anchor" href="#用new给指针分配地址n"></a> 用new给指针分配地址N</h5>
+<p><strong>格式：<code>pointName = new typeName</code></strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* p = <span class="keyword">new</span> <span class="type">int</span>;<span class="comment">//给int类型对象分配内存并返回地址</span></span><br><span class="line"><span class="keyword">delete</span> p;</span><br><span class="line"><span class="type">int</span>* pa = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">20</span>];<span class="comment">//给int数组类型对象分配内存并返回地址</span></span><br><span class="line"><span class="keyword">delete</span> [] pa;</span><br></pre></td></tr></table></figure>
+<p>其中注意用完new创建的对象后，<strong>要用delete释放内存，其中数组加[]。</strong></p>
+<h4 id="2指针的解引用"><a class="markdownIt-Anchor" href="#2指针的解引用"></a> 2.指针的解引用</h4>
+<h5 id="用操作符"><a class="markdownIt-Anchor" href="#用操作符"></a> 用*操作符</h5>
+<p>解引用的指针是指针指向的值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span>* p = &amp;a;</span><br><span class="line"><span class="comment">//*p的值是5</span></span><br></pre></td></tr></table></figure>
+<h5 id="用数组表示法"><a class="markdownIt-Anchor" href="#用数组表示法"></a> 用数组表示法</h5>
+<p>*p等价于p[0]</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span>* p = &amp;a;</span><br><span class="line"><span class="comment">//p[0]的值是5</span></span><br></pre></td></tr></table></figure>
+<h4 id="3指针算术"><a class="markdownIt-Anchor" href="#3指针算术"></a> 3.指针算术</h4>
+<p>c++允许指针与整数相加减，指针的值加1表示地址值加上指针类型的字节数。也可以将两个指针相减得出两个元素的间隔。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> tacos[<span class="number">10</span>] &#123;<span class="number">5</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>&#125;;</span><br><span class="line"><span class="type">int</span>* p = tacos;</span><br><span class="line">p = p + <span class="number">1</span>;<span class="comment">//此时p指向的是2</span></span><br><span class="line"><span class="type">int</span>* pa = &amp;tacos[<span class="number">9</span>];</span><br><span class="line">pa - p;<span class="comment">//结果是8，tatcos[8] - tatcos[1]</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="指针-2"><a class="markdownIt-Anchor" href="#指针-2"></a> 指针++</h1>
+<h4 id="1数组表示法和指针表示法的关系"><a class="markdownIt-Anchor" href="#1数组表示法和指针表示法的关系"></a> 1.数组表示法和指针表示法的关系</h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>] &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;; </span><br><span class="line"><span class="type">int</span>* p = a;</span><br><span class="line">a[<span class="number">0</span>];<span class="comment">//值为1</span></span><br><span class="line">p[<span class="number">0</span>];<span class="comment">//值为1</span></span><br><span class="line">p[<span class="number">2</span>];<span class="comment">//值为3</span></span><br></pre></td></tr></table></figure>
+<p>指向数组的指针可以直接加方括号索引等效于数组名加索引，p[n]等效于*(a + n)。</p>
+<h4 id="2指针和字符串"><a class="markdownIt-Anchor" href="#2指针和字符串"></a> 2.指针和字符串</h4>
+<p>字符和字符串是两个不同的类型，字符是<code>char</code>类型，字符串是<code>const char*</code>类型，所以字符串要赋值的话要用<code>char*</code>类型或者<code>const char*</code>类型。(注意：<code>const char*</code>类型实际不可以直接赋值给<code>char*</code>，而字符串可以这样是为了兼容C)C++中建议尽量不要直接将字符串赋给<code>char*</code>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;apple&quot;</span><span class="comment">//这是一个字符串，字面值是apple而实际是一个const char*类型的指针。</span></span><br><span class="line"><span class="type">char</span>* p;</span><br><span class="line">p = <span class="string">&quot;apple&quot;</span>;<span class="comment">//可行，兼容C.但不建议</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* pa;</span><br><span class="line">pa = <span class="string">&quot;pandas&quot;</span>; <span class="comment">// *p: p</span></span><br><span class="line"><span class="comment">//p实际上是可以被修改</span></span><br><span class="line">*<span class="string">&quot;pandas&quot;</span> <span class="comment">// p C++将字符串解释为其第一个元素的地址</span></span><br></pre></td></tr></table></figure>
+<p>C++中字符串尽量用<code>string</code>类来表示。</p>
+<h4 id="3函数指针"><a class="markdownIt-Anchor" href="#3函数指针"></a> 3.函数指针</h4>
+<h5 id="格式"><a class="markdownIt-Anchor" href="#格式"></a> 格式</h5>
+<p><code>typeName (*pointName)(parameterType)</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">pam</span><span class="params">(<span class="type">int</span>)</span></span>; <span class="comment">//函数原型</span></span><br><span class="line"><span class="function"><span class="type">double</span> *<span class="title">pf</span><span class="params">(<span class="type">int</span>)</span> <span class="comment">//返回doule类型指针的函数</span></span></span><br><span class="line"><span class="function"><span class="title">double</span> <span class="params">(*pf)</span><span class="params">(<span class="type">int</span>)</span> <span class="comment">//指向函数的指针</span></span></span><br><span class="line"><span class="function">pf </span>= pam <span class="comment">//函数名是地址</span></span><br><span class="line"><span class="built_in">double</span> (*p[<span class="number">3</span>])(<span class="type">int</span>); <span class="comment">//声明一个指针数组，注意（）。括号的优先级比*高</span></span><br></pre></td></tr></table></figure>
+<h5 id="函数指针的调用"><a class="markdownIt-Anchor" href="#函数指针的调用"></a> 函数指针的调用</h5>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">pam</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">es</span><span class="params">(<span class="type">int</span>, <span class="type">double</span> (*p)(<span class="type">int</span>))</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">double</span> (*p)(<span class="type">int</span>);</span><br><span class="line">    <span class="built_in">es</span>(<span class="number">6</span>, pam);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">pam</span><span class="params">(<span class="type">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;num = &quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">es</span><span class="params">(<span class="type">int</span> b, <span class="type">double</span> (*p)(<span class="type">int</span>))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    (*p)(<span class="number">5</span>); <span class="comment">//这种调用方法很好理解</span></span><br><span class="line">    <span class="built_in">p</span>(<span class="number">5</span>); <span class="comment">//C++也允许直接用指针名字加（）调用函数，不同流派的矛盾而已</span></span><br><span class="line">    <span class="built_in">pam</span>(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="指针的其他注意事项"><a class="markdownIt-Anchor" href="#指针的其他注意事项"></a> 指针的其他注意事项</h1>
+<h2 id="指针与strcpy"><a class="markdownIt-Anchor" href="#指针与strcpy"></a> 指针与<code>strcpy()</code></h2>
+<p>错误代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> * p;</span><br><span class="line"><span class="built_in">strcpy</span>(p, <span class="string">&quot;hello&quot;</span>);<span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<p><code>strcpy()</code>使用的时候第一个参数的范围要大于第二个参数的范围，否则内存将会溢出。p只是一个指针它的长度仅仅是它自己的长度，而hello长度是6，所以编译器会报错。</p>
+<p>正确代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> p[<span class="number">50</span>];<span class="comment">//或者 char *p = new char[50];</span></span><br><span class="line"><span class="built_in">strcpy</span>(p, <span class="string">&quot;hello&quot;</span>);<span class="comment">//正确</span></span><br></pre></td></tr></table></figure>
+<p><strong>一定要注意第一个参数的范围要大于第二个参数的范围</strong></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢你的阔乐</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat-pay.png" alt="02 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/ali-pay.png" alt="02 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://02xx.github.io/2023/04/04/%E6%8C%87%E9%92%88/" title="指针">http://02xx.github.io/2023/04/04/指针/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+        
+      </div>
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="正则表达式">
+      <i class="fa fa-chevron-left"></i> 正则表达式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/04/04/%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E6%97%B6%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98(%E5%8A%A0const)/" rel="next" title="重载运算符时第二个参数问题(加const)">
+      重载运算符时第二个参数问题(加const) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">1.</span> <span class="nav-text"> 指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text"> 指针的声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 指针的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E7%BB%99%E6%8C%87%E9%92%88%E8%B5%8B%E5%80%BC"><span class="nav-number">1.1.1.1.</span> <span class="nav-text"> 1.给指针赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E5%8F%96%E5%86%85%E5%AD%98"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text"> 用&amp;取内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%8A%E6%8C%87%E9%92%88%E8%B5%8B%E7%BB%99%E6%8C%87%E9%92%88"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text"> 把指针赋给指针</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%8A%E6%95%B0%E7%BB%84%E5%90%8D%E5%AD%97%E8%B5%8B%E7%BB%99%E6%8C%87%E9%92%88"><span class="nav-number">1.1.1.1.3.</span> <span class="nav-text"> 把数组名字赋给指针</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8new%E7%BB%99%E6%8C%87%E9%92%88%E5%88%86%E9%85%8D%E5%9C%B0%E5%9D%80n"><span class="nav-number">1.1.1.1.4.</span> <span class="nav-text"> 用new给指针分配地址N</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E6%8C%87%E9%92%88%E7%9A%84%E8%A7%A3%E5%BC%95%E7%94%A8"><span class="nav-number">1.1.1.2.</span> <span class="nav-text"> 2.指针的解引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text"> 用*操作符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%95%B0%E7%BB%84%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">1.1.1.2.2.</span> <span class="nav-text"> 用数组表示法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E6%8C%87%E9%92%88%E7%AE%97%E6%9C%AF"><span class="nav-number">1.1.1.3.</span> <span class="nav-text"> 3.指针算术</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88-2"><span class="nav-number">2.</span> <span class="nav-text"> 指针++</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E6%95%B0%E7%BB%84%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%92%8C%E6%8C%87%E9%92%88%E8%A1%A8%E7%A4%BA%E6%B3%95%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.0.0.1.</span> <span class="nav-text"> 1.数组表示法和指针表示法的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.0.0.2.</span> <span class="nav-text"> 2.指针和字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">2.0.0.3.</span> <span class="nav-text"> 3.函数指针</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.0.0.3.1.</span> <span class="nav-text"> 格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">2.0.0.3.2.</span> <span class="nav-text"> 函数指针的调用</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text"> 指针的其他注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E4%B8%8Estrcpy"><span class="nav-number">3.1.</span> <span class="nav-text"> 指针与strcpy()</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="02"
+      src="/images/02.jpg">
+  <p class="site-author-name" itemprop="name">02</p>
+  <div class="site-description" itemprop="description">记录一切</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/02XX" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;02XX" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1101533765@qq.com" title="E-Mail → mailto:1101533765@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://02xx.github.io/" title="首页 → https:&#x2F;&#x2F;02xx.github.io&#x2F;"><i class="fa fa-user fa-fw"></i>首页</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/32869824" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;32869824" rel="noopener" target="_blank"><i class="fa fa-tv fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021.5.11 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">02</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">244k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:42</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='34,34,34' opacity='0.5' zIndex='-1' count='200' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '7VQh5nB9f1Mj4WkUDz52bNqd-MdYXbMMI',
+      appKey     : '4KFubW0i5tnaz2YnBw642bG8',
+      placeholder: "啊ヾ(≧▽≦*)o快活呀！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
