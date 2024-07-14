@@ -338,7 +338,7 @@
 <p>此处J相当于仿射变换的旋转缩放矩阵因此和W一样左右乘，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">M</mi><mrow><mn>4</mn><mo>×</mo><mn>4</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\mathbf{M}_{4\times4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.894441em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">M</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mbin mtight">×</span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>不是仿射变换不能拆成AX+b</p>
 </blockquote>
 <h3 id="仿射变换和雅可比矩阵"><a class="markdownIt-Anchor" href="#仿射变换和雅可比矩阵"></a> 仿射变换和雅可比矩阵</h3>
-<p>坐标系的转换是靠雅可比矩阵变换的。</p>
+<p>坐标系的转换是靠雅可比矩阵变换 + 平移变换的（也可以写成齐次坐标形式）。</p>
 <p>如果坐标系之间只有旋转缩放平移翻转这些<strong>仿射变换的关系</strong>，那么<strong>雅可比矩阵就是仿射变换的旋转缩放矩阵</strong>。换句话说这些情况（一般坐标系变换也就这些操作）坐标系变化可以用仿射变换转换。</p>
 <blockquote>
 <p>雅可比矩阵的含义：对非线性变换的局部线性近似（仿射变换就不是近似了，它就是仿射变换的旋转缩放矩阵）</p>
