@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://02xx.github.io/2024/08/13/LINQ/</loc>
-    <lastmod>2024-08-13</lastmod>
-  </url>
-  <url>
-    <loc>http://02xx.github.io/2024/08/13/DDD/</loc>
-    <lastmod>2024-08-13</lastmod>
-  </url>
-  <url>
     <loc>http://02xx.github.io/2024/07/14/3DGS-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1%E5%8F%98%E6%8D%A2/</loc>
+    <lastmod>2024-09-06</lastmod>
+  </url>
+  <url>
+    <loc>http://02xx.github.io/2024/07/14/DDD/</loc>
+    <lastmod>2024-07-14</lastmod>
+  </url>
+  <url>
+    <loc>http://02xx.github.io/2024/07/14/LINQ/</loc>
     <lastmod>2024-07-14</lastmod>
   </url>
   <url>
@@ -337,6 +337,10 @@
     <lastmod>2023-04-14</lastmod>
   </url>
   <url>
+    <loc>http://02xx.github.io/2023/04/02/Shell/</loc>
+    <lastmod>2023-04-02</lastmod>
+  </url>
+  <url>
     <loc>http://02xx.github.io/2023/04/04/Bash%E5%8F%98%E9%87%8F/</loc>
     <lastmod>2021-06-15</lastmod>
   </url>
@@ -366,10 +370,6 @@
   </url>
   <url>
     <loc>http://02xx.github.io/2023/04/04/RTTI/</loc>
-    <lastmod>2021-06-15</lastmod>
-  </url>
-  <url>
-    <loc>http://02xx.github.io/2023/04/04/Shell/</loc>
     <lastmod>2021-06-15</lastmod>
   </url>
   <url>
